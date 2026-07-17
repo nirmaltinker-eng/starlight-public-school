@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-root="" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,12 +23,12 @@
         .footer p { margin: 0; font-size: 1rem; }
         @media (max-width: 800px) { .header h1 { font-size: 2.2rem; } .nav a { display: inline-block; margin: .4rem .8rem; font-size: 1.05rem; } .notes-section { padding: 2rem 1rem; } }
     </style>
-</head>
+<link rel="stylesheet" href="assets/site-fixes.css"><link rel="stylesheet" href="assets/theme.css"></head>
 <body>
     <header class="header"><h1>Starlight Public School</h1></header>
     <nav class="nav">
-        <a href="index.html">Home</a><a href="notes.html">Notes</a><a href="gallery.html">Gallery</a><a href="staff.html">Staff</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a>
-    </nav>
+        <a href="index.html">Home</a><a href="notes.html">Notes</a><a class="test-nav" href="tests.html">Test</a><a href="gallery.html">Gallery</a><a href="staff.html">Staff</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a>
+    <a class="login-nav" href="login.html">Login</a><button class="theme-toggle" type="button">☀ Light</button></nav>
     <div class="container">
         <div class="notes-section">
             <h2>Notes by Class</h2>
@@ -43,5 +43,5 @@
         </div>
     </div>
     <footer class="footer"><p>&copy; 2026 Starlight Public School. Website by Nirmal Tinker.</p></footer>
-</body>
+<script src="assets/auth.js"></script><script src="assets/theme.js"></script></body>
 </html>

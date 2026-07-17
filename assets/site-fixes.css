@@ -1,0 +1,30 @@
+/* Small global fixes that preserve the school's original black-and-gold theme. */
+.logo-container {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo,
+.logo-container .logo {
+  width: clamp(82px, 10vw, 126px) !important;
+  height: auto !important;
+  max-height: 126px !important;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .35));
+}
+.header { min-height: 132px; }
+.nav .test-nav::after { content: " 🔒"; font-size: .8em; }
+.nav .test-nav.unlocked::after { content: " ✓"; color: #7CFC90; }
+.nav .login-nav { color: #FFD700; }
+@media (max-width: 800px) {
+  .header { min-height: auto; padding-top: 1.25rem !important; }
+  .logo-container {
+    position: static !important;
+    transform: none !important;
+    margin: 0 auto .75rem;
+  }
+  .logo,
+  .logo-container .logo { width: 88px !important; max-height: 88px !important; }
+}
+
