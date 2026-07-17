@@ -6,17 +6,26 @@
   justify-content: center;
 }
 .logo,
-.logo-container .logo {
+.logo-container .logo,
+.brand img,
+.site-school-logo {
   width: clamp(82px, 10vw, 126px) !important;
-  height: auto !important;
+  height: clamp(82px, 10vw, 126px) !important;
   max-height: 126px !important;
   object-fit: contain;
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .35));
   background: #fff;
   border-radius: 50%;
   padding: 3px;
+  border: 2px solid #d9a900;
 }
-.brand img { background: #fff; border-radius: 50%; padding: 3px; }
+.global-page-logo {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto .8rem;
+  text-decoration: none;
+}
+.global-page-logo img { display: block; }
 .staff-image-container img { object-fit: cover !important; object-position: center 32%; }
 .header { min-height: 132px; }
 .nav .test-nav::after { content: " 🔒"; font-size: .8em; }
@@ -30,5 +39,7 @@
     margin: 0 auto .75rem;
   }
   .logo,
-  .logo-container .logo { width: 88px !important; max-height: 88px !important; }
+  .logo-container .logo,
+  .brand img,
+  .site-school-logo { width: 82px !important; height: 82px !important; max-height: 82px !important; }
 }
