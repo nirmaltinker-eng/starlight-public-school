@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="hi" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Star Light Public School student account administration">
+  <title>Student Admin - Star Light Public School</title>
+  <link rel="stylesheet" href="assets/lesson-pages.css">
+  <link rel="stylesheet" href="assets/test-pages.css">
+  <link rel="stylesheet" href="assets/site-fixes.css">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/admin.css">
+</head>
+<body data-requires-admin="true">
+  <header class="lesson-header"><a class="brand" href="index.html"><img src="school-logo.png" alt="Star Light Public School logo"><span><strong>Student Admin</strong><small>Firebase account management</small></span></a></header>
+  <nav class="lesson-nav"><a href="index.html">Home</a><a href="notes.html">Notes</a><a href="tests.html">Tests</a><a class="admin-nav" href="admin.html" aria-current="page">Admin</a><a class="login-nav" href="login.html">Logout</a><button class="theme-toggle" type="button">Light theme</button></nav>
+  <main class="admin-shell">
+    <section class="admin-card">
+      <div class="admin-heading"><div><p class="eyebrow">Secure Firebase Admin</p><h1 id="form-title">Add Student</h1></div><button id="refresh-users" type="button">Refresh List</button></div>
+      <p id="admin-message" class="admin-message" aria-live="polite"></p>
+      <form id="student-form" class="student-form">
+        <input id="edit-uid" type="hidden">
+        <label>Student Name<input id="account-name" required autocomplete="name"></label>
+        <label>Email<input id="account-email" required type="email" autocomplete="off"></label>
+        <label>Class<select id="account-class"><option value="">Select class</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option value="Staff">Staff</option></select></label>
+        <label>Roll Number<input id="account-roll" inputmode="numeric"></label>
+        <label>Role<select id="account-role"><option value="student">Student</option><option value="admin">Admin</option></select></label>
+        <label>Password <small id="password-help">Minimum 6 characters</small><input id="account-password" type="password" minlength="6" autocomplete="new-password"></label>
+        <label class="check-label"><input id="account-active" type="checkbox" checked> Account active</label>
+        <div class="form-actions"><button type="submit" id="save-account">Add Account</button><button type="button" id="cancel-edit" class="secondary-button" hidden>Cancel Edit</button></div>
+      </form>
+    </section>
+    <section class="admin-card">
+      <div class="admin-heading"><div><p class="eyebrow">Students &amp; Admins</p><h2>Account List</h2></div><label>Search<input id="user-search" type="search" placeholder="Name, email, roll"></label></div>
+      <div class="table-wrap"><table class="admin-table"><thead><tr><th>Name</th><th>Email</th><th>Class / Roll</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead><tbody id="user-list"><tr><td colspan="6">Loading accounts…</td></tr></tbody></table></div>
+    </section>
+  </main>
+  <footer class="site-footer"><p>&copy; 2026 Star Light Public School · Secure Admin Panel</p></footer>
+  <script src="assets/auth.js"></script>
+  <script src="assets/admin.js"></script>
+  <script src="assets/theme.js"></script>
+</body>
+</html>

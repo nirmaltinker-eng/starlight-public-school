@@ -93,6 +93,12 @@
   apply(saved || preferred);
   ensureLogo();
   ensurePageControls();
+  if (!document.querySelector('script[data-slps-translation]')) {
+    const translationScript = document.createElement('script');
+    translationScript.src = new URL('assets/translation.js', siteRoot).href;
+    translationScript.dataset.slpsTranslation = 'true';
+    document.body.appendChild(translationScript);
+  }
   document.addEventListener('click', (event) => {
     const button = event.target.closest('.theme-toggle');
     if (!button) return;
