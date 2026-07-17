@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RBSE कक्षा 7 | कंप्यूटर अध्याय 4: बेसिक प्रोग्रामिंग</title>
+    <!-- Custom CSS based on 'Starlight Public School' theme -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f7e9; /* Soft, light green background */
+            color: #4b3e2a; /* Dark brown text for an earthy feel */
+        }
+        .header {
+            background-color: #ffffff;
+            color: #547748; /* Natural green accent color */
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem; /* Reduced size for better fit */
+            letter-spacing: 1px;
+        }
+        .header h2 {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem; /* Reduced size */
+            width: 100%;
+            color: #6a5a4b;
+        }
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 100px; /* Adjusted size for better fit with the header */
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Back Button Styling */
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #547748; 
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #e6eeda; 
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: #547748;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 20px;
+        }
+        .content-section {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .content-section h3 {
+            font-size: 1.75rem;
+            color: #3b573a; /* Darker green for headings */
+            border-bottom: 2px solid #547748;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* --- Q&A Block Styling --- */
+        .qa-container {
+            margin-top: 1.5rem;
+        }
+        .qa-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background-color: #f9fdf5; /* Light background for the block */
+            border: 1px solid #d4e0b8; /* Light green border */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .question-header {
+            font-size: 1.15rem;
+            color: #547748; /* Accent green for the question */
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px dashed #d4e0b8;
+            padding-bottom: 0.5rem;
+        }
+        .answer-body {
+            font-size: 1.05rem;
+            color: #4b3e2a; 
+            line-height: 1.6;
+            padding-top: 0.5rem;
+        }
+        .qa-item:nth-child(even) {
+            background-color: #ffffff; /* Alternate background for better visual separation */
+        }
+        .code-block {
+            background-color: #4b3e2a;
+            color: #e6eeda;
+            padding: 10px 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+        .table-responsive {
+            margin-top: 15px;
+            overflow-x: auto;
+        }
+        .operator-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+            text-align: left;
+        }
+        .operator-table th, .operator-table td {
+            padding: 12px 15px;
+            border: 1px solid #d4e0b8;
+        }
+        .operator-table th {
+            background-color: #547748;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .operator-table tr:nth-child(even) {
+            background-color: #f0f5e8;
+        }
+        /* --- End Q&A Block Styling --- */
+        
+        /* Fill in the Blanks List Styling */
+        ol {
+            list-style-type: decimal;
+            padding-left: 20px;
+            margin-top: 1rem;
+        }
+        ol li {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .footer {
+            background-color: #ffffff;
+            color: #6a5a4b;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Back Button HTML from the Starlight Theme -->
+<div class="back-button-container">
+    <a class="back-button" href="#">
+        <span>&lt;</span> Back
+    </a>
+</div>
+
+<header class="header">
+    <!-- Logo Container added here -->
+    <div class="logo-container">
+        <img src="https://placehold.co/100x100/547748/ffffff?text=SPS+Logo" alt="School Logo" class="logo" onerror="this.onerror=null;this.src='https://placehold.co/100x100/547748/ffffff?text=SPS+Logo';">
+    </div>
+    <h1>💻 कंप्यूटर</h1>
+    <h2>अध्याय 4: बेसिक प्रोग्रामिंग (RBSE कक्षा 7)</h2>
+</header>
+
+<div class="container">
+
+    <!-- Section 1: Question-Answer (Chapter 4 Content) -->
+    <div class="content-section">
+        <h3>1. प्रश्नोत्तर (Question-Answer) - बेसिक प्रोग्रामिंग</h3>
+        
+        <div class="qa-container">
+            <!-- Q1: ब्रांचिंग किसे कहते हैं? -->
+            <div class="qa-item">
+                <p class="question-header">1. प्रश्न: ब्रांचिंग किसे कहते हैं?</p>
+                <p class="answer-body">उत्तर: प्रोग्राम के कथनों का पालन करने की दिशा को **कंट्रोल का प्रवाह (Flow of Control)** कहा जाता है। जब हमें कंट्रोल की इस दिशा को अगले कथन के बजाय किसी अन्य कथन पर बदलना पड़ता है, तो कंट्रोल की दिशा बदलने की इस क्रिया को **कंट्रोल का स्थानांतरण या ब्रांचिंग (Branching)** कहा जाता है।
+                <br>ब्रांचिंग दो प्रकार की होती है:
+                <br>• &nbsp; (i) बिना शर्त ब्रांचिंग (Unconditional Branching)
+                <br>• &nbsp; (ii) सशर्त ब्रांचिंग (Conditional Branching)
+                </p>
+            </div>
+            
+            <!-- Q2: बिना शर्त ब्रांचिंग को उदाहरण सहित समझाइए। -->
+            <div class="qa-item">
+                <p class="question-header">2. प्रश्न: बिना शर्त ब्रांचिंग को उदाहरण सहित समझाइए।</p>
+                <p class="answer-body">उत्तर: इस प्रकार की ब्रांचिंग में कंट्रोल को **बिना किसी शर्त** के अगले कथन के बजाय किसी अन्य कथन पर भेज दिया जाता है। इसके लिए BASIC में **GOTO** कथन का प्रयोग किया जाता है।
+                <br>उदाहरण के लिए, यदि हमें किसी कथन से कंट्रोल को लाइन संख्या 150 वाले कथन पर भेजना है, तो उससे अगला कथन हम निम्न प्रकार लिखेंगे:
+                <div class="code-block">60 GOTO 150</div>
+                इस कथन के पालन के समय कंट्रोल को सीधे लाइन संख्या 150 वाले कथन पर भेज दिया जाएगा।
+                </p>
+            </div>
+            
+            <!-- Q3: सशर्त ब्रांचिंग को उदाहरण सहित समझाइए। -->
+            <div class="qa-item">
+                <p class="question-header">3. प्रश्न: सशर्त ब्रांचिंग को उदाहरण सहित समझाइए।</p>
+                <p class="answer-body">उत्तर: इस प्रकार की ब्रांचिंग में कंट्रोल को किसी अन्य कथन पर तभी स्थानान्तरित किया जाता है जब कोई **शर्त (Condition)** पूरी होती है। इस तरह की ब्रांचिंग के लिए प्रायः **IF - THEN** कथन का प्रयोग किया जाता है।
+                <br>उदाहरण के लिए, यदि आप चाहते हैं कि यदि N का मान 5 हो, तभी लाइन संख्या 120 पर जाओ, तो इसका कथन निम्न प्रकार लिखा जाएगा:
+                <div class="code-block">40 IF N = 5 THEN GOTO 120</div>
+                यहाँ पर <code>N = 5</code> एक शर्त है, और यदि यह शर्त सत्य होगी, तभी प्रोग्राम का कंट्रोल लाइन 120 पर जाएगा।
+                </p>
+            </div>
+            
+            <!-- Q4: साधारण लूप बनाने के लिए किस कथन का उपयोग किया जाता है? उदाहरण भी दीजिए। -->
+            <div class="qa-item">
+                <p class="question-header">4. प्रश्न: साधारण लूप बनाने के लिए किस कथन का उपयोग किया जाता है? उदाहरण भी दीजिए।</p>
+                <p class="answer-body">उत्तर: बेसिक में किसी कथन या कथनों के समूह को बार-बार दोहराने के लिए साधारण लूप बनाने हेतु प्रायः **FOR-NEXT** कथनों का प्रयोग किया जाता है।
+                <br>उदाहरण: यह प्रोग्राम 16 के पहले 8 गुणज (multiples) प्रिंट करता है।
+                <div class="code-block">
+                    10 REM THIS PRINTS FIRST 8 MULTIPLES OF 16<br>
+                    20 FOR X = 1 TO 8<br>
+                    30 PRINT 16 * X<br>
+                    40 NEXT X<br>
+                    50 END
+                </div>
+                </p>
+            </div>
+            
+            <!-- Q5: सम्बन्धवाचक ऑपरेटर क्या होते हैं? -->
+            <div class="qa-item">
+                <p class="question-header">5. प्रश्न: सम्बन्धवाचक ऑपरेटर क्या होते हैं?</p>
+                <p class="answer-body">उत्तर: सम्बन्धवाचक ऑपरेटरों (Relational Operators) का प्रयोग प्रोग्रामों में दो चरों (Variables) या अचरों (Constants) की **तुलना** करने के लिए किया जाता है। तुलना का परिणाम सत्य या असत्य होता है, जिसके आधार पर आगे के कार्य किए जाते हैं।
+                <div class="table-responsive">
+                    <table class="operator-table">
+                        <thead>
+                            <tr>
+                                <th>ऑपरेटर (Operator)</th>
+                                <th>अर्थ (Meaning)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>=</code></td>
+                                <td>बराबर (Equal to)</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;</code></td>
+                                <td>छोटा (Less than)</td>
+                            </tr>
+                            <tr>
+                                <td><code>&gt;</code></td>
+                                <td>बड़ा (Greater than)</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;=</code></td>
+                                <td>छोटा या समान (Less than or equal to)</td>
+                            </tr>
+                            <tr>
+                                <td><code>&gt;=</code></td>
+                                <td>बड़ा या समान (Greater than or equal to)</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;&gt;</code></td>
+                                <td>बराबर नहीं (Not equal to)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </p>
+            </div>
+            
+            <!-- Q6: शर्त किसे कहते हैं? उदाहरण दीजिए। -->
+            <div class="qa-item">
+                <p class="question-header">6. प्रश्न: शर्त किसे कहते हैं? उदाहरण दीजिए।</p>
+                <p class="answer-body">उत्तर: शर्त (Condition) एक तार्किक अभिव्यक्ति होती है जो सही या गलत (True or False) हो सकती है। इसका उपयोग प्रोग्राम के फ्लो को नियंत्रित करने के लिए किया जाता है, ताकि प्रोग्राम तर्क के आधार पर अलग-अलग क्रियाएं कर सके।
+                <br>उदाहरण: <code>IF A > B THEN PRINT "A is greater"</code> में, <code>A > B</code> एक शर्त है जो जाँच करती है कि क्या A का मान B के मान से बड़ा है।
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Section 2: Multiple Choice Questions (New Content) -->
+    <div class="content-section">
+        <h3>2. सही विकल्प चुनिए (Multiple Choice Questions)</h3>
+        
+        <div class="qa-container">
+            <!-- MCQ 1 -->
+            <div class="qa-item">
+                <p class="question-header">1. निम्नलिखित में से किस कथन का उपयोग बिना शर्त ब्रांचिंग के लिए किया जाता है?</p>
+                <p class="answer-body">
+                    (i) <span class="font-bold">GOTO</span> &nbsp; &nbsp; (ii) IF-THEN &nbsp; &nbsp; (iii) IF-THEN-ELSE &nbsp; &nbsp; (iv) FOR-NEXT
+                    <br><br>
+                    <span class="font-bold" style="color:#547748;">उत्तर: (i) GOTO</span>
+                </p>
+            </div>
+            
+            <!-- MCQ 2 -->
+            <div class="qa-item">
+                <p class="question-header">2. निम्नलिखित में से किस कथन का उपयोग सशर्त ब्रांचिंग के लिए <span class="font-bold">नहीं</span> किया जाता है?</p>
+                <p class="answer-body">
+                    (i) <span class="font-bold">FOR-NEXT</span> &nbsp; &nbsp; (ii) IF-THEN &nbsp; &nbsp; (iii) IF-THEN-ELSE &nbsp; &nbsp; (iv) इनमें से कोई नहीं
+                    <br><br>
+                    <span class="font-bold" style="color:#547748;">उत्तर: (i) FOR-NEXT</span>
+                </p>
+            </div>
+
+            <!-- MCQ 3 -->
+            <div class="qa-item">
+                <p class="question-header">3. निम्नलिखित में से किस कथन का उपयोग लूपिंग/दोहराव के लिए किया जाता है?</p>
+                <p class="answer-body">
+                    (i) <span class="font-bold">FOR-NEXT</span> &nbsp; &nbsp; (ii) IF-THEN &nbsp; &nbsp; (iii) IF-THEN-ELSE &nbsp; &nbsp; (iv) इनमें से कोई नहीं
+                    <br><br>
+                    <span class="font-bold" style="color:#547748;">उत्तर: (i) FOR-NEXT</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Fill in the Blanks (New Content) -->
+    <div class="content-section">
+        <h3>3. रिक्त स्थानों की पूर्ति कीजिए (Fill in the Blanks)</h3>
+        <div class="qa-container">
+            <ol>
+                <li>प्रोग्राम के कथनों का पालन करने की दिशा को <span class="font-bold" style="color:#547748;">कंट्रोल का प्रवाह</span> कहा जाता है।</li>
+                <li>कंट्रोल की दिशा बदलने की क्रिया को कंट्रोल का <span class="font-bold" style="color:#547748;">स्थानांतरण</span> या <span class="font-bold" style="color:#547748;">ब्रांचिंग</span> कहा जाता है।</li>
+                <li>बिना शर्त ब्रांचिंग के लिए <span class="font-bold" style="color:#547748;">GOTO</span> कथन का प्रयोग किया जाता है।</li>
+                <li>सशर्त ब्रांचिंग में कंट्रोल को कोई शर्त पूरा होने पर ही किसी अन्य कथन को <span class="font-bold" style="color:#547748;">स्थानान्तरित</span> किया जाता है।</li>
+                <li>जब किसी प्रोग्राम में कथनों के समूह का पालन कई बार किया जाता है, तो उसे <span class="font-bold" style="color:#547748;">लूपिंग</span> कहा जाता है।</li>
+            </ol>
+        </div>
+    </div>
+    
+</div>
+
+<footer class="footer">
+    <!-- Footer structure from the Starlight Theme -->
+    <p>© 2025 Computer Notes | Inspired by Starlight Theme.</p>
+</footer>
+
+</body>
+</html>

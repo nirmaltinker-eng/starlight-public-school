@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>किशोरावस्था की ओर - कक्षा 8 RBSE विज्ञान नोट्स</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes headerAnimation {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
+        /* Color Palette and Variables */
+        :root {
+            --primary-color: #8A2BE2; /* Amethyst */
+            --secondary-color: #A65EEA; /* Lighter Amethyst */
+            --accent-color: #FFC0CB; /* Pink */
+            --text-color: #333;
+            --bg-color: #F0E9FF; /* Light Lavender */
+            --card-bg: #fff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Back Button Styling */
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: var(--bg-color);
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+
+        /* Header Section */
+        .header {
+            background-image: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px 25px 0 0;
+        }
+        .header h1 {
+            font-size: clamp(2.5em, 5vw, 3.5em);
+            margin: 0;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: clamp(1em, 2vw, 1.5rem);
+            width: 100%;
+            color: white;
+            opacity: 0.9;
+        }
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 200px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: var(--card-bg);
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        /* Section Styling */
+        main {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            background-color: var(--bg-color);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        
+        .section:nth-child(even) { animation-delay: 0.2s; }
+        .section:nth-child(odd) { animation-delay: 0.4s; }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.5em, 4vw, 1.8em);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .section-header .icon {
+            font-size: 2em;
+            color: var(--accent-color);
+            animation: pulse 2s infinite;
+        }
+
+        .content {
+            padding-left: 20px;
+        }
+
+        /* List and Text Formatting */
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            animation: slideInLeft 0.5s ease-out forwards;
+        }
+
+        .key-point {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .example {
+            background-color: #f8f0ff;
+            border-left: 4px solid var(--accent-color);
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-style: italic;
+            animation: slideInRight 0.5s ease-out forwards;
+        }
+        
+        /* Image Section */
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            border: 5px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Flowchart Styling */
+        .flowchart {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .flowchart-box {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            font-weight: 600;
+            min-width: 150px;
+            transition: transform 0.3s ease;
+            animation: slideInLeft 0.5s ease-out forwards;
+        }
+
+        .flowchart-box:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .arrow {
+            color: var(--primary-color);
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        /* Footer Styling */
+    .footer {
+            background-color: #ffffff;
+            color: #6a5a4b;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            main { padding: 15px; }
+            .container { border-radius: 15px; }
+            header { border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
+            .section { padding: 15px; }
+            .flowchart {
+                flex-direction: column;
+                align-items: center;
+            }
+            .arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="back-button-container">
+        <a class="back-button" href="8science-notes.htm">
+            <span>&lt;</span> Back
+        </a>
+    </div>
+
+    <header class="header">
+        <h1>किशोरावस्था की ओर</h1>
+        <p>कक्षा 8 RBSE - विज्ञान | पाठ 7</p>
+    </header>
+
+    <div class="container">
+        <main>
+            <!-- Section 1: Adolescence and Puberty -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="icon">✨</span>
+                    <h2>किशोरावस्था और यौवनारंभ</h2>
+                </div>
+                <div class="content">
+                    <p>किशोरावस्था मानव जीवन की वह अवधि है जब शरीर में ऐसे बदलाव आते हैं जिनके कारण प्रजनन परिपक्वता (reproductive maturity) आती है।</p>
+                    <ul>
+                        <li><span class="key-point">किशोरावस्था:</span> यह लगभग <span class="key-point">11 वर्ष की आयु से शुरू होकर 18 या 19 वर्ष की आयु तक</span> चलती है। इस अवधि को 'टीनेज' (Teenage) भी कहा जाता है।</li>
+                        <li><span class="key-point">यौवनारंभ (Puberty):</span> किशोरावस्था के दौरान होने वाले शारीरिक परिवर्तनों की शुरुआत को यौवनारंभ कहते हैं।</li>
+                    </ul>
+                    <div class="example">
+                        <strong>उदाहरण:</strong> जब एक बच्चे की आवाज में परिवर्तन, दाढ़ी-मूंछ का आना, या शरीर के कुछ हिस्सों में बाल उगना शुरू हो जाते हैं, तो यह यौवनारंभ की शुरुआत है।
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Changes during Puberty -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="icon">📈</span>
+                    <h2>यौवनारंभ के दौरान होने वाले प्रमुख परिवर्तन</h2>
+                </div>
+                <div class="content">
+                    <ol>
+                        <li><span class="key-point">लंबाई में वृद्धि:</span> यह यौवनारंभ का सबसे महत्वपूर्ण लक्षण है। हड्डियाँ तेजी से बढ़ती हैं, जिससे लंबाई बढ़ती है।
+                            <ul>
+                                <li>लड़कियों में यह वृद्धि लड़कों की तुलना में तेजी से होती है, लेकिन 18 वर्ष तक दोनों अपनी अधिकतम लंबाई तक पहुंच जाते हैं।</li>
+                            </ul>
+                        </li>
+                        <li><span class="key-point">शारीरिक आकृति में परिवर्तन:</span>
+                            <ul>
+                                <li><strong>लड़कों में:</strong> कंधे चौड़े हो जाते हैं और सीना बाहर की ओर निकल आता है।</li>
+                                <li><strong>लड़कियों में:</strong> कमर के नीचे का हिस्सा चौड़ा हो जाता है और स्तन विकसित होते हैं।</li>
+                            </ul>
+                        </li>
+                        <li><span class="key-point">स्वर में परिवर्तन:</span>
+                            <ul>
+                                <li><strong>लड़कों में:</strong> स्वर यंत्र (Larynx) या 'एडम's एप्पल' बढ़ जाता है, जिससे आवाज भारी और गहरी हो जाती है।</li>
+                                <li><strong>लड़कियों में:</strong> स्वर यंत्र छोटा होने के कारण आवाज पतली (उच्च तारत्व) रहती है।</li>
+                            </ul>
+                        </li>
+                        <li><span class="key-point">पसीना और तेल ग्रंथियों की सक्रियता में वृद्धि:</span> इस दौरान त्वचा तैलीय हो जाती है, जिससे चेहरे पर मुहांसे और फुंसियाँ निकल सकती हैं।</li>
+                        <li><span class="key-point">यौन अंगों का विकास:</span>
+                            <ul>
+                                <li><strong>लड़कों में:</strong> वृषण और शिश्न पूरी तरह से विकसित हो जाते हैं और शुक्राणु का उत्पादन शुरू हो जाता है।</li>
+                                <li><strong>लड़कियों में:</strong> अंडाशय विकसित हो जाते हैं और अंडे (डिंब) परिपक्व होने लगते हैं।</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Section 3: Role of Hormones -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="icon">🧬</span>
+                    <h2>हार्मोन की भूमिका</h2>
+                </div>
+                <div class="content">
+                    <p>हार्मोन रासायनिक पदार्थ होते हैं जो अंतःस्रावी ग्रंथियों (Endocrine Glands) द्वारा स्रावित होते हैं और शरीर में होने वाले परिवर्तनों को नियंत्रित करते हैं।</p>
+                    <ul>
+                        <li><span class="key-point">पुरुष हार्मोन (टेस्टोस्टेरोन):</span> यह वृषण द्वारा स्रावित होता है और लड़कों में दाढ़ी-मूंछ का आना, आवाज का भारी होना, आदि यौन लक्षणों के लिए जिम्मेदार होता है।</li>
+                        <li><span class="key-point">स्त्री हार्मोन (एस्ट्रोजन):</span> यह अंडाशय द्वारा स्रावित होता है और लड़कियों में स्तन विकास, जननांगों का विकास, आदि के लिए जिम्मेदार होता है।</li>
+                    </ul>
+                    <div class="image-container">
+                        
+
+[Image of Hormones Diagram]
+
+                        <p>यौवनारंभ में हार्मोन की महत्वपूर्ण भूमिका होती है।</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 4: Reproductive Phase of Life -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="icon">👨‍👩‍👧‍👦</span>
+                    <h2>मानव में जनन काल की अवधि</h2>
+                </div>
+                <div class="content">
+                    <div class="flowchart">
+                        <div class="flowchart-box">यौवनारंभ</div>
+                        <div class="arrow">➡️</div>
+                        <div class="flowchart-box">प्रजनन अंगों का परिपक्व होना</div>
+                        <div class="arrow">➡️</div>
+                        <div class="flowchart-box">जनन क्षमता</div>
+                        <div class="arrow">➡️</div>
+                        <div class="flowchart-box">पुरुषों में: आजीवन (लगभग)<br>महिलाओं में: रजोनिवृत्ति तक (45-50 वर्ष)</div>
+                    </div>
+                    <ul>
+                        <li>महिलाओं में जनन काल <span class="key-point">मासिक धर्म चक्र</span> (Menstrual Cycle) से जुड़ा होता है।</li>
+                        <li><span class="key-point">मासिक धर्म चक्र:</span> अंडाशय से अंडे का निकलना, गर्भाशय की दीवार का मोटी होना और यदि निषेचन न हो तो इसका टूटकर रक्तस्राव के रूप में बाहर आना। यह एक चक्रीय प्रक्रिया है।</li>
+                        <li><span class="key-point">मासिक धर्म (Menstruation):</span> यह चक्र का वह हिस्सा है जब रक्तस्राव होता है, जो लगभग 2-8 दिनों तक चलता है।</li>
+                        <li><span class="key-point">रजोनिवृत्ति (Menopause):</span> लगभग 45-50 वर्ष की आयु में मासिक धर्म चक्र का स्थायी रूप से रुक जाना।</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Section 5: Sex Determination -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="icon">🧬</span>
+                    <h2>लिंग निर्धारण</h2>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li>मनुष्य में <span class="key-point">23 जोड़े गुणसूत्र</span> होते हैं, जिनमें से एक जोड़ा लिंग गुणसूत्र (Sex Chromosomes) होता है।</li>
+                        <li><span class="key-point">स्त्री में:</span> XX गुणसूत्र (दोनों समान)</li>
+                        <li><span class="key-point">पुरुष में:</span> XY गुणसूत्र (दोनों भिन्न)</li>
+                        <li><span class="key-point">बच्चे का लिंग निर्धारण पिता के शुक्राणु पर निर्भर करता है।</span>
+                            <ul>
+                                <li>यदि X गुणसूत्र वाला शुक्राणु अंडाणु (X) से मिलता है, तो लड़की (XX) पैदा होती है।</li>
+                                <li>यदि Y गुणसूत्र वाला शुक्राणु अंडाणु (X) से मिलता है, तो लड़का (XY) पैदा होता है।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="image-container">
+                        
+                        <p>बच्चे का लिंग निर्धारण पिता के गुणसूत्रों पर निर्भर करता है।</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+
+    </div>
+
+</body>
+</html>

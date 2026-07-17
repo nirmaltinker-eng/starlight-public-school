@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RBSE कक्षा 7 | कंप्यूटर अध्याय 1: प्रश्न-उत्तर</title>
+    <!-- Custom CSS based on 'Starlight Public School' theme -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f7e9; /* Soft, light green background */
+            color: #4b3e2a; /* Dark brown text for an earthy feel */
+        }
+        .header {
+            background-color: #ffffff;
+            color: #547748; /* Natural green accent color */
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem; /* Reduced size for better fit */
+            letter-spacing: 1px;
+        }
+        .header h2 {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem; /* Reduced size */
+            width: 100%;
+            color: #6a5a4b;
+        }
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 100px; /* Adjusted size for better fit with the header */
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Back Button Styling (Added from theme) */
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #547748; /* Match the new accent color */
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #e6eeda; /* Lighter shade of the background */
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: #547748;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 20px;
+        }
+        .content-section {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .content-section h3 {
+            font-size: 1.75rem;
+            color: #3b573a; /* Darker green for headings */
+            border-bottom: 2px solid #547748;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* List Styling (used for True/False and Brief Description) */
+        ul, ol, dl {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #4b3e2a;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* Custom List Item Styling for Section 2 (Fill in the Blanks) */
+        ol li {
+            margin-bottom: 10px;
+            padding-left: 0.5rem;
+            list-style-position: inside;
+        }
+
+        /* Styling for the Brief Description (dl list) */
+        dl div {
+            padding: 1rem;
+            background-color: #e6eeda; /* Lighter shade of the background */
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #547748;
+        }
+        dl dt {
+            font-weight: 700;
+            color: #3b573a;
+            margin-bottom: 0.25rem;
+        }
+
+        /* --- New Q&A Block Styling (Replaces table) --- */
+        .qa-container {
+            margin-top: 1.5rem;
+        }
+        .qa-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background-color: #f9fdf5; /* Light background for the block */
+            border: 1px solid #d4e0b8; /* Light green border */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .question-header {
+            font-size: 1.15rem;
+            color: #547748; /* Accent green for the question */
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px dashed #d4e0b8;
+            padding-bottom: 0.5rem;
+        }
+        .answer-body {
+            font-size: 1.05rem;
+            color: #4b3e2a; 
+            line-height: 1.6;
+            padding-top: 0.5rem;
+        }
+        .qa-item:nth-child(even) {
+            background-color: #ffffff; /* Alternate background for better visual separation */
+        }
+        /* --- End New Q&A Block Styling --- */
+        
+        .font-bold {
+            font-weight: 700;
+        }
+
+        /* True/False Styling */
+        .tf-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e6eeda;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tf-list li:last-child {
+            border-bottom: none;
+        }
+        .tf-result-true {
+            color: #3b573a; /* Dark green for True */
+            font-weight: 700;
+        }
+        .tf-result-false {
+            color: #9f3a3a; /* Dark red for False */
+            font-weight: 700;
+        }
+        
+        .footer {
+            background-color: #ffffff;
+            color: #6a5a4b;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        /* Match Column Styling */
+        .match-col-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .match-col-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .match-solution {
+            background-color: #e6eeda;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #d4e0b8;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Back Button HTML from the Starlight Theme -->
+<div class="back-button-container">
+    <a class="back-button" href="#">
+        <span>&lt;</span> Back
+    </a>
+</div>
+
+<header class="header">
+    <!-- Logo Container added here -->
+    <div class="logo-container">
+        <img src="https://placehold.co/100x100/547748/ffffff?text=SPS+Logo" alt="School Logo" class="logo" onerror="this.onerror=null;this.src='https://placehold.co/100x100/547748/ffffff?text=SPS+Logo';">
+    </div>
+    <h1>💻 कंप्यूटर</h1>
+    <h2>अध्याय 1: प्रश्न-उत्तर (RBSE कक्षा 7)</h2>
+</header>
+
+<div class="container">
+
+    <!-- Section 1: Question-Answer (UPDATED CONTENT FROM USER INPUT) -->
+    <div class="content-section">
+        <h3>1. प्रश्नोत्तर (Question-Answer)</h3>
+        
+        <div class="qa-container">
+            <!-- Q1: कंप्यूटर क्या है? वर्णन कीजिए। -->
+            <div class="qa-item">
+                <p class="question-header">1. प्रश्न: कंप्यूटर क्या है? वर्णन कीजिए।</p>
+                <p class="answer-body">उत्तर: कंप्यूटर एक **इलेक्ट्रॉनिक उपकरण** है, जो मनुष्य द्वारा दिए गए निर्देशों व डाटा को विश्लेषित (Process) करके उसका परिणाम हमें देता है। कंप्यूटर डाटा को **इनपुट** के रूप में लेता है और उस पर अंकगणितीय व तार्किक कार्य अथवा उसको विश्लेषित कर आवश्यक परिणामों को **आउटपुट** के रूप में देता है।</p>
+            </div>
+            
+            <!-- Q2: कंप्यूटर को मुख्यत: कितने भागों में बाँटा गया है? बताइए। -->
+            <div class="qa-item">
+                <p class="question-header">2. प्रश्न: कंप्यूटर को मुख्यत: कितने भागों में बाँटा गया है? बताइए।</p>
+                <p class="answer-body">उत्तर: कंप्यूटर को मुख्यत: **तीन** भागों में बाँटा गया है:
+                <br>• हार्डवेयर (Hardware)
+                <br>• सॉफ्टवेयर (Software)
+                <br>• यूज़र (User)</p>
+            </div>
+            
+            <!-- Q3: हार्डवेयर किसे कहते हैं और इसको कितने भागों में विभाजित किया गया है? -->
+            <div class="qa-item">
+                <p class="question-header">3. प्रश्न: हार्डवेयर किसे कहते हैं और इसको कितने भागों में विभाजित किया गया है?</p>
+                <p class="answer-body">उत्तर: 
+                <br>• **हार्डवेयर:** कंप्यूटर के सभी **यांत्रिक, विद्युत और इलेक्ट्रॉनिक भाग** हार्डवेयर कहलाते हैं। हार्डवेयर को हम देख सकते हैं तथा छू भी सकते हैं।
+                <br>• **विभाजन:** हार्डवेयर को **तीन** मुख्य भागों में विभाजित किया गया है:
+                <br> &nbsp; &nbsp; • इनपुट यूनिट (Input Unit)
+                <br> &nbsp; &nbsp; • आउटपुट यूनिट (Output Unit)
+                <br> &nbsp; &nbsp; • सिस्टम यूनिट (System Unit)</p>
+            </div>
+            
+            <!-- Q4: इनपुट यूनिट व आउटपुट यूनिट के क्या कार्य हैं? उदाहरण सहित बताइए। -->
+            <div class="qa-item">
+                <p class="question-header">4. प्रश्न: इनपुट यूनिट व आउटपुट यूनिट के क्या कार्य हैं? उदाहरण सहित बताइए।</p>
+                <p class="answer-body">उत्तर: 
+                <br>• **इनपुट यूनिट:** डाटा को कंप्यूटर में इनपुट करने के लिए इनपुट डिवाइसेंस का प्रयोग किया जाता है।
+                <br> &nbsp; &nbsp; • *उदाहरण:* माउस, की-बोर्ड, जॉयस्टिक, स्कैनर।
+                <br>• **आउटपुट यूनिट:** ये डिवाइसेंस कंप्यूटर से प्रोसेस किए परिणामों को प्राप्त करने के काम आते हैं। ये मशीनी संकेतों में अथवा चिन्हों में आउटपुट को प्रोसेस से लेते हैं और उसे अवस्था में परिवर्तित कर देते हैं, जिसे मनुष्य आसानी से समझ सके।
+                <br> &nbsp; &nbsp; • *उदाहरण:* मॉनिटर, प्रिंटर, प्लॉटर।</p>
+            </div>
+            
+            <!-- Q5: सिस्टम यूनिट की डिवाइसेंस का वर्णन कीजिए। -->
+            <div class="qa-item">
+                <p class="question-header">5. प्रश्न: सिस्टम यूनिट की डिवाइसेंस का वर्णन कीजिए।</p>
+                <p class="answer-body">उत्तर: सिस्टम यूनिट में निम्नलिखित डिवाइसेंस सम्मिलित होती हैं:
+                <br>• **मदरबोर्ड (Motherboard):** जिस पर सिस्टम यूनिट के सभी छोटे-छोटे इलेक्ट्रॉनिक कम्पोनेंट जुड़े रहते हैं।
+                <br>• **सेंट्रल प्रोसेसिंग यूनिट (CPU):** यह कंप्यूटर का विशेष भाग है, इसमें सभी गणनाएँ व निर्णय होते हैं। इसके तीन भाग हैं: कंट्रोल यूनिट, अर्थमेटिक लॉजिक यूनिट, मेमोरी।
+                <br>• **विद्युत सप्लाई के लिए एस.एम.पी.एस. (SMPS):** यह सिस्टम यूनिट में विद्युत सप्लाई का कार्य करता है।
+                <br>• **स्टोरेज डिवाइसेंस (Storage Device):** ये कंप्यूटर की स्थायी स्टोरेज यूनिट हैं। जैसे: फ्लॉपी डिस्क, हार्ड डिस्क, सी.डी।
+                </p>
+            </div>
+            
+            <!-- Q6: मुख्य मेमोरी किसे कहते हैं? विस्तारपूर्वक समझाइए। -->
+            <div class="qa-item">
+                <p class="question-header">6. प्रश्न: मुख्य मेमोरी किसे कहते हैं? विस्तारपूर्वक समझाइए।</p>
+                <p class="answer-body">उत्तर: 
+                <br>• **मुख्य मेमोरी (Main Memory):** कंप्यूटर में डाटा को स्टोर करने के लिए मुख्य मेमोरी का प्रयोग किया जाता है। इसे **किलोबाइट व मेगाबाइट** में मापा जाता है।
+                <br>• यह दो प्रकार की होती है:
+                <br> &nbsp; &nbsp; • **रोम (ROM - Read Only Memory):** इसमें डाटा और सूचनाएँ स्टोर की जाती हैं, जिन्हें बदला नहीं जा सकता। इस पर नई सूचनाएँ लिखी नहीं जा सकती, इसलिए इसे रीड ओनली मेमोरी कहा जाता है।
+                <br> &nbsp; &nbsp; • **रैम (RAM - Random Access Memory):** हम जो भी डाटा लिखते हैं या पढ़ते हैं, वह रैम के द्वारा ही करते हैं। इसमें सूचनाएँ **अस्थायी** रूप से रखी जाती हैं। बिजली सप्लाई बंद होने पर रैम में स्थित डाटा समाप्त हो जाता है।</p>
+            </div>
+            
+            <!-- Q7: यूज़र किसे कहते हैं? -->
+            <div class="qa-item">
+                <p class="question-header">7. प्रश्न: यूज़र किसे कहते हैं?</p>
+                <p class="answer-body">उत्तर: कंप्यूटर पर जो कार्य करता है या कंप्यूटर का जो प्रयोग करता है, उसे कंप्यूटर की भाषा में **यूज़र (User)** कहते हैं। (अर्थात, कंप्यूटर को चलाने वाला व्यक्ति)।</p>
+            </div>
+            
+            <!-- Q8: सॉफ्टवेयर से आप क्या समझते हो? -->
+            <div class="qa-item">
+                <p class="question-header">8. प्रश्न: सॉफ्टवेयर से आप क्या समझते हो?</p>
+                <p class="answer-body">उत्तर: **प्रोग्रामों के समूह** को **सॉफ्टवेयर** कहते हैं। सॉफ्टवेयर के बिना कंप्यूटर एक बेजान मशीन है। सॉफ्टवेयर कंप्यूटर को कार्य करने के लिए निर्देश देता है।
+                <br>• यह निम्नलिखित प्रकार का होता है:
+                <br> &nbsp; &nbsp; • सिस्टम सॉफ्टवेयर (System Software)
+                <br> &nbsp; &nbsp; • एप्लीकेशन सॉफ्टवेयर (Application Software)
+                <br> &nbsp; &nbsp; • यूटिलिटी सॉफ्टवेयर (Utility Software)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Fill in the Blanks (Text Corrected) -->
+    <div class="content-section">
+        <h3>2. रिक्त स्थानों की पूर्ति कीजिए (Fill in the Blanks)</h3>
+        <ol>
+            <li>कंप्यूटर एक <span class="font-bold" style="color:#547748;">इलेक्ट्रॉनिक</span> उपकरण है।</li>
+            <li>कंप्यूटर के सभी भौतिक विद्युत और इलेक्ट्रॉनिक भाग <span class="font-bold" style="color:#547748;">हार्डवेयर</span> कहलाते हैं।</li>
+            <li>की-बोर्ड व माउस **डाटा इनपुट** करने वाली <span class="font-bold" style="color:#547748;">डिवाइसेस</span> हैं।</li>
+            <li>कंप्यूटर में होने वाली सभी गणनाएँ व निर्णय <span class="font-bold" style="color:#547748;">CPU</span> द्वारा किए जाते हैं।</li>
+            <li><span class="font-bold" style="color:#547748;">कंट्रोल यूनिट</span> (Control Unit) कंप्यूटर में नाड़ी तंत्र की तरह कार्य करता है।</li>
+            <li>सिस्टम यूनिट में विद्युत सप्लाई <span class="font-bold" style="color:#547748;">SMPS</span> के द्वारा सप्लाई की जाती है।</li>
+            <li><span class="font-bold" style="color:#547748;">मॉडम</span> (Modem) कंप्यूटर को टेलीफोन लाइन के माध्यम से इंटरनेट से जोड़ता है।</li>
+            <li>रैम का पूरा नाम <span class="font-bold" style="color:#547748;">रैंडम एक्सेस मेमोरी</span> है।</li>
+            <li>आठ बिट मिलकर <span class="font-bold" style="color:#547748;">एक बाइट</span> बनाते हैं।</li>
+            <li>कंप्यूटर का जो प्रयोग करता है, उसे कंप्यूटर की भाषा में <span class="font-bold" style="color:#547748;">यूज़र (User)</span> कहते हैं।</li>
+        </ol>
+    </div>
+
+    <!-- Section 3: Match the Columns (No change needed - assumed correct) -->
+    <div class="content-section">
+        <h3>3. सही मिलान कीजिए (Match the Columns)</h3>
+        <div class="match-col-grid">
+            <div class="space-y-3 answer-text">
+                <p><span class="font-bold">1. इनपुट डिवाइस</span> $\to$ जॉयस्टिक</p>
+                <p><span class="font-bold">2. आउटपुट डिवाइस</span> $\to$ प्रिंटर</p>
+                <p><span class="font-bold">3. कंट्रोल यूनिट</span> $\to$ नाड़ी तंत्र</p>
+                <p><span class="font-bold">4. एस.एम.पी.एस</span> $\to$ विद्युत</p>
+                <p><span class="font-bold">5. मेमोरी</span> $\to$ स्टोरेज मीडिया</p>
+            </div>
+            <div class="match-solution">
+                <p class="font-bold" style="color: #3b573a;">मिलान (Match)</p>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 5px;">1 $\to$ जॉयस्टिक</li>
+                    <li style="margin-bottom: 5px;">2 $\to$ प्रिंटर</li>
+                    <li style="margin-bottom: 5px;">3 $\to$ नाड़ी तंत्र</li>
+                    <li style="margin-bottom: 5px;">4 $\to$ विद्युत</li>
+                    <li style="margin-bottom: 5px;">5 $\to$ स्टोरेज मीडिया</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: True/False (No change needed - assumed correct) -->
+    <div class="content-section">
+        <h3>4. सत्य/असत्य बताइए (True/False)</h3>
+        <ul class="tf-list">
+            <li>
+                <span>1. कंप्यूटर बहुत कम समय में ज़्यादा काम करता है।</span>
+                <span class="tf-result-true">सत्य ($\checkmark$)</span>
+            </li>
+            <li>
+                <span>2. इनपुट/आउटपुट को हम छू सकते हैं, इसे प्रोसेसिंग यूनिट कहते हैं।</span>
+                <span class="tf-result-false">असत्य (X)</span>
+            </li>
+            <li>
+                <span>3. सी.पी.यू को ए.एल.यू का नाम भी दिया जाता है।</span>
+                <span class="tf-result-false">असत्य (X)</span>
+            </li>
+            <li>
+                <span>4. सी.पी.यू गणित का भाग, जोड़, घटा व भाग करता है।</span>
+                <span class="tf-result-true">सत्य ($\checkmark$)</span>
+            </li>
+            <li>
+                <span>5. रैम में डेटा व सूचनाएं स्थायी रूप से रखी जाती हैं।</span>
+                <span class="tf-result-false">असत्य (X)</span>
+            </li>
+            <li>
+                <span>6. 1024 मेगाबाइट में 1 गीगाबाइट होती है।</span>
+                <span class="tf-result-true">सत्य ($\checkmark$)</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 5: Brief Description (Text Corrected) -->
+    <div class="content-section">
+        <h3>5. संक्षिप्त वर्णन कीजिए (Brief Description)</h3>
+        <dl>
+            <div>
+                <dt>I. हार्ड डिस्क (Hard Disk)</dt>
+                <dd>यह फ़ाइलों और सॉफ्टवेयर को **स्थायी रूप** (permanent) से स्टोर करने के लिए उपयोग में लाई जाने वाली मुख्य स्टोरेज डिवाइस है।</dd>
+            </div>
+            <div>
+                <dt>II. नेटवर्क कार्ड (Network Card)</dt>
+                <dd>इसे **ईथरनेट कार्ड** (Ethernet Card) भी कहते हैं। यह कंप्यूटर को किसी नेटवर्क या इंटरनेट से जोड़ने के लिए इसकी ज़रूरत पड़ती है।</dd>
+            </div>
+            <div>
+                <dt>III. मॉडम (Modem)</dt>
+                <dd>यह **डिजिटल सिग्नल** को **एनालॉग सिग्नल** में और इसके विपरीत परिवर्तित करता है। इसका उपयोग कंप्यूटर को टेलीफ़ोन लाइन के माध्यम से इंटरनेट से जोड़ने के लिए होता है।</dd>
+            </div>
+            <div>
+                <dt>IV. मुख्य मेमोरी (Main Memory)</dt>
+                <dd>यह कंप्यूटर की प्राथमिक मेमोरी है जिसका उपयोग CPU द्वारा डेटा और निर्देशों को **अस्थायी रूप से स्टोर** करने के लिए किया जाता है ताकि प्रोसेसिंग तेज़ी से हो सके।</dd>
+            </div>
+        </dl>
+    </div>
+        
+</div>
+
+<footer class="footer">
+    <!-- Footer structure from the Starlight Theme -->
+    <p>© 2025 Computer Notes | Inspired by Starlight Theme.</p>
+</footer>
+
+</body>
+</html>

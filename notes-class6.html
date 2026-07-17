@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 6 Notes - Starlight Public School</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        .header {
+            background-color: #004d99;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .nav {
+            background-color: #003366;
+            text-align: center;
+            padding: 0.8rem 0;
+        }
+
+        .nav a {
+            color: white;
+            margin: 0 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #ffc107;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 20px;
+        }
+
+        .notes-section {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .notes-section h2 {
+            font-size: 2rem;
+            color: #004d99;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .subject-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Base style for all subject buttons */
+        .subject-buttons .button-link {
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.4s ease; /* Smooth transition for all properties */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Subtle initial shadow */
+            min-width: 150px;
+            border: 2px solid transparent; /* For the neon border effect */
+            position: relative;
+            overflow: hidden; /* To keep the glow within the button */
+        }
+
+        /* Neon Blue Style */
+        .subject-buttons .button-link:nth-child(odd) { /* Apply to odd buttons for blue */
+            background-color: #007bff; /* Base blue */
+            color: white;
+        }
+
+        .subject-buttons .button-link:nth-child(odd):hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            color: #e0f7fa; /* Lighter text for glow */
+            border-color: #0ff; /* Neon blue border */
+            box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #0ff; /* Neon glow */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
+        /* Neon Red Style */
+        .subject-buttons .button-link:nth-child(even) { /* Apply to even buttons for red */
+            background-color: #dc3545; /* Base red */
+            color: white;
+        }
+
+        .subject-buttons .button-link:nth-child(even):hover {
+            background-color: #bd2130; /* Darker red on hover */
+            color: #ffe0e6; /* Lighter text for glow */
+            border-color: #f00; /* Neon red border */
+            box-shadow: 0 0 15px #f00, 0 0 30px #f00, 0 0 45px #f00; /* Neon glow */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+        
+        /* Specific style for Social Science dropdown button to also have neon */
+        .dropdown > .button-link {
+             background-color: #007bff; /* Default to neon blue for dropdown trigger */
+             color: white;
+        }
+        .dropdown:hover > .button-link {
+             background-color: #0056b3;
+             color: #e0f7fa;
+             border-color: #0ff;
+             box-shadow: 0 0 15px #0ff, 0 0 30px #0ff, 0 0 45px #0ff;
+             transform: scale(1.05);
+        }
+
+        /* Dropdown content styling */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 8px;
+            padding: 10px 0;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 5px;
+            white-space: nowrap; /* Prevent items from wrapping */
+        }
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.3s;
+        }
+        .dropdown-content a:hover {
+            background-color: #e2e6ea; /* Light hover for dropdown items */
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        .footer { background-color: #003366; color: white; text-align: center; padding: 1.5rem 0; margin-top: 2rem; }
+        .footer p { margin: 0; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Starlight Public School</h1>
+    </header>
+
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="notes.html">Notes</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="staff.html">Staff</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <div class="container">
+        <div class="notes-section">
+            <h2>Class 6 Notes</h2>
+            <p>Select a subject to view study materials for Class 6.</p>
+            <div class="subject-buttons">
+                <a class="button-link" href="#">Science</a>
+                <div class="dropdown">
+                    <a class="button-link" href="#">Social Science</a>
+                    <div class="dropdown-content">
+                        <a href="#">History</a>
+                        <a href="#">Geography</a>
+                        <a href="#">Civics</a>
+                        <a href="#">Our Rajasthan</a>
+                    </div>
+                </div>
+                <a class="button-link" href="#">English</a>
+                <a class="button-link" href="#">English Grammar</a>
+                <a class="button-link" href="#">Hindi</a>
+                <a class="button-link" href="#">Hindi Grammar</a>
+                <a class="button-link" href="#">Sanskrit</a>
+                <a class="button-link" href="#">Sanskrit Grammar</a>
+                <a class="button-link" href="#">Mathematics</a>
+                <a class="button-link" href="#">Computer</a>
+                <a class="button-link" href="#">General Knowledge</a>
+                <a class="button-link" href="#">Moral Science</a>
+                <a class="button-link" href="#">Drawing</a>
+                <a class="button-link" href="#">Art & Craft</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+
+</body>
+</html>

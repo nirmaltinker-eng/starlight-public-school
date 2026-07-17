@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>कक्षा 8 विज्ञान - कोयला और पेट्रोलियम</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+
+        :root {
+            /* Earthy, warm theme inspired by the chapter's topic */
+            --primary-color: #d2691e; /* Earthy orange-brown, like crude oil */
+            --secondary-color: #4b3621; /* Darker brown, like soil */
+            --background-color: #2d2d2d; /* Deep gray, like coal */
+            --card-background: #3a3a3a; /* Lighter gray for content cards */
+            --text-color: #f5f5f5; /* Soft off-white for readability */
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Back Button Styling */
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #d2691e; /* Match the new accent color */
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #3a3a3a; /* Lighter shade of the background */
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: #d2691e;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: var(--card-background);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        header h1 {
+            font-family: var(--heading-font);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        header h2 {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .note-card {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-family: var(--heading-font);
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        strong {
+            color: var(--primary-color);
+        }
+        
+        /* Table styles */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--body-font);
+            font-size: 1rem;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #4a6680;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #f5f5f5;
+            font-weight: bold;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Image container styles */
+        .image-container {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 2px dashed #666;
+            border-radius: 10px;
+            background-color: #2a2a2a;
+        }
+        .image-container p {
+            font-style: italic;
+            color: #aaa;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: var(--card-background);
+            color: var(--text-color);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 1rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header h2 {
+                font-size: 1.2rem;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+            p, li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="back-button-container">
+        <a class="back-button" href="../notes-class8.html">
+            <span>&lt;</span> Back
+        </a>
+    </div>
+
+<div class="container">
+    <header>
+        <h1>कक्षा 8 विज्ञान</h1>
+        <h2>पाठ 3: कोयला और पेट्रोलियम</h2>
+    </header>
+
+    <section>
+        <div class="note-card">
+            <h3>1. प्राकृतिक संसाधन (Natural Resources)</h3>
+            <p>ऐसे संसाधन जो प्रकृति से प्राप्त होते हैं और बिना किसी बड़े बदलाव के उपयोग में लाए जाते हैं, प्राकृतिक संसाधन कहलाते हैं।</p>
+            <h4>इनका वर्गीकरण दो प्रकार से किया जा सकता है:</h4>
+            <ul>
+                <li><strong>अक्षय प्राकृतिक संसाधन (Inexhaustible Natural Resources):</strong> ये संसाधन प्रकृति में असीमित मात्रा में मौजूद हैं और मानवीय गतिविधियों से समाप्त नहीं होंगे।
+                    <br><strong>उदाहरण:</strong> सूर्य का प्रकाश (Sunlight), वायु (Air)।</li>
+                <li><strong>समाप्य प्राकृतिक संसाधन (Exhaustible Natural Resources):</strong> ये संसाधन प्रकृति में सीमित मात्रा में हैं और मानवीय गतिविधियों द्वारा समाप्त हो सकते हैं।
+                    <br><strong>उदाहरण:</strong> वन (Forests), वन्यजीव (Wildlife), खनिज (Minerals), कोयला (Coal), पेट्रोलियम (Petroleum), प्राकृतिक गैस (Natural Gas)।</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="note-card">
+            <h3>2. कोयला (Coal)</h3>
+            <p>यह एक कठोर, काले रंग का जीवाश्म ईंधन (fossil fuel) है। इसका उपयोग खाना पकाने, बिजली उत्पादन (thermal power plants) और अन्य उद्योगों में किया जाता है।</p>
+            <h4>कोयले का निर्माण (Formation of Coal):</h4>
+            <p>लगभग 300 मिलियन वर्ष पहले, पृथ्वी पर घने वन थे जो बाढ़ जैसे प्राकृतिक प्रक्रमों के कारण मिट्टी के नीचे दब गए। जैसे-जैसे मिट्टी की परतें उनके ऊपर जमा होती गईं, वे संपीड़ित (compressed) होते गए। गहरे दबाव और उच्च तापमान के कारण, धीरे-धीरे मृत वनस्पति कोयले में परिवर्तित हो गई। यह प्रक्रिया **कार्बनीकरण (Carbonisation)** कहलाती है।</p>
+            <div class="image-container">
+                <p>कोयले के निर्माण की प्रक्रिया का प्रवाह:</p>
+                            </div>
+            <h4>कोयले के उत्पाद (Products of Coal):</h4>
+            <p>कोयले को हवा की अनुपस्थिति में गर्म करके कई उपयोगी उत्पाद प्राप्त किए जाते हैं:</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>उत्पाद (Product)</th>
+                            <th>विवरण (Description)</th>
+                            <th>उपयोग (Uses)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>कोक (Coke)</strong></td>
+                            <td>कठोर, सरंध्र (porous) और काला पदार्थ। लगभग शुद्ध कार्बन।</td>
+                            <td>इस्पात (steel) के निर्माण और कई धातुओं के निष्कर्षण (extraction) में।</td>
+                        </tr>
+                        <tr>
+                            <td><strong>कोलतार (Coal Tar)</strong></td>
+                            <td>एक अप्रिय गंध वाला काला, गाढ़ा द्रव। यह लगभग 200 पदार्थों का मिश्रण है।</td>
+                            <td>औषधियाँ (drugs), प्लास्टिक, पेंट, सुगंध (perfumes) और सड़क बनाने में।</td>
+                        </tr>
+                        <tr>
+                            <td><strong>कोयला गैस (Coal Gas)</strong></td>
+                            <td>कोयले के प्रसंस्करण से प्राप्त होने वाली गैस।</td>
+                            <td>ईंधन (fuel) के रूप में, उद्योगों और घरों में।</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="note-card">
+            <h3>3. पेट्रोलियम (Petroleum)</h3>
+            <p>यह एक काला, तैलीय द्रव है जिसकी गंध अप्रिय होती है। इसे 'काला सोना' (Black Gold) भी कहते हैं।</p>
+            <h4>पेट्रोलियम का निर्माण (Formation of Petroleum):</h4>
+            <p>यह समुद्र में रहने वाले जीवों के मरने से बना था। उनके शरीर समुद्र तल में जम गए और रेत तथा मिट्टी की परतों से ढक गए। लाखों वर्षों में, हवा की अनुपस्थिति, उच्च तापमान और दबाव ने इन मृत जीवों को पेट्रोलियम और प्राकृतिक गैस में बदल दिया।</p>
+            <h4>पेट्रोलियम का परिष्करण (Refining of Petroleum):</h4>
+            <p>पेट्रोलियम विभिन्न घटकों का मिश्रण है। इन्हें एक पेट्रोलियम रिफाइनरी (petroleum refinery) में अलग-अलग किया जाता है। यह प्रक्रिया 'परिष्करण' (refining) कहलाती है।</p>
+            <div class="image-container">
+                <p>पेट्रोलियम परिष्करण प्रक्रिया का प्रवाह:</p>
+                            </div>
+            <p>परिष्करण से प्राप्त होने वाले कुछ महत्वपूर्ण घटक:</p>
+            <ol>
+                <li>पेट्रोलियम गैस (LPG) - घरों और वाहनों के लिए ईंधन।</li>
+                <li>पेट्रोल (Petrol) - वाहनों, विमानों और ड्राई क्लीनिंग के लिए ईंधन।</li>
+                <li>केरोसीन (Kerosene) - स्टोव और जेट विमानों के लिए ईंधन।</li>
+                <li>डीजल (Diesel) - भारी वाहनों और बिजली जनरेटर के लिए ईंधन।</li>
+                <li>स्नेहक तेल (Lubricating Oil) - स्नेहन के लिए।</li>
+                <li>पैराफिन मोम (Paraffin Wax) - मोमबत्तियाँ और वैसलीन बनाने के लिए।</li>
+                <li>बिटुमेन (Bitumen) - सड़क निर्माण के लिए।</li>
+            </ol>
+        </div>
+    </section>
+
+    <section>
+        <div class="note-card">
+            <h3>4. प्राकृतिक गैस (Natural Gas)</h3>
+            <p>यह एक बहुत ही महत्वपूर्ण जीवाश्म ईंधन है क्योंकि इसका परिवहन पाइपों के माध्यम से आसानी से किया जा सकता है। इसे उच्च दबाव पर संपीड़ित प्राकृतिक गैस (CNG) के रूप में भंडारित किया जाता है।</p>
+            <ul>
+                <li><strong>CNG का उपयोग:</strong> इसका उपयोग वाहनों में ईंधन के रूप में किया जाता है, क्योंकि यह कम प्रदूषण फैलाता है और स्वच्छ ईंधन है।</li>
+                <li><strong>पाइपलाइनों का नेटवर्क:</strong> गुजरात और दिल्ली के कुछ हिस्सों में CNG की पाइपलाइनें मौजूद हैं।</li>
+            </ul>
+        </div>
+    </section>
+</div>
+<footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+</body>
+</html>

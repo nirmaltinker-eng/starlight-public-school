@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2: Micro-organisms - Starlight Public School</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f7e9; /* Soft, light green background */
+            color: #4b3e2a; /* Dark brown text for an earthy feel */
+        }
+        /* Header CSS */
+        .header {
+            background-color: #ffffff;
+            color: #547748; /* Natural green accent color */
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+            color: #6a5a4b;
+        }
+        .logo-container {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 180px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        /* Nav Bar */
+        .nav {
+            background-color: #4CAF50;
+            text-align: center;
+            padding: 1rem 0;
+            border-top: 2px solid #388E3C;
+            border-bottom: 2px solid #388E3C;
+        }
+        .nav a {
+            color: #ffffff;
+            margin: 0 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            padding: 10px 0;
+            display: inline-block;
+        }
+        .nav a:hover {
+            color: #dcedc8;
+        }
+        .nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #dcedc8;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .nav a:hover::after {
+            transform: scaleX(1);
+        }
+        /* General Section Styles */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 20px;
+        }
+        .notes-section {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            line-height: 1.8;
+        }
+        .notes-section h2 {
+            font-size: 2.5rem;
+            color: #547748;
+            border-bottom: 2px solid #547748;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+        .notes-section h3 {
+            font-size: 1.8rem;
+            color: #547748;
+            margin-top: 2rem;
+        }
+        .notes-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        .notes-section ul {
+            list-style: disc;
+            margin-left: 2rem;
+            font-size: 1.1rem;
+        }
+        .notes-section ul.sub-points li {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .notes-section strong {
+            color: #547748;
+        }
+        /* Mobile-First Responsive Design */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            z-index: 1000;
+            padding: 0;
+        }
+        .menu-toggle .bar {
+            width: 100%;
+            height: 3px;
+            background-color: #ffffff;
+            transition: all 0.3s ease-in-out;
+        }
+        @media only screen and (max-width: 768px) {
+            .header .logo-container {
+                position: static;
+                transform: none;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            .header {
+                flex-direction: column;
+                padding-top: 5rem;
+            }
+            .header h1 { font-size: 2.5rem; }
+            .header p { font-size: 1rem; }
+            .logo { height: 120px; }
+            .menu-toggle {
+                display: flex;
+            }
+            .nav {
+                padding: 0;
+                position: relative;
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav a {
+                display: none;
+                margin: 0;
+                padding: 1rem;
+                border-bottom: 1px solid #333;
+                background-color: #4CAF50;
+                width: 100%;
+                text-align: center;
+            }
+            .nav.open a {
+                display: block;
+            }
+            .notes-section {
+                padding: 2rem;
+            }
+        }
+        /* Scroll to Top Button */
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #547748;
+            color: #fff;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease;
+        }
+        #scrollToTopBtn:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="school-logo.png" alt="Starlight Public School Logo" class="logo">
+        </div>
+        <div>
+            <h1>Starlight Public School</h1>
+            <p>A place where dreams take flight.</p>
+        </div>
+    </header>
+    <nav class="nav">
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <a href="index.html">Home</a>
+        <a href="notes.html">Notes</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="staff.html">Staff</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <div class="container">
+        <div class="notes-section">
+            <h2>📚 अध्याय 2: सूक्ष्मजीव (Micro-organisms)</h2>
+            <p>सूक्ष्मजीव बहुत छोटे जीव होते हैं जिन्हें हम अपनी नग्न आंखों से नहीं देख सकते हैं। इन्हें देखने के लिए सूक्ष्मदर्शी (microscope) की आवश्यकता होती है। ये वायु, जल, मिट्टी और जीवित जीवों के शरीर में पाए जाते हैं। ये सभी प्रकार के वातावरण में जीवित रह सकते हैं, जैसे बर्फीली जलवायु से लेकर गर्म झरनों तक।</p>
+            
+            <h3>🦠 सूक्ष्मजीवों के प्रकार</h3>
+            <p>सूक्ष्मजीवों को चार मुख्य वर्गों में बाँटा गया है:</p>
+            <ul>
+                <li><strong>जीवाणु (Bacteria):</strong> ये एककोशिकीय होते हैं और विभिन्न आकृतियों के होते हैं, जैसे गोलाकार (cocci) या छड़ के आकार के (bacilli)।</li>
+                <li><strong>कवक (Fungi):</strong> ये बहुकोशिकीय जीव होते हैं। उदाहरण: यीस्ट (Yeast), मोल्ड (Mold)।</li>
+                <li><strong>प्रोटोजोआ (Protozoa):</strong> ये एककोशिकीय होते हैं। उदाहरण: अमीबा (Amoeba), पैरामीशियम (Paramecium)।</li>
+                <li><strong>शैवाल (Algae):</strong> ये जलीय जीव होते हैं। उदाहरण: स्पाइरोगाइरा (Spirogyra), क्लेमाइडोमोनास (Chlamydomonas)।</li>
+            </ul>
+
+            <h3>🔬 विषाणु (Virus)</h3>
+            <p>विषाणु भी बहुत छोटे होते हैं, लेकिन ये अन्य सूक्ष्मजीवों से भिन्न होते हैं। ये केवल मेजबान (Host) कोशिका के अंदर ही गुणन करते हैं, यानी जीवित रहते हैं और अपनी संख्या बढ़ाते हैं। ये जीवाणु, पौधों या जंतुओं में गुणन कर सकते हैं।</p>
+            <p>विषाणु से होने वाले रोग: जुकाम, इन्फ्लुएंजा, पोलियो, खसरा, एड्स (AIDS)।</p>
+
+            <h3>👍 मित्रवत सूक्ष्मजीव</h3>
+            <p>कुछ सूक्ष्मजीव हमारे लिए बहुत उपयोगी होते हैं:</p>
+            <ul>
+                <li><strong>दही और ब्रेड बनाना:</strong>
+                    <ul>
+                        <li>लैक्टोबैसिलस (Lactobacillus) नामक जीवाणु दूध को दही में बदलता है।</li>
+                        <li>यीस्ट (Yeast) का उपयोग बेकिंग उद्योग में ब्रेड, पेस्ट्री और केक बनाने में होता है। यह श्वसन के दौरान कार्बन डाइऑक्साइड गैस उत्पन्न करता है, जिससे आटा फूलता है।</li>
+                    </ul>
+                </li>
+                <li><strong>वाणिज्यिक उपयोग:</strong>
+                    <ul>
+                        <li>अल्कोहल, शराब और सिरके का उत्पादन: यीस्ट का उपयोग जौ, गेहूँ, चावल, फलों के रस में प्राकृतिक शर्करा के किण्वन (Fermentation) के लिए किया जाता है।</li>
+                        <li>किण्वन: शर्करा को अल्कोहल में परिवर्तित करने की प्रक्रिया को किण्वन कहते हैं। इसकी खोज लुई पाश्चर (Louis Pasteur) ने 1857 में की थी।</li>
+                    </ul>
+                </li>
+                <li><strong>औषधीय उपयोग:</strong>
+                    <ul>
+                        <li>प्रतिजैविक (Antibiotics): ये सूक्ष्मजीवों से बनाई जाती हैं और बीमारी पैदा करने वाले सूक्ष्मजीवों को नष्ट करती हैं। उदाहरण: पेनिसिलिन (Penicillin), स्ट्रेप्टोमाइसिन (Streptomycin)।</li>
+                        <li>टीका (Vaccine): ये शरीर को रोग से लड़ने के लिए तैयार करते हैं। टीका रोग पैदा करने वाले सूक्ष्मजीवों को मारकर या निष्क्रिय करके तैयार किया जाता है। जब स्वस्थ व्यक्ति को टीका लगाया जाता है, तो शरीर उस रोग के खिलाफ एंटीबॉडी (Antibodies) विकसित कर लेता है।</li>
+                    </ul>
+                </li>
+                <li><strong>पर्यावरण की सफाई:</strong> ये सूक्ष्मजीव जैविक कचरे (पौधों के अवशेष, मल-मूत्र) का अपघटन करके उन्हें मिट्टी में मिला देते हैं, जिससे पर्यावरण स्वच्छ रहता है।</li>
+                <li><strong>नाइट्रोजन स्थिरीकरण:</strong> राइजोबियम (Rhizobium) नामक जीवाणु लेग्यूमिनस (फलीदार) पौधों की जड़ों की ग्रंथियों में रहता है और वायुमंडलीय नाइट्रोजन को मिट्टी में उपयोगी यौगिकों में बदलता है।</li>
+            </ul>
+
+            <h3>👎 हानिकारक सूक्ष्मजीव</h3>
+            <p>ये रोग पैदा करते हैं, जिन्हें रोगजनक (Pathogens) कहते हैं। ये संक्रामक रोगों का कारण बनते हैं।</p>
+            <ul>
+                <li><strong>संचरणीय रोग:</strong> ये रोग एक संक्रमित व्यक्ति से स्वस्थ व्यक्ति में वायु, जल, भोजन या शारीरिक संपर्क द्वारा फैलते हैं। उदाहरण: हैजा, जुकाम, चिकनपॉक्स।</li>
+            </ul>
+
+            <h3>🌳 जंतुओं और पौधों में रोग</h3>
+            <ul>
+                <li><strong>जंतुओं में रोग:</strong>
+                    <ul>
+                        <li>एंथ्रेक्स (Anthrax): यह मनुष्य और मवेशियों में होने वाला एक खतरनाक रोग है, जो बेसिलस एंथ्रेसीस (Bacillus anthracis) नामक जीवाणु द्वारा होता है।</li>
+                        <li>पशुओं में खुरपका और मुँहपका रोग विषाणु से होता है।</li>
+                    </ul>
+                </li>
+                <li><strong>पौधों में रोग:</strong>
+                    <ul>
+                        <li>नींबू कैंकर (Citrus Canker): जीवाणु द्वारा होता है।</li>
+                        <li>गेहूँ की रस्ट (Rust): कवक द्वारा होता है।</li>
+                        <li>भिंडी की पीत शिरा मोजैक (Yellow Vein Mosaic of Okra): विषाणु द्वारा होता है।</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>🍲 खाद्य परिरक्षण (Food Preservation)</h3>
+            <p>सूक्ष्मजीव भोजन को खराब कर सकते हैं। इसे बचाने के लिए कई तरीके हैं:</p>
+            <ul>
+                <li><strong>रासायनिक उपाय:</strong> सोडियम बेंजोएट और सोडियम मेटाबाइसल्फाइट जैसे रसायनों का उपयोग।</li>
+                <li><strong>नमक और चीनी द्वारा:</strong> अचार में नमक और जैम में चीनी का उपयोग।</li>
+                <li><strong>तेल और सिरके द्वारा:</strong> इनका उपयोग हानिकारक जीवाणुओं को बढ़ने से रोकता है।</li>
+                <li><strong>गर्म और ठंडा करके:</strong>
+                    <ul>
+                        <li>पाश्चुरीकरण (Pasteurization): दूध को 70°C पर 15 से 30 सेकंड के लिए गर्म करके और फिर अचानक ठंडा करके जीवाणुओं की वृद्धि को रोका जाता है। इसकी खोज लुई पाश्चर ने की थी।</li>
+                    </ul>
+                </li>
+                <li><strong>भंडारण और पैकिंग:</strong> वायु-निरोधी (air-tight) सील वाले पैकेट में।</li>
+            </ul>
+        </div>
+    </div>
+    
+    <button id="scrollToTopBtn" title="Go to top">▲</button>
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('.nav');
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('open');
+            });
+            window.addEventListener('scroll', () => {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    scrollToTopBtn.style.display = "block";
+                } else {
+                    scrollToTopBtn.style.display = "none";
+                }
+            });
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

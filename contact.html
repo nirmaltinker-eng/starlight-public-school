@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Starlight Public School</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='green' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-leaf'><path d='M17.43 3.57a6 6 0 0 0-8.48 8.48l-6.53 6.53a3 3 0 0 0 4.24 4.24l6.53-6.53a6 6 0 0 0 8.48-8.48L17.43 3.57z'></path></svg>") 12 12, auto;
+        }
+        .header {
+            background-color: #000000;
+            color: #FFD700;
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+        }
+        .logo-container {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 180px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        .nav {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding: 1.5rem 0;
+            border-top: 2px solid #FFD700;
+            border-bottom: 2px solid #FFD700;
+        }
+        .nav a {
+            color: #e0e0e0;
+            margin: 0 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            padding: 10px 0;
+        }
+        .nav a:hover {
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+        }
+        .nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #FFD700;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .nav a:hover::after {
+            transform: scaleX(1);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 20px;
+        }
+        .contact-section {
+            background: #222222;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .contact-section h2 {
+            font-size: 2.5rem;
+            color: #FFD700;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            width: 100%; /* Full width for the heading */
+        }
+        .map-and-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+            min-width: 450px;
+        }
+        .iframe-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .contact-details {
+            text-align: left;
+        }
+        .contact-details h3 {
+            font-size: 1.8rem;
+            color: #FFD700;
+        }
+        .contact-details p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+        .contact-form {
+            flex: 1;
+            min-width: 450px;
+            text-align: left;
+        }
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 12px;
+            border: 1px solid #444;
+            background-color: #333;
+            color: #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 5px #FFD700;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        button {
+            background-color: #FFD700;
+            color: #000000;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #e6c500;
+            transform: translateY(-2px);
+        }
+        .footer {
+            background-color: #000000;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="school-logo.png" alt="Starlight Public School Logo" class="logo">
+        </div>
+        <div>
+            <h1>Starlight Public School</h1>
+            <p>A place where dreams take flight.</p>
+        </div>
+    </header>
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="notes.html">Notes</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="staff.html">Staff</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="container">
+        <div class="contact-section">
+            <h2>Contact Us</h2>
+            <div class="map-and-info">
+                <div class="iframe-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3567.8149760746205!2d74.85784071052636!3d26.590311976744214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396bf120aa3fffff%3A0xf2194dd5db9fbf39!2sStar%20Light%20Public%20School!5e0!3m2!1sen!2sin!4v1757611398809!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contact-details">
+                    <h3>Our Location</h3>
+                    <p>Star Light Public School, Behind SDM Bunglow, Madanganj-Kishangarh(Raj.)</p>
+                    <p><strong>Principal:</strong> 9571446922</p>
+                    <p><strong>Vice Principal:</strong> 7728050962</p>
+                    <p><strong>Email:</strong> starlightpublicschool@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form action="#" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" name="firstname" placeholder="Your first name..">
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" placeholder="Your email.." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Subject of your message..">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here.."></textarea>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+</body>
+</html>

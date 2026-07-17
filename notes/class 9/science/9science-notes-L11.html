@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ध्वनि - इंटरैक्टिव नोट्स</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Scientific Twilight -->
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+            background-color: #0b1120;
+            color: #d1d5db;
+        }
+        .tab-active {
+            border-color: #0d9488;
+            color: #0d9488;
+            background-color: #ccfbf1;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #6ee7b7;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #1f2937;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .back-button:hover {
+            background-color: #6ee7b7;
+            color: #1f2937;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+        .header {
+            background-color: #ffffff;
+            color: #547748;
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+            color: #6a5a4b;
+        }
+        .footer {
+            background-color: #1f2937;
+            color: #9ca3af;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <div class="back-button-container">
+        <a class="back-button" href="9science-notes.html">
+            <span>←</span> पीछे जाएँ
+        </a>
+    </div>
+
+    <header class="header">
+        <h1 class="text-3xl md:text-4xl font-bold text-teal-400">अध्याय: 11 ध्वनि</h1>
+        <p class="text-slate-400 mt-2">कक्षा 9 विज्ञान के लिए एक इंटरैक्टिव गाइड</p>
+    </header>
+
+    <div class="container mx-auto p-4 md:p-8 relative">
+
+        <nav class="flex flex-wrap justify-center border-b-2 border-slate-700 mb-8">
+            <button data-tab="tab1" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300 tab-active">ध्वनि का उत्पादन और संचरण</button>
+            <button data-tab="tab2" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">ध्वनि के अभिलक्षण</button>
+            <button data-tab="tab3" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">परावर्तन और प्रतिध्वनि</button>
+            <button data-tab="tab4" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">श्रव्य ध्वनियाँ और उनके अनुप्रयोग</button>
+        </nav>
+
+        <main>
+            <!-- Tab 1: Production and Propagation of Sound -->
+            <section id="tab1" class="content-section active">
+                 <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">ध्वनि का उत्पादन और संचरण</h2>
+                    <p class="text-slate-400 mt-1">ध्वनि कंपन द्वारा उत्पन्न होती है और एक माध्यम में संचरित होती है।</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-2">ध्वनि का उत्पादन</h3>
+                        <p class="text-slate-300">
+                            ध्वनि एक प्रकार की यांत्रिक ऊर्जा है जो वस्तुओं के <strong>कंपन (vibration)</strong> के कारण उत्पन्न होती है। जब कोई वस्तु कंपन करती है, तो वह अपने आस-पास के माध्यम (जैसे वायु) में कणों को भी कंपन कराती है, जिससे ध्वनि उत्पन्न होती है।
+                        </p>
+                    </div>
+                     <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-orange-400 mb-2">ध्वनि का संचरण</h3>
+                        <p class="text-slate-300">
+                            ध्वनि को संचरित होने के लिए एक <strong>माध्यम (medium)</strong> (ठोस, द्रव या गैस) की आवश्यकता होती है। ध्वनि माध्यम के कणों के संपीड़न (compression) और विरलन (rarefaction) द्वारा आगे बढ़ती है।
+                            <br/><br/>
+                            <strong>ध्वनि निर्वात (vacuum) में संचरित नहीं हो सकती</strong> क्योंकि वहां कोई कण मौजूद नहीं होते हैं।
+                        </p>
+                        <p class="text-center font-mono text-xl text-teal-300 mt-4">
+                            ठोस > द्रव > गैस
+                        </p>
+                        <p class="text-slate-300 mt-2 text-center">
+                            ध्वनि की चाल का क्रम
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Characteristics of Sound -->
+            <section id="tab2" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">ध्वनि के अभिलक्षण</h2>
+                    <p class="text-slate-400 mt-1">ध्वनि तरंग के गुण जो हमें अलग-अलग ध्वनियाँ सुनने में मदद करते हैं।</p>
+                </div>
+                <div class="grid md:grid-cols-1 gap-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-red-400 mb-2">प्रमुख अभिलक्षण</h3>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li><strong>प्रबलता (Loudness)</strong>: यह ध्वनि तरंग के <strong>आयाम (Amplitude)</strong> पर निर्भर करती है। अधिक आयाम वाली ध्वनि अधिक प्रबल होती है।</li>
+                            <li><strong>तारत्व (Pitch)</strong>: यह ध्वनि तरंग की <strong>आवृत्ति (Frequency)</strong> पर निर्भर करता है। उच्च आवृत्ति वाली ध्वनि का तारत्व अधिक होता है (पतली आवाज)।</li>
+                            <li><strong>गुणता (Timbre/Quality)</strong>: यह ध्वनि के रूप को दर्शाता है और हमें एक ही प्रबलता और तारत्व वाली दो अलग-अलग ध्वनियों में अंतर करने में मदद करता है।</li>
+                        </ul>
+                    </div>
+                     <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-purple-400 mb-2">कुछ महत्वपूर्ण पद</h3>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li><strong>तरंगदैर्ध्य (Wavelength, $\lambda$)</strong>: दो क्रमागत संपीड़नों या विरलनों के बीच की दूरी।</li>
+                            <li><strong>आवृत्ति (Frequency, $\nu$)</strong>: प्रति सेकंड होने वाले दोलनों की संख्या। इसका SI मात्रक <strong>हर्ट्ज़ (Hz)</strong> है।</li>
+                            <li><strong>समयकाल (Time Period, $T$)</strong>: एक पूर्ण दोलन पूरा करने में लगा समय।</li>
+                        </ul>
+                         <p class="text-center font-mono text-xl text-teal-300 mt-4">
+                            चाल = आवृत्ति × तरंगदैर्ध्य
+                         </p>
+                         <p class="text-center font-mono text-xl text-teal-300">
+                             $v = \nu \lambda$
+                         </p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tab 3: Reflection and Echo -->
+            <section id="tab3" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">ध्वनि का परावर्तन</h2>
+                    <p class="text-slate-400 mt-1">ध्वनि का किसी सतह से टकराकर वापस आना।</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-teal-400 mb-2">प्रतिध्वनि (Echo)</h3>
+                        <p class="text-slate-300">
+                            जब ध्वनि किसी कठोर सतह से टकराकर वापस लौटती है और हमें अपनी ही ध्वनि की पुनरावृत्ति सुनाई देती है, तो उसे <strong>प्रतिध्वनि</strong> कहते हैं।
+                            <br/><br/>
+                            प्रतिध्वनि को स्पष्ट रूप से सुनने के लिए, ध्वनि के स्रोत और परावर्तक सतह के बीच की न्यूनतम दूरी लगभग <strong>17.2 मीटर</strong> होनी चाहिए।
+                        </p>
+                    </div>
+                     <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-2">अनुरणन (Reverberation)</h3>
+                        <p class="text-slate-300">
+                            किसी बड़े हॉल में बार-बार परावर्तन के कारण ध्वनि का लगातार सुनाई देना <strong>अनुरणन</strong> कहलाता है। अत्यधिक अनुरणन को कम करने के लिए दीवारों और छतों पर ध्वनि अवशोषक सामग्री लगाई जाती है।
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 4: Audible and Infrasound/Ultrasound -->
+            <section id="tab4" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">श्रव्य, पराश्रव्य और अवश्रव्य</h2>
+                    <p class="text-slate-400 mt-1">आवृत्ति के आधार पर ध्वनियों का वर्गीकरण।</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-2">आवृत्ति के आधार पर ध्वनियाँ</h3>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li><strong>श्रव्य ध्वनियाँ (Audible Sound)</strong>: ये वे ध्वनियाँ हैं जिन्हें मानव कान सुन सकते हैं। इनकी आवृत्ति <strong>20 Hz से 20,000 Hz</strong> के बीच होती है।</li>
+                            <li><strong>अवश्रव्य ध्वनियाँ (Infrasound)</strong>: 20 Hz से कम आवृत्ति वाली ध्वनियाँ। ये राइनो, हाथी और व्हेल जैसे जानवरों द्वारा उत्पन्न होती हैं।</li>
+                            <li><strong>पराश्रव्य ध्वनियाँ (Ultrasound)</strong>: 20,000 Hz से अधिक आवृत्ति वाली ध्वनियाँ। ये चमगादड़ और डॉल्फ़िन द्वारा उत्पन्न होती हैं और चिकित्सा तथा तकनीक में इनका उपयोग होता है।</li>
+                        </ul>
+                    </div>
+                     <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-purple-400 mb-2">अनुप्रयोग (Applications)</h3>
+                        <p class="text-slate-300">
+                            पराश्रव्य ध्वनियों का उपयोग कई क्षेत्रों में होता है, जैसे:
+                            <ul class="list-disc list-inside space-y-2 mt-2">
+                                <li><strong>सोनार (SONAR)</strong>: समुद्र की गहराई और वस्तुओं का पता लगाने के लिए।</li>
+                                <li><strong>चिकित्सा</strong>: अल्ट्रासाउंड स्कैनिंग में।</li>
+                                <li><strong>सफाई</strong>: मुश्किल से पहुँचने वाले भागों को साफ करने में।</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-button');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-tab');
+
+                tabs.forEach(t => t.classList.remove('tab-active'));
+                tab.classList.add('tab-active');
+
+                contentSections.forEach(section => {
+                    if (section.id === target) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

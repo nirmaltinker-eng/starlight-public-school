@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Starlight Public School</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .header {
+            background-color: #000000;
+            color: #FFD700;
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+        }
+        .logo-container {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 200px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        .nav {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding: 1.5rem 0;
+            border-top: 2px solid #FFD700;
+            border-bottom: 2px solid #FFD700;
+        }
+        .nav a {
+            color: #e0e0e0;
+            margin: 0 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            padding: 10px 0;
+        }
+        .nav a:hover {
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+        }
+        .nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #FFD700;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .nav a:hover::after {
+            transform: scaleX(1);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 20px;
+        }
+        .about-section, .features-section {
+            background: #222222;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        h2 {
+            font-size: 2.5rem;
+            color: #FFD700;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+        .about-content {
+            text-align: left;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .about-content h3 {
+            font-size: 1.8rem;
+            color: #FFD700;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .established-date {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+        }
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .feature-item {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            border: 2px solid transparent; /* For pulse effect */
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        }
+        .feature-icon-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* No more shining-line specific styles here */
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #FFD700;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            transition: transform 0.3s;
+        }
+        .feature-item:hover .feature-icon {
+            transform: scale(1.1);
+        }
+        /* New Pulse Animation CSS */
+        .pulse-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            border: 2px solid #FFD700;
+            box-sizing: border-box;
+            opacity: 0;
+            animation: pulse 3s infinite ease-out;
+        }
+        .feature-item:nth-child(2n) .pulse-border {
+            animation-delay: 0.5s; /* Stagger animation */
+        }
+        .feature-item:nth-child(3n) .pulse-border {
+            animation-delay: 1s; /* Stagger animation */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.9);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.02);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.9);
+                opacity: 0.7;
+            }
+        }
+        /* End New Pulse Animation CSS */
+
+        .feature-text {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-align: center;
+        }
+        .footer {
+            background-color: #000000;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="YOUR_LOGO_URL_HERE" alt="Starlight Public School Logo" class="logo">
+        </div>
+        <div>
+            <h1>Starlight Public School</h1>
+            <p>A place where dreams take flight.</p>
+        </div>
+    </header>
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="notes.html">Notes</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="staff.html">Staff</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="container">
+        <div class="about-section">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <p class="established-date">Established: 1991</p>
+                <p>Welcome to Starlight Public School, a premier institution dedicated to providing a nurturing and innovative learning environment for students. Since our founding in **1991**, we have been committed to academic excellence, character development, and fostering a love for lifelong learning.</p>
+                
+                <h3>Our Mission</h3>
+                <p>Our mission is to empower students to become confident, compassionate, and responsible global citizens. We strive to provide a balanced education that encourages intellectual curiosity, creativity, and critical thinking, preparing each student to meet the challenges of the future with integrity and resilience.</p>
+                
+                <h3>Our Vision</h3>
+                <p>We envision a community where every student is inspired to discover their unique potential and make a positive impact on the world. By maintaining high standards of education and promoting a culture of respect and empathy, we aim to be a beacon of light in our community, shaping the leaders of tomorrow.</p>
+            </div>
+        </div>
+        
+        <div class="features-section">
+            <h2>Our Facilities & Activities</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="pulse-border"></div>
+                    <div class="feature-icon-container">
+                        <div class="feature-icon" style="-webkit-mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_0'); mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_0');"></div>
+                    </div>
+                    <span class="feature-text">Smart Boards</span>
+                </div>
+                <div class="feature-item">
+                    <div class="pulse-border"></div>
+                    <div class="feature-icon-container">
+                        <div class="feature-icon" style="-webkit-mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_1'); mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_1');"></div>
+                    </div>
+                    <span class="feature-text">Wi-Fi Campus</span>
+                </div>
+                <div class="feature-item">
+                    <div class="pulse-border"></div>
+                    <div class="feature-icon-container">
+                        <div class="feature-icon" style="-webkit-mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_2'); mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_2');"></div>
+                    </div>
+                    <span class="feature-text">CCTV Surveillance</span>
+                </div>
+                <div class="feature-item">
+                    <div class="pulse-border"></div>
+                    <div class="feature-icon-container">
+                        <div class="feature-icon" style="-webkit-mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_3'); mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_3');"></div>
+                    </div>
+                    <span class="feature-text">Computer Labs</span>
+                </div>
+                <div class="feature-item">
+                    <div class="pulse-border"></div>
+                    <div class="feature-icon-container">
+                        <div class="feature-icon" style="-webkit-mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_4'); mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_4');"></div>
+                    </div>
+                    <span class="feature-text">Physical Activities</span>
+                </div>
+                <div class="feature-item">
+                    <div class="pulse-border"></div>
+                    <div class="feature-icon-container">
+                        <div class="feature-icon" style="-webkit-mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_5'); mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_5');"></div>
+                    </div>
+                    <span class="feature-text">Festival Celebrations</span>
+                </div>
+                <div class="feature-item">
+                    <div class="pulse-border"></div>
+                    <div class="feature-icon-container">
+                        <div class="feature-icon" style="-webkit-mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_7'); mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_7');"></div>
+                    </div>
+                    <span class="feature-text">Spoken English Classes</span>
+                </div>
+                <div class="feature-item">
+                    <div class="pulse-border"></div>
+                    <div class="feature-icon-container">
+                        <div class="feature-icon" style="-webkit-mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_8'); mask-image: url('https://googleusercontent.com/image_collection/image_retrieval/2070051886867084618_8');"></div>
+                    </div>
+                    <span class="feature-text">Handwriting Classes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+</body>
+</html>

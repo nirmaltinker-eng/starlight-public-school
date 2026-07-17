@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>हमारे आस-पास के पदार्थ - इंटरैक्टिव पाठ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: #f3f7e9;
+            color: #4b3e2a;
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        .nav-link.active {
+            color: #547748;
+            border-bottom-color: #547748;
+        }
+        .particle {
+            width: 12px;
+            height: 12px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        .process-arrow {
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .process-arrow:hover {
+            transform: scale(1.1);
+            color: #547748;
+        }
+        .chart-container {
+            position: relative; 
+            width: 100%; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+         /* Back Button Styling */
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #547748;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #e6eeda;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: #547748;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+        .header {
+            background-color: #ffffff;
+            color: #547748;
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+            color: #6a5a4b;
+        }
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 200px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        .footer {
+            background-color: #ffffff;
+            color: #6a5a4b;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="back-button-container">
+        <a class="back-button" href="9science-notes.html">
+            <span>&lt;</span> Back
+        </a>
+    </div>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="YOUR_LOGO_URL_HERE" alt="Starlight Public School Logo" class="logo">
+        </div>
+        <h1 class="text-xl md:text-2xl font-bold text-blue-600">हमारे आस-पास के पदार्थ</h1>
+        <p>Starlight Public School</p>
+    </header>
+
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="hidden md:flex space-x-8 mx-auto">
+                    <a href="#parichay" class="nav-link text-gray-600 hover:text-blue-600 font-medium pb-1 border-b-2 border-transparent">परिचय</a>
+                    <a href="#avasthayein" class="nav-link text-gray-600 hover:text-blue-600 font-medium pb-1 border-b-2 border-transparent">पदार्थ की अवस्थाएँ</a>
+                    <a href="#parivartan" class="nav-link text-gray-600 hover:text-blue-600 font-medium pb-1 border-b-2 border-transparent">अवस्था में परिवर्तन</a>
+                    <a href="#vashpikaran" class="nav-link text-gray-600 hover:text-blue-600 font-medium pb-1 border-b-2 border-transparent">वाष्पीकरण</a>
+                </div>
+                 <div class="md:hidden">
+                    <select id="mobile-nav" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                        <option value="#parichay">परिचय</option>
+                        <option value="#avasthayein">अवस्थाएँ</option>
+                        <option value="#parivartan">परिवर्तन</option>
+                        <option value="#vashpikaran">वाष्पीकरण</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-8">
+
+        <section id="parichay" class="pt-16 -mt-16">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-700">पदार्थ का परिचय</h2>
+            <p class="max-w-3xl mx-auto text-center text-gray-600 mb-12">इस अनुभाग में हम जानेंगे कि पदार्थ क्या है और उसके कणों में क्या ख़ासियत होती है। यह हमारे चारों ओर की दुनिया को समझने का पहला कदम है।</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-blue-600">पदार्थ क्या है?</h3>
+                    <p class="mb-4">कोई भी वस्तु जो स्थान घेरती है और जिसका द्रव्यमान होता है, **पदार्थ** कहलाती है। हमारे चारों ओर की हर चीज़, जैसे हवा, पानी, पत्थर, बादल, और यहाँ तक कि हमारा शरीर भी, पदार्थ से बना है। पदार्थ बहुत छोटे-छोटे कणों से मिलकर बना होता है।</p>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="font-semibold">उदाहरण: <span class="font-normal">किताब, कुर्सी, दूध, ऑक्सीजन गैस।</span></p>
+                    </div>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-green-600">कणों की विशेषताएँ</h3>
+                    <ul class="space-y-3 list-inside">
+                        <li class="flex items-start"><span class="text-green-500 mr-2">✔</span><div>**रिक्त स्थान:** कणों के बीच खाली जगह होती है। (जैसे पानी में नमक का घुलना)</div></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2">✔</span><div>**निरंतर गतिशील:** कण हमेशा गति में रहते हैं। (जैसे अगरबत्ती की खुशबू फैलना)</div></li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2">✔</span><div>**आपसी आकर्षण:** कण एक-दूसरे को आकर्षित करते हैं। (जैसे पानी की धार का न टूटना)</div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-16 border-t border-gray-200">
+
+        <section id="avasthayein" class="pt-16 -mt-16">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-700">पदार्थ की अवस्थाएँ</h2>
+            <p class="max-w-3xl mx-auto text-center text-gray-600 mb-12">पदार्थ मुख्य रूप से तीन अवस्थाओं में पाया जाता है। आइए कणों की व्यवस्था के आधार पर उनकी तुलना करें और उनके गुणों को समझें।</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card p-6 text-center">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700">ठोस (Solid)</h3>
+                    <div class="relative w-40 h-40 mx-auto bg-gray-100 rounded-lg mb-4 flex items-center justify-center" id="solid-particles"></div>
+                    <ul class="text-left space-y-2">
+                        <li><strong>आकार:</strong> निश्चित</li>
+                        <li><strong>आयतन:</strong> निश्चित</li>
+                        <li><strong>कणों की स्थिति:</strong> बहुत पास-पास</li>
+                        <li><strong>उदाहरण:</strong> पत्थर, बर्फ, किताब</li>
+                    </ul>
+                </div>
+                <div class="card p-6 text-center">
+                    <h3 class="text-2xl font-bold mb-4 text-green-700">द्रव (Liquid)</h3>
+                    <div class="relative w-40 h-40 mx-auto bg-gray-100 rounded-lg mb-4 flex items-center justify-center" id="liquid-particles"></div>
+                    <ul class="text-left space-y-2">
+                        <li><strong>आकार:</strong> अनिश्चित</li>
+                        <li><strong>आयतन:</strong> निश्चित</li>
+                        <li><strong>कणों की स्थिति:</strong> थोड़ी दूर-दूर</li>
+                        <li><strong>उदाहरण:</strong> पानी, दूध, तेल</li>
+                    </ul>
+                </div>
+                <div class="card p-6 text-center">
+                    <h3 class="text-2xl font-bold mb-4 text-red-700">गैस (Gas)</h3>
+                    <div class="relative w-40 h-40 mx-auto bg-gray-100 rounded-lg mb-4 flex items-center justify-center" id="gas-particles"></div>
+                    <ul class="text-left space-y-2">
+                         <li><strong>आकार:</strong> अनिश्चित</li>
+                        <li><strong>आयतन:</strong> अनिश्चित</li>
+                        <li><strong>कणों की स्थिति:</strong> बहुत दूर-दूर</li>
+                        <li><strong>उदाहरण:</strong> हवा, भाप, ऑक्सीजन</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-16 border-t border-gray-200">
+
+        <section id="parivartan" class="pt-16 -mt-16">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-700">अवस्था में परिवर्तन</h2>
+            <p class="max-w-3xl mx-auto text-center text-gray-600 mb-12">पदार्थ की अवस्था स्थिर नहीं होती। तापमान या दाब बदलकर इसे एक अवस्था से दूसरी में बदला जा सकता है। नीचे दिए गए डायग्राम में प्रक्रियाओं पर क्लिक करके उनके बारे में जानें।</p>
+            
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-8">
+                <div class="w-full lg:w-1/2">
+                    <div class="card p-6 relative h-[400px] flex items-center justify-center">
+                        <div class="absolute top-8 text-center">
+                            <span class="text-xl font-bold p-3 bg-red-100 text-red-700 rounded-lg">गैस</span>
+                        </div>
+                        <div class="absolute left-8 top-1/2 -translate-y-1/2 text-center">
+                           <span class="text-xl font-bold p-3 bg-blue-100 text-blue-700 rounded-lg">ठोस</span>
+                        </div>
+                        <div class="absolute right-8 top-1/2 -translate-y-1/2 text-center">
+                           <span class="text-xl font-bold p-3 bg-green-100 text-green-700 rounded-lg">द्रव</span>
+                        </div>
+                        
+                        <div class="absolute top-[28%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                            <div class="process-arrow" data-info="sanganan-info">
+                                <span>संघनन ↓</span>
+                            </div>
+                            <div class="process-arrow" data-info="vashpan-info">
+                                <span>↑ वाष्पन</span>
+                            </div>
+                        </div>
+
+                         <div class="absolute bottom-[28%] left-1/2 -translate-x-1/2 translate-y-1/2 text-center">
+                             <div class="process-arrow" data-info="jamna-info">
+                                <span>← जमुना</span>
+                            </div>
+                             <div class="process-arrow" data-info="galan-info">
+                                <span>गलन →</span>
+                            </div>
+                        </div>
+
+                         <div class="absolute top-1/2 left-0 right-0 flex justify-between px-24">
+                           <div class="process-arrow" data-info="urdhvapatan-info"><span>ऊर्ध्वपातन ↗</span></div>
+                           <div class="process-arrow" data-info="nikshepan-info"><span>↙ निक्षेपण</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 card p-6" id="process-info-box">
+                    <h3 class="text-2xl font-bold text-blue-600 mb-3">प्रक्रिया की जानकारी</h3>
+                    <p class="text-gray-600">किसी प्रक्रिया (जैसे गलन, वाष्पन) पर क्लिक करें để उसकी परिभाषा और उदाहरण देखें।</p>
+                    <div id="galan-info" class="hidden process-info"><strong>गलन (Melting):</strong> वह प्रक्रिया जिसमें कोई ठोस पदार्थ गर्म करने पर द्रव में बदल जाता है। जिस तापमान पर यह होता है, उसे गलनांक कहते हैं। (उदाहरण: बर्फ का पानी बनना)</div>
+                    <div id="jamna-info" class="hidden process-info"><strong>जमुना (Freezing):</strong> वह प्रक्रिया जिसमें कोई द्रव ठंडा करने पर ठोस में बदल जाता है। (उदाहरण: पानी का बर्फ बनना)</div>
+                    <div id="vashpan-info" class="hidden process-info"><strong>वाष्पन (Boiling/Vaporization):</strong> वह प्रक्रिया जिसमें कोई द्रव गर्म करने पर गैस (वाष्प) में बदल जाता है। जिस तापमान पर यह होता है, उसे क्वथनांक कहते हैं। (उदाहरण: पानी का भाप बनना)</div>
+                    <div id="sanganan-info" class="hidden process-info"><strong>संघनन (Condensation):</strong> वह प्रक्रिया जिसमें कोई गैस ठंडा करने पर द्रव में बदल जाती है। (उदाहरण: ठंडे गिलास के बाहर पानी की बूंदें)</div>
+                    <div id="urdhvapatan-info" class="hidden process-info"><strong>ऊर्ध्वपातन (Sublimation):</strong> वह प्रक्रिया जिसमें कोई ठोस पदार्थ गर्म करने पर बिना द्रव में बदले सीधे गैस में बदल जाता है। (उदाहरण: कपूर का जलना)</div>
+                    <div id="nikshepan-info" class="hidden process-info"><strong>निक्षेपण (Deposition):</strong> वह प्रक्रिया जिसमें कोई गैस ठंडा करने पर बिना द्रव में बदले सीधे ठोस में बदल जाती है।</div>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-center mb-4 text-gray-700">गुप्त ऊष्मा को समझें</h3>
+                <p class="max-w-3xl mx-auto text-center text-gray-600 mb-8">जब पदार्थ की अवस्था बदलती है, तो तापमान स्थिर रहता है क्योंकि दी गई ऊष्मा कणों के बीच के आकर्षण बल को तोड़ने में खर्च हो जाती है। इसे गुप्त ऊष्मा कहते हैं। नीचे दिया गया चार्ट दिखाता है कि बर्फ को गर्म करने पर तापमान कैसे बदलता है।</p>
+                <div class="card p-4">
+                    <div class="chart-container">
+                        <canvas id="latentHeatChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <hr class="my-16 border-t border-gray-200">
+
+        <section id="vashpikaran" class="pt-16 -mt-16">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-700">वाष्पीकरण और शीतलन</h2>
+            <p class="max-w-3xl mx-auto text-center text-gray-600 mb-12">वाष्पीकरण क्वथनांक से कम तापमान पर द्रव के वाष्प में बदलने की प्रक्रिया है। यह हमारे दैनिक जीवन में महत्वपूर्ण भूमिका निभाता है, जैसे कपड़े सुखाना और शीतलता प्रदान करना।</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-600">वाष्पीकरण को प्रभावित करने वाले कारक</h3>
+                    <p class="mb-4">नीचे दिए गए बटनों पर क्लिक करके देखें कि वाष्पीकरण की दर कैसे बदलती है।</p>
+                    <div class="space-y-3 mb-4">
+                        <div class="flex items-center justify-between">
+                            <label>सतह का क्षेत्रफल:</label>
+                            <div>
+                                <button class="factor-btn px-3 py-1 bg-gray-200 rounded" data-factor="surface" data-change="decrease">घटाएँ</button>
+                                <button class="factor-btn px-3 py-1 bg-gray-200 rounded" data-factor="surface" data-change="increase">बढ़ाएँ</button>
+                            </div>
+                        </div>
+                         <div class="flex items-center justify-between">
+                            <label>तापमान:</label>
+                            <div>
+                                <button class="factor-btn px-3 py-1 bg-gray-200 rounded" data-factor="temp" data-change="decrease">घटाएँ</button>
+                                <button class="factor-btn px-3 py-1 bg-gray-200 rounded" data-factor="temp" data-change="increase">बढ़ाएँ</button>
+                            </div>
+                        </div>
+                         <div class="flex items-center justify-between">
+                            <label>हवा की गति:</label>
+                            <div>
+                                <button class="factor-btn px-3 py-1 bg-gray-200 rounded" data-factor="wind" data-change="decrease">घटाएँ</button>
+                                <button class="factor-btn px-3 py-1 bg-gray-200 rounded" data-factor="wind" data-change="increase">बढ़ाएँ</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="evaporation-result" class="p-4 bg-blue-50 rounded-lg text-center font-semibold text-blue-800">
+                        वाष्पीकरण की दर सामान्य है।
+                    </div>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-green-600">वाष्पीकरण से शीतलन</h3>
+                    <p class="mb-4">जब वाष्पीकरण होता है, तो द्रव के कण अपने आस-पास से ऊर्जा सोख लेते हैं, जिससे सतह ठंडी हो जाती है। इसे वाष्पीकरण के कारण शीतलन कहते हैं।</p>
+                    <ul class="space-y-2 list-disc list-inside">
+                        <li>गर्मियों में घड़े का पानी ठंडा होना।</li>
+                        <li>हथेली पर एसीटोन रखने पर ठंडक महसूस होना।</li>
+                        <li>पसीना सूखने पर शरीर का ठंडा महसूस होना।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Particle Simulations
+    function createParticles(containerId, count, isGas = false) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        for (let i = 0; i < count; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            let top, left;
+            if (isGas) {
+                top = Math.random() * 90 + '%';
+                left = Math.random() * 90 + '%';
+            } else if (containerId === 'liquid-particles') {
+                 top = Math.random() * 50 + 40 + '%';
+                 left = Math.random() * 80 + 10 + '%';
+            } else {
+                 top = Math.floor(i / 5) * 20 + 45 + 'px';
+                 left = (i % 5) * 20 + 35 + 'px';
+            }
+            particle.style.top = top;
+            particle.style.left = left;
+            container.appendChild(particle);
+        }
+    }
+    createParticles('solid-particles', 25);
+    createParticles('liquid-particles', 20);
+    createParticles('gas-particles', 15, true);
+
+    // Process Info Interaction
+    const processArrows = document.querySelectorAll('.process-arrow');
+    const infoBox = document.getElementById('process-info-box');
+    const allInfoDivs = document.querySelectorAll('.process-info');
+
+    processArrows.forEach(arrow => {
+        arrow.addEventListener('click', () => {
+            const infoId = arrow.dataset.info;
+            const targetInfo = document.getElementById(infoId);
+            
+            infoBox.querySelector('h3').textContent = arrow.textContent.replace(/[\u2190-\u2199]/g, '').trim();
+            infoBox.querySelector('p').style.display = 'none';
+
+            allInfoDivs.forEach(div => div.classList.add('hidden'));
+            if(targetInfo) {
+                targetInfo.classList.remove('hidden');
+            }
+        });
+    });
+
+    // Latent Heat Chart
+    const ctx = document.getElementById('latentHeatChart').getContext('2d');
+    const latentHeatChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['ऊष्मा दी गई →', 'बर्फ पिघल रही है', 'पानी गर्म हो रहा है', 'पानी उबल रहा है', 'भाप गर्म हो रही है'],
+            datasets: [{
+                label: 'तापमान (°C)',
+                data: [0, 0, 100, 100, 120],
+                borderColor: '#3b82f6',
+                backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                tension: 0.1,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: { display: true, text: 'तापमान (°C)'}
+                },
+                x: {
+                   title: { display: true, text: 'दी गई ऊष्मा की मात्रा'}
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                label += context.parsed.y + '°C';
+                            }
+                            if (context.label === 'बर्फ पिघल रही है') return 'गुप्त ऊष्मा: बर्फ पानी में बदल रही है, तापमान स्थिर है।';
+                            if (context.label === 'पानी उबल रहा है') return 'गुप्त ऊष्मा: पानी भाप में बदल रहा है, तापमान स्थिर है।';
+                            return label;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Evaporation factors
+    const factorBtns = document.querySelectorAll('.factor-btn');
+    const resultDiv = document.getElementById('evaporation-result');
+    const factors = { surface: 1, temp: 1, wind: 1 };
+    
+    factorBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const factor = btn.dataset.factor;
+            const change = btn.dataset.change;
+
+            if (change === 'increase') factors[factor]++;
+            if (change === 'decrease' && factors[factor] > 0) factors[factor]--;
+
+            const totalScore = factors.surface + factors.temp + factors.wind;
+
+            if (totalScore > 6) {
+                resultDiv.textContent = 'वाष्पीकरण की दर बहुत तेज़ है।';
+                resultDiv.className = 'p-4 bg-red-50 rounded-lg text-center font-semibold text-red-800';
+            } else if (totalScore > 3) {
+                resultDiv.textContent = 'वाष्पीकरण की दर तेज़ है।';
+                resultDiv.className = 'p-4 bg-green-50 rounded-lg text-center font-semibold text-green-800';
+            } else if (totalScore > 1) {
+                resultDiv.textContent = 'वाष्पीकरण की दर सामान्य है।';
+                resultDiv.className = 'p-4 bg-blue-50 rounded-lg text-center font-semibold text-blue-800';
+            } else {
+                 resultDiv.textContent = 'वाष्पीकरण की दर धीमी है।';
+                 resultDiv.className = 'p-4 bg-gray-100 rounded-lg text-center font-semibold text-gray-800';
+            }
+        });
+    });
+
+    // Navigation scroll
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 68) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+    
+    // Mobile Navigation
+    const mobileNav = document.getElementById('mobile-nav');
+    mobileNav.addEventListener('change', (e) => {
+        const targetId = e.target.value;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>

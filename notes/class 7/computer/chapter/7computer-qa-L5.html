@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RBSE कक्षा 7 | कंप्यूटर अध्याय 5: C प्रोग्रामिंग भाषा</title>
+    <!-- Custom CSS based on 'Starlight Public School' theme -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f7e9; /* Soft, light green background */
+            color: #4b3e2a; /* Dark brown text for an earthy feel */
+        }
+        .header {
+            background-color: #ffffff;
+            color: #547748; /* Natural green accent color */
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem; /* Reduced size for better fit */
+            letter-spacing: 1px;
+        }
+        .header h2 {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem; /* Reduced size */
+            width: 100%;
+            color: #6a5a4b;
+        }
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 100px; /* Adjusted size for better fit with the header */
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Back Button Styling */
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #547748; 
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #e6eeda; 
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: #547748;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 20px;
+        }
+        .content-section {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .content-section h3 {
+            font-size: 1.75rem;
+            color: #3b573a; /* Darker green for headings */
+            border-bottom: 2px solid #547748;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* --- Q&A Block Styling --- */
+        .qa-container {
+            margin-top: 1.5rem;
+        }
+        .qa-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background-color: #f9fdf5; /* Light background for the block */
+            border: 1px solid #d4e0b8; /* Light green border */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .question-header {
+            font-size: 1.15rem;
+            color: #547748; /* Accent green for the question */
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px dashed #d4e0b8;
+            padding-bottom: 0.5rem;
+        }
+        .answer-body {
+            font-size: 1.05rem;
+            color: #4b3e2a; 
+            line-height: 1.6;
+            padding-top: 0.5rem;
+        }
+        .qa-item:nth-child(even) {
+            background-color: #ffffff; /* Alternate background for better visual separation */
+        }
+        .code-block {
+            background-color: #4b3e2a;
+            color: #e6eeda;
+            padding: 10px 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+        .table-responsive {
+            margin-top: 15px;
+            overflow-x: auto;
+        }
+        .operator-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+            text-align: left;
+        }
+        .operator-table th, .operator-table td {
+            padding: 12px 15px;
+            border: 1px solid #d4e0b8;
+        }
+        .operator-table th {
+            background-color: #547748;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .operator-table tr:nth-child(even) {
+            background-color: #f0f5e8;
+        }
+        /* --- End Q&A Block Styling --- */
+        
+        /* List Styling */
+        ol, ul {
+            list-style-type: decimal;
+            padding-left: 20px;
+            margin-top: 1rem;
+        }
+        ol li, ul li {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        ul.tf-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        /* True/False Styling */
+        .tf-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e6eeda;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tf-list li:last-child {
+            border-bottom: none;
+        }
+        .tf-result-true {
+            color: #3b573a; /* Dark green for True */
+            font-weight: 700;
+        }
+        .tf-result-false {
+            color: #9f3a3a; /* Dark red for False */
+            font-weight: 700;
+        }
+
+        .footer {
+            background-color: #ffffff;
+            color: #6a5a4b;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        .flowchart-symbol {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-left: 3px solid #547748;
+            background-color: #e6eeda;
+            border-radius: 5px;
+        }
+        .flowchart-symbol strong {
+            display: inline-block;
+            min-width: 120px;
+            color: #3b573a;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Back Button HTML from the Starlight Theme -->
+<div class="back-button-container">
+    <a class="back-button" href="#">
+        <span>&lt;</span> Back
+    </a>
+</div>
+
+<header class="header">
+    <!-- Logo Container added here -->
+    <div class="logo-container">
+        <img src="https://placehold.co/100x100/547748/ffffff?text=SPS+Logo" alt="School Logo" class="logo" onerror="this.onerror=null;this.src='https://placehold.co/100x100/547748/ffffff?text=SPS+Logo';">
+    </div>
+    <h1>💻 कंप्यूटर</h1>
+    <h2>अध्याय 5: 'C' प्रोग्रामिंग भाषा (RBSE कक्षा 7)</h2>
+</header>
+
+<div class="container">
+    
+    <!-- Section 1: Fill in the Blanks (क) -->
+    <div class="content-section">
+        <h3>1. रिक्त स्थानों की पूर्ति कीजिए (Fill in the Blanks)</h3>
+        <div class="qa-container">
+            <ol>
+                <li><span class="font-bold" style="color:#547748;">F2</span> को प्रेस करके प्रोग्राम सेव किया जाता है।</li>
+                <li>'C' भाषा का केस <span class="font-bold" style="color:#547748;">केस सेंसिटिव</span> है।</li>
+                <li>'C' के कंपाइलर को <span class="font-bold" style="color:#547748;">टर्बो सी</span> के नाम से जाना जाता है।</li>
+                <li>'C' भाषा सन् <span class="font-bold" style="color:#547748;">1972</span> में विकसित हुई थी।</li>
+                <li><span class="font-bold" style="color:#547748;">Alt+F5</span> प्रेस करके आउटपुट देखा जाता है।</li>
+                <li>'C' भाषा <span class="font-bold" style="color:#547748;">डेनिस रिची</span> द्वारा लिखी गई है।</li>
+            </ol>
+        </div>
+    </div>
+    
+    <!-- Section 2: True/False (ख) -->
+    <div class="content-section">
+        <h3>2. सही कथन के सामने 'सत्य' तथा गलत कथन के सामने 'असत्य' लिखिए (True/False)</h3>
+        <ul class="tf-list">
+            <li>
+                <span>1. /* और */ को प्राथमिकता दी जाती है।</span>
+                <span class="tf-result-false">असत्य (X)</span>
+            </li>
+            <li>
+                <span>2. 'C' एक उच्च-स्तरीय प्रोग्रामिंग भाषा है।</span>
+                <span class="tf-result-true">सत्य ($\checkmark$)</span>
+            </li>
+            <li>
+                <span>3. दो वेरिएबल को इंटरचेंज नहीं कर सकते हैं।</span>
+                <span class="tf-result-false">असत्य (X)</span>
+            </li>
+            <li>
+                <span>4. Leap Year चार साल में एक बार आता है।</span>
+                <span class="tf-result-true">सत्य ($\checkmark$)</span>
+            </li>
+            <li>
+                <span>5. A-Z की ASCII Value 65-90 है।</span>
+                <span class="tf-result-true">सत्य ($\checkmark$)</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Section 3: Question-Answer (ग) -->
+    <div class="content-section">
+        <h3>3. निम्नलिखित प्रश्नों के उत्तर लिखिए (Question-Answer)</h3>
+        
+        <div class="qa-container">
+            <!-- Q1: 'C' भाषा से आप क्या समझते हैं? -->
+            <div class="qa-item">
+                <p class="question-header">1. प्रश्न: 'C' भाषा से आप क्या समझते हैं?</p>
+                <p class="answer-body">उत्तर: 'C' एक **उच्च-स्तरीय (High-Level) प्रोग्रामिंग भाषा** है। इसका विकास **डेनिस रिची (Dennis Ritchie)** ने **1972** में **बेल लेबोरेटरीज (Bell Laboratories)** में किया था। यह अपनी दक्षता (Efficiency) और प्रोग्रामिंग में व्यापक उपयोग के कारण बहुत लोकप्रिय है। इसे पुराने भाषाओं जैसे- FORTRAN, ALGOL, PL/I की तुलना में अधिक महत्त्व दिया गया था।</p>
+            </div>
+            
+            <!-- Q2: 'C' भाषा में प्रयोग होने वाले की वर्ड्स के नाम बताइए। -->
+            <div class="qa-item">
+                <p class="question-header">2. प्रश्न: 'C' भाषा में प्रयोग होने वाले की वर्ड्स के नाम बताइए।</p>
+                <p class="answer-body">उत्तर: 'C' भाषा में **32 की वर्ड्स (Keywords)** प्रयोग होते हैं, जिनमें से कुछ निम्नलिखित हैं:
+                <br><code>auto, break, case, const, continue, default, do, else, enum, extern, float, for, goto, if, int, long, register, return, short, signed, sizeof, static, struct, switch, typedef, union, unsigned, void, volatile, while.</code>
+                </p>
+            </div>
+
+            <!-- Q3: फ्लोचार्ट के चिन्ह समझाइए। -->
+            <div class="qa-item">
+                <p class="question-header">3. प्रश्न: फ्लोचार्ट के चिन्ह समझाइए।</p>
+                <p class="answer-body">उत्तर: फ्लोचार्ट (Flowchart) किसी प्रोग्राम की तार्किक प्रक्रिया को ग्राफ़िक रूप से दर्शाने के लिए इस्तेमाल किए जाने वाले आरेख (Diagram) होते हैं। इसमें विभिन्न कार्यों को दर्शाने के लिए विशिष्ट चिन्हों (Symbols) का उपयोग किया जाता है:
+                <div class="flowchart-symbol"><strong>आरंभ/समाप्ति (Start/End)</strong>: अंडाकार (Oval) $\to$ प्रोग्राम शुरू या समाप्त करना।</div>
+                <div class="flowchart-symbol"><strong>इनपुट/आउटपुट (I/O)</strong>: समानांतर चतुर्भुज (Parallelogram) $\to$ डेटा पढ़ना या परिणाम प्रिंट करना।</div>
+                <div class="flowchart-symbol"><strong>प्रक्रिया/संसाधन (Process)</strong>: आयत (Rectangle) $\to$ गणनाएँ (Calculations) या डेटा प्रोसेसिंग।</div>
+                <div class="flowchart-symbol"><strong>निर्णय (Decision)</strong>: हीरा/समचतुर्भुज (Diamond) $\to$ शर्त (Condition) की जाँच करना (हाँ/नहीं, सत्य/असत्य)।</div>
+                <div class="flowchart-symbol"><strong>प्रवाह रेखाएँ (Flow Lines)</strong>: तीर (Arrows) $\to$ निर्देशों के क्रम (Flow of Control) को दर्शाना।</div>
+                </p>
+            </div>
+            
+            <!-- Q4: इंटरचेंज का प्रोग्राम किस प्रकार बनेगा? -->
+            <div class="qa-item">
+                <p class="question-header">4. प्रश्न: इंटरचेंज (Swapping) का प्रोग्राम किस प्रकार बनेगा?</p>
+                <p class="answer-body">उत्तर: इंटरचेंज (Swapping) प्रोग्राम दो वेरिएबल के मानों को आपस में बदलने के लिए एक **तीसरे अस्थायी वेरिएबल (temp)** का उपयोग करता है।
+                <br>C भाषा में इसका प्रोग्राम (Swap two numbers using a temporary variable) इस प्रकार बनेगा:
+                <div class="code-block">
+                    #include &lt;stdio.h&gt;<br>
+                    int main() {<br>
+                    &nbsp; &nbsp; int a = 10;<br>
+                    &nbsp; &nbsp; int b = 20;<br>
+                    &nbsp; &nbsp; int temp;<br><br>
+                    &nbsp; &nbsp; printf("स्वैप से पहले: a = %d, b = %d\n", a, b);<br><br>
+                    &nbsp; &nbsp; // इंटरचेंज (Swapping) लॉजिक<br>
+                    &nbsp; &nbsp; temp = a; // a का मान temp में रखें<br>
+                    &nbsp; &nbsp; a = b;    // b का मान a में रखें<br>
+                    &nbsp; &nbsp; b = temp; // temp (पुराना a) का मान b में रखें<br><br>
+                    &nbsp; &nbsp; printf("स्वैप के बाद: a = %d, b = %d\n", a, b);<br>
+                    &nbsp; &nbsp; return 0;<br>
+                    }
+                </div>
+                </p>
+            </div>
+            
+            <!-- Q5: लीप ईयर के प्रोग्राम को भाषा एवं फ्लो चार्ट से समझाइए। -->
+            <div class="qa-item">
+                <p class="question-header">5. प्रश्न: लीप ईयर (Leap Year) के प्रोग्राम को भाषा एवं फ्लो चार्ट से समझाइए।</p>
+                <p class="answer-body">उत्तर: वह वर्ष जो **4 से पूरी तरह विभाज्य** हो, लेकिन **100 से विभाज्य न हो**, या वह वर्ष जो **400 से विभाज्य** हो, लीप वर्ष कहलाता है।
+                <br>इसकी प्रोग्रामिंग के लिए सशर्त ब्रांचिंग (IF-ELSE) का उपयोग किया जाता है।
+                <br><span class="font-bold" style="color:#547748;">'C' प्रोग्रामिंग कोड:</span>
+                <div class="code-block">
+                    #include &lt;stdio.h.gt;<br>
+                    int main() {<br>
+                    &nbsp; &nbsp; int year = 2024;<br>
+                    &nbsp; &nbsp; // लीप वर्ष की शर्त (Logic for Leap Year)<br>
+                    &nbsp; &nbsp; if ( (year % 4 == 0 &amp;&amp; year % 100 != 0) || year % 400 == 0 ) {<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; printf("%d लीप वर्ष है।\n", year);<br>
+                    &nbsp; &nbsp; } else {<br>
+                    &nbsp; &nbsp; &nbsp; &nbsp; printf("%d लीप वर्ष नहीं है।\n", year);<br>
+                    &nbsp; &nbsp; }<br>
+                    &nbsp; &nbsp; return 0;<br>
+                    }
+                </div>
+                <span class="font-bold" style="color:#547748;">फ्लोचार्ट (Flowchart) लॉजिक:</span>
+                <br>• &nbsp; **आरंभ** $\to$ वर्ष को **इनपुट** करें $\to$ **निर्णय 1:** क्या वर्ष 4 से विभाज्य है? (हाँ/नहीं) $\to$ यदि हाँ, **निर्णय 2:** क्या वर्ष 100 से विभाज्य है? $\to$ यदि नहीं, तो **"लीप वर्ष"** प्रिंट करें $\to$ यदि हाँ (निर्णय 2 में), **निर्णय 3:** क्या वर्ष 400 से विभाज्य है? $\to$ यदि हाँ, तो **"लीप वर्ष"** प्रिंट करें $\to$ अंत में **समाप्ति**।
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<footer class="footer">
+    <!-- Footer structure from the Starlight Theme -->
+    <p>© 2025 Computer Notes | Inspired by Starlight Theme.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 8 General Knowledge - Starlight Public School</title>
+    <style>
+        /* --- General Styling --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #121212; color: #e0e0e0; }
+        .header { background-color: #000000; color: #FFD700; padding: 3rem 0; text-align: center; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); }
+        .header h1 { margin: 0; font-size: 3.5rem; letter-spacing: 2px; }
+        .nav { background-color: #1a1a1a; text-align: center; padding: 1.5rem 0; border-top: 2px solid #FFD700; border-bottom: 2px solid #FFD700; }
+        .nav a { color: #e0e0e0; margin: 0 2rem; text-decoration: none; font-weight: bold; font-size: 1.5rem; transition: all 0.4s ease; position: relative; padding: 10px 0; }
+        .nav a:hover { color: #FFD700; text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700; }
+        .nav a::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background: #FFD700; transform: scaleX(0); transition: transform 0.4s ease; }
+        .nav a:hover::after { transform: scaleX(1); }
+        .container { width: 90%; max-width: 1200px; margin: 3rem auto; padding: 20px; }
+        .notes-section { background: #222222; padding: 3rem; margin-bottom: 3rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); text-align: center; }
+        .notes-section > h2 { 
+            font-size: 2.5rem; 
+            color: #FFD700; 
+            border-bottom: 2px solid #FFD700; 
+            padding-bottom: 1rem; 
+            margin-bottom: 2rem; 
+            display: inline-block; 
+            text-align: center;
+        }
+        .footer { background-color: #000000; color: #e0e0e0; text-align: center; padding: 2rem 0; margin-top: 3rem; }
+        .footer p { margin: 0; font-size: 1rem; }
+
+        /* --- GK Specific Styling --- */
+        .content-wrapper { text-align: left; }
+        .content-wrapper h3 { font-size: 1.8rem; color: #FFD700; margin-top: 2rem; border-left: 5px solid #FFD700; padding-left: 10px; }
+        .info-card { 
+            background: #333333; 
+            padding: 1.5rem; 
+            border-radius: 8px; 
+            margin: 1.5rem 0; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .info-card strong { color: #ffffff; }
+        
+        /* New: Grouped Leader Cards */
+        .leader-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .leader-card {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #FFD70033;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .leader-card .role {
+            font-size: 1.2rem;
+            color: #FFD700;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .leader-card .name {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+
+        /* --- Map Image Styling --- */
+        .map-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            margin: 20px auto;
+            display: block; /* Ensures it respects the margins and sizing */
+        }
+
+        /* --- Table Styling (Responsive & Aesthetic) --- */
+        .table-responsive { overflow-x: auto; width: 100%; margin-top: 20px; }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 0;
+            font-size: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #FFD700;
+            color: #000000;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        tr.state-row:nth-child(even) { background-color: #2a2a2a; }
+        tr.state-row:nth-child(odd) { background-color: #333333; }
+        tr.state-row:hover { background-color: #444444; transition: background-color 0.3s ease; }
+        .ut-header { background-color: #555; color: #FFD700; font-style: italic; font-weight: bold; }
+        .state-header { background-color: #444; color: #fff; font-weight: bold; }
+        
+        /* Q&A Card Styling */
+        .qa-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 20px; 
+            margin-top: 20px;
+        }
+        .qa-card {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #FFD700;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .qa-card p { margin: 0 0 10px 0; line-height: 1.6; }
+        .qa-card strong { color: #FFD700; font-size: 1.1rem; display: block; margin-bottom: 5px;}
+        .qa-card .answer { color: #aaa; }
+        .qa-card .detail { color: #888; font-size: 0.95rem; margin-top: 5px; }
+
+
+        /* Structure Table Specific Styling */
+        .structure-table th { background-color: #555; color: #FFD700; }
+        .structure-table tr:nth-child(even) td { background-color: #383838; }
+        .structure-table tr:nth-child(odd) td { background-color: #424242; }
+
+        /* Solar System Table Styling */
+        .solar-system-table th { background-color: #333355; color: #ffffff; }
+        .solar-system-table td { background-color: #1e1e1e; border-bottom: 1px solid #444; }
+        .solar-system-table tr:nth-child(even) td { background-color: #2a2a2a; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5rem; }
+            .nav a { margin: 0 1rem; font-size: 1.2rem; }
+            .notes-section { padding: 2rem; }
+            .notes-section > h2 { font-size: 2rem; }
+            .content-wrapper h3 { font-size: 1.5rem; }
+            th, td { padding: 10px 8px; font-size: 0.85rem; }
+            .qa-grid { grid-template-columns: 1fr; }
+            .leader-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Starlight Public School</h1>
+    </header>
+    <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="class-8-notes.html">Notes</a>
+        <a href="../gallery.html">Gallery</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About Us</a>
+        <a href="../contact.html">Contact Us</a>
+    </nav>
+    <div class="container">
+        <div class="notes-section">
+            <h2>Class 8 General Knowledge (सामान्य ज्ञान)</h2>
+            <div class="content-wrapper">
+                <p>Welcome to the General Knowledge section! Learn about the current leadership, political structure, geography, and general facts about India and the World.</p>
+
+                <!-- 1. Key Leaders of India Section -->
+                <h3>1. Key Leaders of India (भारत के प्रमुख नेता)</h3>
+                <div class="leader-grid">
+                    <!-- President -->
+                    <div class="leader-card">
+                        <div class="role">President (राष्ट्रपति)</div>
+                        <div class="name">Smt. Droupadi Murmu</div>
+                    </div>
+                    <!-- Vice President -->
+                    <div class="leader-card">
+                        <div class="role">Vice President (उपराष्ट्रपति)</div>
+                        <div class="name">Shri Jagdeep Dhankhar</div>
+                    </div>
+                    <!-- Prime Minister -->
+                    <div class="leader-card">
+                        <div class="role">Prime Minister (प्रधान मंत्री)</div>
+                        <div class="name">Shri Narendra Modi</div>
+                    </div>
+                    <!-- Chief Justice of India -->
+                    <div class="leader-card">
+                        <div class="role">Chief Justice of India (भारत के मुख्य न्यायाधीश)</div>
+                        <div class="name">Justice Dr. D.Y. Chandrachud</div>
+                    </div>
+                    <!-- Finance Minister -->
+                    <div class="leader-card">
+                        <div class="role">Finance Minister (वित्त मंत्री)</div>
+                        <div class="name">Smt. Nirmala Sitharaman</div>
+                    </div>
+                    <!-- Foreign Minister -->
+                    <div class="leader-card">
+                        <div class="role">Foreign Minister (विदेश मंत्री)</div>
+                        <div class="name">Dr. S. Jaishankar</div>
+                    </div>
+                     <!-- RBI Governor -->
+                    <div class="leader-card">
+                        <div class="role">Governor, RBI (आरबीआई के गवर्नर)</div>
+                        <div class="name">Shri Shaktikanta Das</div>
+                    </div>
+                </div>
+
+                <!-- NOTE on State Governors/CMs -->
+                <div class="info-card" style="margin-top: 2rem;">
+                    <strong>Note on State Leaders (राज्य के नेताओं पर ध्यान दें):</strong>
+                    <p>India has 28 states, each with its own Governor (राज्यपाल) and Chief Minister (मुख्यमंत्री). It is best to learn the names for **your specific state** for local general knowledge, as the national GK list only includes central government leaders.</p>
+                </div>
+
+
+                <!-- 2. Map of India Section -->
+                <h3>2. Map of India: States and Capitals (भारत का मानचित्र: राज्य और राजधानियाँ)</h3>
+                <div class="info-card" style="padding: 1rem;">
+                    <!-- Inserted HD India Map -->
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/14794913150675342446" alt="Colorful political map of India showing all states and their capital cities." class="map-image">
+                </div>
+
+                <!-- 3. Complete Capitals List -->
+                <h3>3. Complete List of States & Union Territories and Capitals (राज्य और केंद्र शासित प्रदेश की राजधानीयाँ)</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>S. No.</th>
+                                <th>Type</th>
+                                <th>Name (नाम)</th>
+                                <th>Capital City (राजधानी शहर)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- States (28) -->
+                            <tr class="state-header"><td colspan="4">States (28 States)</td></tr>
+                            <tr class="state-row"><td>1</td><td>State</td><td>Andhra Pradesh</td><td>Amaravati</td></tr>
+                            <tr class="state-row"><td>2</td><td>State</td><td>Arunachal Pradesh</td><td>Itanagar</td></tr>
+                            <tr class="state-row"><td>3</td><td>State</td><td>Assam</td><td>Dispur</td></tr>
+                            <tr class="state-row"><td>4</td><td>State</td><td>Bihar</td><td>Patna</td></tr>
+                            <tr class="state-row"><td>5</td><td>State</td><td>Chhattisgarh</td><td>Raipur</td></tr>
+                            <tr class="state-row"><td>6</td><td>State</td><td>Goa</td><td>Panaji</td></tr>
+                            <tr class="state-row"><td>7</td><td>State</td><td>Gujarat</td><td>Gandhinagar</td></tr>
+                            <tr class="state-row"><td>8</td><td>State</td><td>Haryana</td><td>Chandigarh</td></tr>
+                            <tr class="state-row"><td>9</td><td>State</td><td>Himachal Pradesh</td><td>Shimla (Summer), Dharamshala (Winter)</td></tr>
+                            <tr class="state-row"><td>10</td><td>State</td><td>Jharkhand</td><td>Ranchi</td></tr>
+                            <tr class="state-row"><td>11</td><td>State</td><td>Karnataka</td><td>Bengaluru</td></tr>
+                            <tr class="state-row"><td>12</td><td>State</td><td>Kerala</td><td>Thiruvananthapuram</td></tr>
+                            <tr class="state-row"><td>13</td><td>State</td><td>Madhya Pradesh</td><td>Bhopal</td></tr>
+                            <tr class="state-row"><td>14</td><td>State</td><td>Maharashtra</td><td>Mumbai (Summer), Nagpur (Winter)</td></tr>
+                            <tr class="state-row"><td>15</td><td>State</td><td>Manipur</td><td>Imphal</td></tr>
+                            <tr class="state-row"><td>16</td><td>State</td><td>Meghalaya</td><td>Shillong</td></tr>
+                            <tr class="state-row"><td>17</td><td>State</td><td>Mizoram</td><td>Aizawl</td></tr>
+                            <tr class="state-row"><td>18</td><td>State</td><td>Nagaland</td><td>Kohima</td></tr>
+                            <tr class="state-row"><td>19</td><td>State</td><td>Odisha</td><td>Bhubaneswar</td></tr>
+                            <tr class="state-row"><td>20</td><td>State</td><td>Punjab</td><td>Chandigarh</td></tr>
+                            <tr class="state-row"><td>21</td><td>State</td><td>Rajasthan</td><td>Jaipur</td></tr>
+                            <tr class="state-row"><td>22</td><td>State</td><td>Sikkim</td><td>Gangtok</td></tr>
+                            <tr class="state-row"><td>23</td><td>State</td><td>Tamil Nadu</td><td>Chennai</td></tr>
+                            <tr class="state-row"><td>24</td><td>State</td><td>Telangana</td><td>Hyderabad</td></tr>
+                            <tr class="state-row"><td>25</td><td>State</td><td>Tripura</td><td>Agartala</td></tr>
+                            <tr class="state-row"><td>26</td><td>State</td><td>Uttar Pradesh</td><td>Lucknow</td></tr>
+                            <tr class="state-row"><td>27</td><td>State</td><td>Uttarakhand</td><td>Dehradun (Winter), Bhararisain (Summer)</td></tr>
+                            <tr class="state-row"><td>28</td><td>State</td><td>West Bengal</td><td>Kolkata</td></tr>
+
+                            <!-- Union Territories (8) -->
+                            <tr class="ut-header"><td colspan="4">Union Territories (8 UTs)</td></tr>
+                            <tr class="state-row"><td>1</td><td>UT</td><td>Andaman & Nicobar Islands</td><td>Port Blair</td></tr>
+                            <tr class="state-row"><td>2</td><td>UT</td><td>Chandigarh</td><td>Chandigarh</td></tr>
+                            <tr class="state-row"><td>3</td><td>UT</td><td>Dadra & Nagar Haveli and Daman & Diu</td><td>Daman</td></tr>
+                            <tr class="state-row"><td>4</td><td>UT</td><td>Delhi (National Capital Territory)</td><td>New Delhi</td></tr>
+                            <tr class="state-row"><td>5</td><td>UT</td><td>Jammu and Kashmir</td><td>Srinagar (Summer), Jammu (Winter)</td></tr>
+                            <tr class="state-row"><td>6</td><td>UT</td><td>Ladakh</td><td>Leh (Summer), Kargil (Winter)</td></tr>
+                            <tr class="state-row"><td>7</td><td>UT</td><td>Lakshadweep</td><td>Kavaratti</td></tr>
+                            <tr class="state-row"><td>8</td><td>UT</td><td>Puducherry</td><td>Puducherry</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 4. World Map Section -->
+                <h3>4. World Map: Continents and Oceans (विश्व का मानचित्र: महाद्वीप और महासागर)</h3>
+                <div class="info-card" style="padding: 1rem;">
+                    <!-- Inserted HD World Map -->
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/4865676491580828290" alt="Colorful world map illustrating the seven continents and five major oceans." class="map-image">
+                </div>
+
+                <!-- 5. General Q&A Section -->
+                <h3>5. General Knowledge Q&A (सामान्य ज्ञान प्रश्नोत्तर)</h3>
+                <div class="qa-grid">
+                    <!-- Q1 (Independence) -->
+                    <div class="qa-card">
+                        <strong>Q1. Question:</strong> When does India celebrate its Independence Day? (भारत अपना स्वतंत्रता दिवस कब मनाता है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> 15th August (15 अगस्त)</p>
+                    </div>
+                    <!-- Q2 (Republic Day) -->
+                    <div class="qa-card">
+                        <strong>Q2. Question:</strong> When is the Republic Day of India celebrated? (भारत का गणतंत्र दिवस कब मनाया जाता है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> 26th January (26 जनवरी)</p>
+                    </div>
+                    <!-- Q3 (Largest State by Area) -->
+                    <div class="qa-card">
+                        <strong>Q3. Question:</strong> Which state is the largest by area in India? (भारत में क्षेत्रफल की दृष्टि से सबसे बड़ा राज्य कौन सा है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Rajasthan (राजस्थान)</p>
+                    </div>
+                    <!-- Q4 (Largest State by Population) -->
+                    <div class="qa-card">
+                        <strong>Q4. Question:</strong> Which state has the largest population in India? (भारत में सबसे अधिक जनसंख्या वाला राज्य कौन सा है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Uttar Pradesh (उत्तर प्रदेश)</p>
+                    </div>
+                    <!-- Q5 (National Fruit) -->
+                    <div class="qa-card">
+                        <strong>Q5. Question:</strong> What is the National Fruit of India? (भारत का राष्ट्रीय फल क्या है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Mango (आम)</p>
+                    </div>
+                    <!-- Q6 (National Vegetable) -->
+                    <div class="qa-card">
+                        <strong>Q6. Question:</strong> What is the National Vegetable of India? (भारत की राष्ट्रीय सब्जी क्या है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Pumpkin (कद्दू)</p>
+                    </div>
+                    <!-- Q7 (Games) -->
+                    <div class="qa-card">
+                        <strong>Q7. Question:</strong> Which sport is associated with the term 'Googly'? (गूगली शब्द किस खेल से संबंधित है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Cricket (क्रिकेट) </p>
+                    </div>
+                    <!-- Q8 (Games/Personality) -->
+                    <div class="qa-card">
+                        <strong>Q8. Question:</strong> Who is known as the "Flying Sikh" of India? (भारत के "फ्लाइंग सिख" के नाम से किसे जाना जाता है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Milkha Singh (मिल्खा सिंह)</p>
+                    </div>
+                    <!-- Q9 (History) -->
+                    <div class="qa-card">
+                        <strong>Q9. Question:</strong> Which Mughal Emperor built the Red Fort in Delhi? (दिल्ली का लाल किला किस मुगल सम्राट ने बनवाया था?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Shah Jahan (शाहजहाँ)</p>
+                    </div>
+                    <!-- Q10 (Science) -->
+                    <div class="qa-card">
+                        <strong>Q10. Question:</strong> What is the chemical symbol for water? (पानी का रासायनिक सूत्र क्या है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> H₂O</p>
+                    </div>
+                    <!-- Q11 (General) -->
+                    <div class="qa-card">
+                        <strong>Q11. Question:</strong> What is the main source of energy for the Earth? (पृथ्वी के लिए ऊर्जा का मुख्य स्रोत क्या है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> The Sun (सूर्य) </p>
+                    </div>
+                     <!-- Q12 (General) -->
+                    <div class="qa-card">
+                        <strong>Q12. Question:</strong> How many spokes are there in the Ashok Chakra (Dharma Chakra) on the Indian Flag? (भारतीय ध्वज पर अशोक चक्र में कितनी तीलियाँ होती हैं?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> 24 (चौबीस)</p>
+                    </div>
+                    
+                    <!-- Q13 (Literature/History) -->
+                    <div class="qa-card">
+                        <strong>Q13. Question:</strong> Who is traditionally credited with writing the ancient Indian epic, the Ramayana? (प्राचीन भारतीय महाकाव्य, रामायण किसने लिखी?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Maharishi Valmiki (महर्षि वाल्मीकि)</p>
+                    </div>
+                    
+                    <!-- Q14 (National Symbols) -->
+                    <div class="qa-card">
+                        <strong>Q14. Question:</strong> Who composed the music and lyrics for India's National Anthem, "Jana Gana Mana"? (भारत का राष्ट्रगान, "जन गण मन" किसने लिखा और संगीतबद्ध किया?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Rabindranath Tagore (रवींद्रनाथ टैगोर)</p>
+                    </div>
+                    
+                    <!-- Q15 (Geography) -->
+                    <div class="qa-card">
+                        <strong>Q15. Question:</strong> Which is the oldest mountain range in India? (भारत की सबसे पुरानी पर्वत श्रृंखला कौन सी है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> The Aravalli Range (अरावली पर्वत श्रृंखला)</p>
+                    </div>
+                    
+                    <!-- Q16 (Planets) -->
+                    <div class="qa-card">
+                        <strong>Q16. Question:</strong> Which planet is known as the Red Planet? (किस ग्रह को लाल ग्रह के नाम से जाना जाता है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Mars (मंगल)</p>
+                    </div>
+                    
+                    <!-- Q17 (Invention) -->
+                    <div class="qa-card">
+                        <strong>Q17. Question:</strong> Who invented the telephone? (टेलीफोन का आविष्कार किसने किया था?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Alexander Graham Bell (अलेक्जेंडर ग्राहम बेल)</p>
+                    </div>
+                    
+                    <!-- Q18 (Civics/Constitution) -->
+                    <div class="qa-card">
+                        <strong>Q18. Question:</strong> When did the Indian Constitution come into effect? (भारतीय संविधान कब लागू हुआ था?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> January 26, 1950 (26 जनवरी, 1950)</p>
+                    </div>
+
+                    <!-- Q19 (Civics/Judiciary) -->
+                    <div class="qa-card">
+                        <strong>Q19. Question:</strong> What is the highest judicial body in India? (भारत में सर्वोच्च न्यायिक निकाय कौन सा है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Supreme Court (सुप्रीम कोर्ट)</p>
+                    </div>
+
+                    <!-- Q20 (Geography/Rivers) -->
+                    <div class="qa-card">
+                        <strong>Q20. Question:</strong> Which is the longest river in India? (भारत की सबसे लंबी नदी कौन सी है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Ganga (Ganges - गंगा)</p>
+                    </div>
+
+                    <!-- Q21 (History/Discovery) -->
+                    <div class="qa-card">
+                        <strong>Q21. Question:</strong> Who is credited with discovering the sea route to India? (भारत के लिए समुद्री मार्ग की खोज का श्रेय किसे दिया जाता है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Vasco da Gama (वास्को डी गामा)</p>
+                    </div>
+
+                    <!-- Q22 (Science/Plants) -->
+                    <div class="qa-card">
+                        <strong>Q22. Question:</strong> What gas do plants primarily absorb from the atmosphere? (पौधे मुख्य रूप से वायुमंडल से कौन सी गैस अवशोषित करते हैं?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Carbon Dioxide (कार्बन डाइऑक्साइड)</p>
+                    </div>
+
+                    <!-- Q23 (Civics/Voting) -->
+                    <div class="qa-card">
+                        <strong>Q23. Question:</strong> What is the minimum age required to vote in India? (भारत में वोट देने के लिए आवश्यक न्यूनतम आयु क्या है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> 18 years (18 वर्ष)</p>
+                    </div>
+                    
+                    <!-- Q24 (History/Geography) -->
+                    <div class="qa-card">
+                        <strong>Q24. Question:</strong> The famous Sanchi Stupa is located in which Indian state? (प्रसिद्ध सांची स्तूप भारत के किस राज्य में स्थित है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Madhya Pradesh (मध्य प्रदेश)</p>
+                    </div>
+                    
+                    <!-- Q25 (World Geography) -->
+                    <div class="qa-card">
+                        <strong>Q25. Question:</strong> Which country is known as the "Land of the Rising Sun"? (किस देश को "उगते सूरज की भूमि" के नाम से जाना जाता है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Japan (जापान)</p>
+                    </div>
+
+                    <!-- Q26 (World Rivers) -->
+                    <div class="qa-card">
+                        <strong>Q26. Question:</strong> Which is the longest river in the world? (दुनिया की सबसे लंबी नदी कौन सी है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> The Nile (नील नदी)</p>
+                    </div>
+
+                    <!-- Q27 (World Ocean) -->
+                    <div class="qa-card">
+                        <strong>Q27. Question:</strong> Which is the largest and deepest ocean on Earth? (पृथ्वी पर सबसे बड़ा और सबसे गहरा महासागर कौन सा है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Pacific Ocean (प्रशांत महासागर)</p>
+                    </div>
+
+                    <!-- Q28 (World Mountain) -->
+                    <div class="qa-card">
+                        <strong>Q28. Question:</strong> Which is the highest mountain peak in the world? (दुनिया की सबसे ऊंची पर्वत चोटी कौन सी है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Mount Everest (माउंट एवरेस्ट)</p>
+                    </div>
+
+                    <!-- Q29 (Science/Elements) -->
+                    <div class="qa-card">
+                        <strong>Q29. Question:</strong> Which element is essential for respiration in all living organisms? (सभी जीवित जीवों में श्वसन के लिए कौन सा तत्व आवश्यक है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Oxygen (ऑक्सीजन)</p>
+                    </div>
+
+                    <!-- Q30 (Sports/Olympics) -->
+                    <div class="qa-card">
+                        <strong>Q30. Question:</strong> Where were the first modern Olympic Games held? (पहले आधुनिक ओलंपिक खेल कहाँ आयोजित हुए थे?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Athens, Greece (एथेंस, ग्रीस)</p>
+                    </div>
+
+                    <!-- Q31 (Computer/IT) -->
+                    <div class="qa-card">
+                        <strong>Q31. Question:</strong> Who is known as the father of computers? (कंप्यूटर का जनक किसे कहा जाता है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Charles Babbage (चार्ल्स बैबेज)</p>
+                    </div>
+
+                    <!-- Q32 (Indian History/Dynasty) -->
+                    <div class="qa-card">
+                        <strong>Q32. Question:</strong> Who founded the Maurya Empire in ancient India? (प्राचीन भारत में मौर्य साम्राज्य की स्थापना किसने की थी?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Chandragupta Maurya (चंद्रगुप्त मौर्य)</p>
+                    </div>
+
+                    <!-- Q33 (Science/Disease - ENHANCED) -->
+                    <div class="qa-card">
+                        <strong>Q33. Question:</strong> Deficiency of which vitamin causes the disease 'Scurvy'? (किस विटामिन की कमी से 'स्कर्वी' रोग होता है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> **Vitamin C (विटामिन सी)**</p>
+                        <p class="detail">**Detail:** Scurvy is characterized by fatigue, swollen and bleeding gums, and joint pain. Vitamin C, found in citrus fruits, is necessary for making collagen.</p>
+                    </div>
+                    
+                    <!-- Q34 (World Capital) -->
+                    <div class="qa-card">
+                        <strong>Q34. Question:</strong> What is the capital city of Australia? (ऑस्ट्रेलिया की राजधानी क्या है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Canberra (कैनबरा)</p>
+                    </div>
+                    
+                    <!-- Q35 (Indian Geography/Southern Tip) -->
+                    <div class="qa-card">
+                        <strong>Q35. Question:</strong> What is the southernmost tip of the Indian mainland? (भारतीय मुख्य भूमि का सबसे दक्षिणी सिरा क्या है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Kanyakumari (कन्याकुमारी)</p>
+                    </div>
+                    
+                    <!-- Q36 (Indian Science) -->
+                    <div class="qa-card">
+                        <strong>Q36. Question:</strong> Who was the first Indian to go into space? (अंतरिक्ष में जाने वाले पहले भारतीय कौन थे?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Rakesh Sharma (राकेश शर्मा)</p>
+                    </div>
+                    
+                    <!-- Q37 (Chemistry/Metal) -->
+                    <div class="qa-card">
+                        <strong>Q37. Question:</strong> Which metal is the best conductor of electricity? (बिजली का सबसे अच्छा संवाहक कौन सी धातु है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Silver (चांदी)</p>
+                    </div>
+                    
+                    <!-- Q38 (Environment) -->
+                    <div class="qa-card">
+                        <strong>Q38. Question:</strong> What layer of the atmosphere protects Earth from harmful UV radiation? (वायुमंडल की कौन सी परत पृथ्वी को हानिकारक यूवी विकिरण से बचाती है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Ozone Layer (ओजोन परत)</p>
+                    </div>
+                    
+                    <!-- Q39 (Literature/Author) -->
+                    <div class="qa-card">
+                        <strong>Q39. Question:</strong> Who wrote the famous book 'The Jungle Book'? (प्रसिद्ध पुस्तक 'द जंगल बुक' किसने लिखी थी?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Rudyard Kipling (रुडयार्ड किपलिंग)</p>
+                    </div>
+                    
+                    <!-- Q40 (Economy) -->
+                    <div class="qa-card">
+                        <strong>Q40. Question:</strong> Where is the headquarters of the Reserve Bank of India (RBI) located? (भारतीय रिजर्व बैंक (RBI) का मुख्यालय कहाँ स्थित है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Mumbai (मुंबई)</p>
+                    </div>
+
+                    <!-- Q41 (Olympics - ENHANCED) -->
+                    <div class="qa-card">
+                        <strong>Q41. Question:</strong> When and where are the next Summer Olympic Games scheduled to be held after the 2024 Games? (2024 खेलों के बाद अगले ग्रीष्मकालीन ओलंपिक खेल कब और कहाँ आयोजित किए जाएंगे?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> **Los Angeles, USA, in 2028** (**लॉस एंजिल्स, यूएसए, 2028 में**)</p>
+                        <p class="detail">**Detail:** The Olympics occur every four years. The 2024 Games are scheduled for Paris, France.</p>
+                    </div>
+
+                    <!-- Q42 (Animals) -->
+                    <div class="qa-card">
+                        <strong>Q42. Question:</strong> Which is the largest animal on Earth? (पृथ्वी पर सबसे बड़ा जानवर कौन सा है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Blue Whale (ब्लू व्हेल)</p>
+                    </div>
+
+                    <!-- Q43 (Animals) -->
+                    <div class="qa-card">
+                        <strong>Q43. Question:</strong> Which is the fastest land animal? (सबसे तेज जमीन पर चलने वाला जानवर कौन सा है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Cheetah (चीता)</p>
+                    </div>
+
+                    <!-- Q44 (Animals) -->
+                    <div class="qa-card">
+                        <strong>Q44. Question:</strong> Which animal is known as the 'Ship of the Desert'? ('रेगिस्तान का जहाज' किस जानवर को कहा जाता है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Camel (ऊँट)</p>
+                    </div>
+
+                    <!-- Q45 (Animals) -->
+                    <div class="qa-card">
+                        <strong>Q45. Question:</strong> Which animal never drinks water in its entire life? (वह कौन सा जानवर है जो अपने पूरे जीवन में पानी नहीं पीता है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Kangaroo Rat (कंगारू रैट)</p>
+                    </div>
+                    
+                    <!-- Q46 (Animals) -->
+                    <div class="qa-card">
+                        <strong>Q46. Question:</strong> Which animal is the only mammal capable of true flight? (कौन सा जानवर एकमात्र स्तनपायी है जो वास्तव में उड़ सकता है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Bat (चमगादड़)</p>
+                    </div>
+                    
+                    <!-- Q47 (Animals/Study) -->
+                    <div class="qa-card">
+                        <strong>Q47. Question:</strong> What is the scientific study of birds called? (पक्षियों के वैज्ञानिक अध्ययन को क्या कहते हैं?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Ornithology (पक्षीविज्ञान)</p>
+                    </div>
+
+                    <!-- Q48 (Animals/Reptile) -->
+                    <div class="qa-card">
+                        <strong>Q48. Question:</strong> Which reptile is famous for changing its skin color to match its surroundings? (कौन सा सरीसृप अपने परिवेश से मेल खाने के लिए अपनी त्वचा का रंग बदलने के लिए प्रसिद्ध है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Chameleon (गिरगिट)</p>
+                    </div>
+                    
+                    <!-- Q49 (Animals/Insects) -->
+                    <div class="qa-card">
+                        <strong>Q49. Question:</strong> Which insect is primarily used in the production of natural silk? (प्राकृतिक रेशम के उत्पादन में मुख्य रूप से किस कीट का उपयोग किया जाता है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Silkworm (रेशम का कीड़ा)</p>
+                    </div>
+                    
+                    <!-- Q50 (Animals) -->
+                    <div class="qa-card">
+                        <strong>Q50. Question:</strong> Which bird lays the largest egg in the world? (दुनिया में सबसे बड़ा अंडा देने वाला पक्षी कौन सा है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> Ostrich (शुतुरमुर्ग)</p>
+                    </div>
+                    
+                    <!-- Q51 (Richest Places) -->
+                    <div class="qa-card">
+                        <strong>Q51. Question:</strong> Which country currently has the largest economy (highest GDP) in the world? (वर्तमान में विश्व में सबसे बड़ी अर्थव्यवस्था (उच्चतम सकल घरेलू उत्पाद) किस देश की है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> **United States of America (USA)** (**संयुक्त राज्य अमेरिका**)</p>
+                    </div>
+
+                    <!-- Q52 (Beautiful Places - Man-made) -->
+                    <div class="qa-card">
+                        <strong>Q52. Question:</strong> Which famous ancient Roman amphitheater is located in Rome, Italy, known for gladiator contests? (ग्लैडिएटर प्रतियोगिताओं के लिए प्रसिद्ध, रोम, इटली में कौन सा प्रसिद्ध प्राचीन रोमन एम्फीथिएटर स्थित है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> **The Colosseum (कोलोसियम)**</p>
+                    </div>
+                    
+                    <!-- Q53 (Richest Leaders/Companies) -->
+                    <div class="qa-card">
+                        <strong>Q53. Question:</strong> Who is the founder of the e-commerce giant Amazon? (ई-कॉमर्स दिग्गज अमेज़ॅन के संस्थापक कौन हैं?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> **Jeff Bezos (जेफ बेजोस)**</p>
+                    </div>
+
+                    <!-- Q54 (Beautiful Places - Natural Wonder) -->
+                    <div class="qa-card">
+                        <strong>Q54. Question:</strong> Which large, natural barrier reef system can be seen from space, located off the coast of Australia? (ऑस्ट्रेलिया के तट पर स्थित कौन सी बड़ी, प्राकृतिक बैरियर रीफ प्रणाली अंतरिक्ष से देखी जा सकती है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> **The Great Barrier Reef (ग्रेट बैरियर रीफ)**</p>
+                    </div>
+                    
+                    <!-- Q55 (Richest Cities/Financial Centers) -->
+                    <div class="qa-card">
+                        <strong>Q55. Question:</strong> Which major global city is home to "Wall Street," the center of the US and world financial markets? (कौन सा प्रमुख वैश्विक शहर अमेरिकी और विश्व वित्तीय बाजारों का केंद्र "वॉल स्ट्रीट" का घर है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> **New York City, USA (न्यूयॉर्क शहर)**</p>
+                    </div>
+
+                    <!-- Q56 (Richest in India) -->
+                    <div class="qa-card">
+                        <strong>Q56. Question:</strong> Who is currently the richest person in India? (वर्तमान में भारत का सबसे धनी व्यक्ति कौन है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> **Mukesh Ambani (मुकेश अंबानी)**</p>
+                        <p class="detail">**Note:** Rankings frequently change. Mukesh Ambani (Reliance Industries) and Gautam Adani (Adani Group) often compete for the top spot.</p>
+                    </div>
+                    
+                    <!-- Q57 (Richest in World) -->
+                    <div class="qa-card">
+                        <strong>Q57. Question:</strong> Who is currently the richest person in the world? (वर्तमान में दुनिया का सबसे धनी व्यक्ति कौन है?)
+                        <p class="answer"><strong>Answer (उत्तर):</strong> **Bernard Arnault (बर्नार्ड अरनॉल्ट)**</p>
+                        <p class="detail">**Note:** Bernard Arnault (LVMH luxury goods group), Elon Musk (Tesla, SpaceX), and Jeff Bezos (Amazon) routinely trade places at the top of the global wealth lists.</p>
+                    </div>
+                    
+                </div>
+                <!-- END Q&A Section -->
+
+                <!-- 6. National Symbols Section -->
+                <h3>6. National Symbols of India (भारत के राष्ट्रीय प्रतीक)</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>S. No.</th>
+                                <th>Symbol (प्रतीक)</th>
+                                <th>Name (नाम) - English</th>
+                                <th>Name (नाम) - Hindi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>National Animal</td><td>Tiger</td><td>बाघ</td></tr>
+                            <tr><td>2</td><td>National Bird</td><td>Peacock</td><td>मोर</td></tr>
+                            <tr><td>3</td><td>National Tree</td><td>Banyan</td><td>बरगद</td></tr>
+                            <tr><td>4</td><td>National Flower</td><td>Lotus</td><td>कमल</td></tr>
+                            <tr><td>5</td><td>National Emblem</td><td>Sarnath Lion Capital</td><td>सारनाथ का शेर स्तंभ</td></tr>
+                            <tr><td>6</td><td>National Anthem</td><td>Jana Gana Mana</td><td>जन गण मन</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 7. Famous Landmarks Section -->
+                <h3>7. Famous Landmarks of India (भारत के प्रसिद्ध स्थल)</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>S. No.</th>
+                                <th>Landmark (स्थल)</th>
+                                <th>City (शहर)</th>
+                                <th>Hindi Name (हिंदी नाम)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Taj Mahal</td><td>Agra, Uttar Pradesh</td><td>ताजमहल</td></tr>
+                            <tr><td>2</td><td>Red Fort</td><td>Delhi</td><td>लाल किला</td></tr>
+                            <tr><td>3</td><td>Gateway of India</td><td>Mumbai, Maharashtra</td><td>गेटवे ऑफ इंडिया</td></tr>
+                            <tr><td>4</td><td>Hawa Mahal</td><td>Jaipur, Rajasthan</td><td>हवा महल</td></tr>
+                            <tr><td>5</td><td>India Gate</td><td>New Delhi</td><td>इंडिया गेट</td></tr>
+                            <tr><td>6</td><td>Qutub Minar</td><td>Delhi</td><td>कुतुब मीनार</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- 8. Government Structure Section -->
+                <h3>8. Structure of Indian Government (भारत सरकार की संरचना)</h3>
+                <p>India is a **Federal Republic**, meaning power is shared between the Central (Union) Government and the State Governments. Both governments have three main functions: making laws, implementing laws, and giving justice.</p>
+
+                <div class="table-responsive">
+                    <table class="structure-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Central (Union) Government (केंद्रीय सरकार)</th>
+                                <th>State Government (राज्य सरकार)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>**Executive Head (कार्यपालिका प्रमुख)**</td>
+                                <td>**President** (राष्ट्रपति)</td>
+                                <td>**Governor** (राज्यपाल)</td>
+                            </tr>
+                            <tr>
+                                <td>**Head of Government (सरकार का प्रमुख)**</td>
+                                <td>**Prime Minister** (प्रधान मंत्री) and Council of Ministers</td>
+                                <td>**Chief Minister** (मुख्यमंत्री) and State Council of Ministers</td>
+                            </tr>
+                            <tr>
+                                <td>**Legislature Name (विधायिका का नाम)**</td>
+                                <td>**Parliament** (संसद)</td>
+                                <td>**State Legislature** (राज्य विधानमंडल / Vidhan Mandal)</td>
+                            </tr>
+                            <tr>
+                                <td>**Lower House (निम्न सदन)**</td>
+                                <td>**Lok Sabha** (लोक सभा - House of the People)</td>
+                                <td>**Vidhan Sabha** (विधान सभा - Legislative Assembly)</td>
+                            </tr>
+                            <tr>
+                                <td>**Election for Lower House (चुनाव प्रक्रिया)**</td>
+                                <td>**Directly elected by the people** (जनता द्वारा सीधे चुने जाते हैं). Members are called **MPs (Members of Parliament)**.</td>
+                                <td>**Directly elected by the people of the state** (राज्य की जनता द्वारा सीधे चुने जाते हैं). Members are called **MLAs (Members of Legislative Assembly)**.</td>
+                            </tr>
+                            <tr>
+                                <td>**Upper House (उच्च सदन)**</td>
+                                <td>**Rajya Sabha** (राज्य सभा - Council of States)</td>
+                                <td>**Vidhan Parishad** (विधान परिषद - Legislative Council) - *Only in 6 states*</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- 9. Solar System Section -->
+                <h3>9. Our Solar System (हमारा सौरमंडल)</h3>
+                <p>The Solar System consists of the Sun and everything bound to it by gravity—the planets, their moons, and countless smaller objects like asteroids and comets. There are **eight** planets in order from the Sun:</p>
+
+                <div class="table-responsive">
+                    <table class="solar-system-table">
+                        <thead>
+                            <tr>
+                                <th>Order from Sun</th>
+                                <th>Planet (ग्रह)</th>
+                                <th>Key Feature (मुख्य विशेषता)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1st</td>
+                                <td>**Mercury** (बुध)</td>
+                                <td>Smallest planet; closest to the Sun.</td>
+                            </tr>
+                            <tr>
+                                <td>2nd</td>
+                                <td>**Venus** (शुक्र)</td>
+                                <td>Hottest planet; orbits in the opposite direction (Retrograde rotation).</td>
+                            </tr>
+                            <tr>
+                                <td>3rd</td>
+                                <td>**Earth** (पृथ्वी)</td>
+                                <td>The only planet known to support life (Blue Planet).</td>
+                            </tr>
+                            <tr>
+                                <td>4th</td>
+                                <td>**Mars** (मंगल)</td>
+                                <td>The Red Planet, due to iron oxide on its surface.</td>
+                            </tr>
+                            <tr>
+                                <td>5th</td>
+                                <td>**Jupiter** (बृहस्पति)</td>
+                                <td>Largest planet; famous for its Great Red Spot (a giant storm).</td>
+                            </tr>
+                            <tr>
+                                <td>6th</td>
+                                <td>**Saturn** (शनि)</td>
+                                <td>Known for its prominent, beautiful rings made of ice and rock.</td>
+                            </tr>
+                            <tr>
+                                <td>7th</td>
+                                <td>**Uranus** (अरुण)</td>
+                                <td>Tilted on its side, making it appear to roll along its orbit.</td>
+                            </tr>
+                            <tr>
+                                <td>8th</td>
+                                <td>**Neptune** (वरुण)</td>
+                                <td>Farthest planet from the Sun; very cold and windy.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- 10. MLA Section -->
+                <h3>10. What is an MLA? (विधायक क्या है?)</h3>
+                <div class="info-card">
+                    <p>An **MLA** stands for **M**ember of **L**egislative **A**ssembly.</p>
+                    <p><strong>Role:</strong> An MLA is a representative elected by the voters of an electoral district (constituency) to the legislature of a State government in India. They represent their area's concerns.</p>
+                    <p><strong>Hindi Translation:</strong> एक विधायक, जिसे **एमएलए (विधान सभा सदस्य)** कहा जाता है, भारत में एक राज्य सरकार के विधानमंडल के लिए एक चुनावी जिले (निर्वाचन क्षेत्र) के मतदाताओं द्वारा चुना गया प्रतिनिधि होता है। वे अपने क्षेत्र की चिंताओं का प्रतिनिधित्व करते हैं।</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+</body>
+</html>

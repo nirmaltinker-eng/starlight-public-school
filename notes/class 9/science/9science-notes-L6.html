@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ऊतक - इंटरैक्टिव नोट्स</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Scientific Twilight -->
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+            background-color: #0b1120;
+            color: #d1d5db;
+        }
+        .tab-active {
+            border-color: #0d9488;
+            color: #0d9488;
+            background-color: #ccfbf1;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #6ee7b7;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #1f2937;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .back-button:hover {
+            background-color: #6ee7b7;
+            color: #1f2937;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+        .header {
+            background-color: #ffffff;
+            color: #547748;
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+            color: #6a5a4b;
+        }
+        .footer {
+            background-color: #1f2937;
+            color: #9ca3af;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <div class="back-button-container">
+        <a class="back-button" href="9science-notes.html">
+            <span>←</span> पीछे जाएँ
+        </a>
+    </div>
+
+    <header class="header">
+        <h1 class="text-3xl md:text-4xl font-bold text-teal-400">अध्याय: ऊतक</h1>
+        <p class="text-slate-400 mt-2">कक्षा 9 विज्ञान के लिए एक इंटरैक्टिव गाइड</p>
+    </header>
+
+    <div class="container mx-auto p-4 md:p-8 relative">
+
+        <nav class="flex flex-wrap justify-center border-b-2 border-slate-700 mb-8">
+            <button data-tab="tab1" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300 tab-active">परिभाषा और प्रकार</button>
+            <button data-tab="tab2" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">पादप ऊतक</button>
+            <button data-tab="tab3" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">जंतु ऊतक</button>
+        </nav>
+
+        <main>
+            <!-- Tab 1: Definition and Types -->
+            <section id="tab1" class="content-section active">
+                 <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">ऊतक क्या है?</h2>
+                    <p class="text-slate-400 mt-1">ऊतक कोशिकाओं का एक समूह है जो एक विशेष कार्य करने के लिए एक साथ काम करता है।</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-2">ऊतक के प्रकार</h3>
+                        <p class="text-slate-300">
+                            <strong>पादप ऊतक</strong>: ये पौधे में वृद्धि, सहारा और परिवहन के लिए जिम्मेदार होते हैं।
+                            <br/><br/>
+                            <strong>जंतु ऊतक</strong>: ये जंतुओं में गति, संवेदी प्रतिक्रिया और अन्य शारीरिक कार्यों के लिए जिम्मेदार होते हैं।
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Plant Tissues -->
+            <section id="tab2" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">पादप ऊतक</h2>
+                    <p class="text-slate-400 mt-1">पादप ऊतकों को मुख्य रूप से दो प्रकारों में विभाजित किया जाता है: मेरिस्टेमेटिक और स्थायी ऊतक। </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-orange-400 mb-2">मेरिस्टेमेटिक ऊतक</h3>
+                        <p class="text-slate-300">
+                            ये विभाजनशील कोशिकाएँ होती हैं जो पौधे के वृद्धि वाले क्षेत्रों में पाई जाती हैं।
+                            <br/><br/>
+                            <strong>प्रकार</strong>:
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li><strong>शीर्षस्थ</strong>: जड़ और तने के शीर्ष पर।</li>
+                                <li><strong>पार्श्वीय</strong>: तने की परिधि में वृद्धि।</li>
+                                <li><strong>अंतर्वेशी</strong>: पत्तियों के आधार पर।</li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-red-400 mb-2">स्थायी ऊतक</h3>
+                        <p class="text-slate-300">
+                            ये मेरिस्टेमेटिक ऊतकों से बनते हैं और विभाजन करने की क्षमता खो देते हैं।
+                            <br/><br/>
+                            <strong>सरल स्थायी ऊतक</strong>: ये एक ही प्रकार की कोशिकाओं से बने होते हैं।
+                            <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                                <li><strong>पैरेन्काइमा</strong>: भोजन का भंडारण और पौधों को सहारा देता है।</li>
+                                <li><strong>कॉलेन्काइमा</strong>: पौधों को लचीलापन प्रदान करता है।</li>
+                                <li><strong>स्क्लेरेन्काइमा</strong>: पौधों को कठोर और मजबूत बनाता है।</li>
+                            </ul>
+                            <br/>
+                            <strong>जटिल स्थायी ऊतक</strong>: ये एक से अधिक प्रकार की कोशिकाओं से बने होते हैं और परिवहन का कार्य करते हैं।
+                            <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                                <li><strong>जाइलम</strong>: पानी और खनिजों का परिवहन। इसमें वाहिनिका, वाहिका, जाइलम पैरेन्काइमा और जाइलम फाइबर होते हैं।</li>
+                                <li><strong>फ्लोएम</strong>: भोजन का परिवहन। इसमें चालनी नलिका, साथी कोशिका, फ्लोएम पैरेन्काइमा और फ्लोएम फाइबर होते हैं।</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tab 3: Animal Tissues -->
+            <section id="tab3" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">जंतु ऊतक</h2>
+                    <p class="text-slate-400 mt-1">जंतु ऊतकों को मुख्य रूप से चार प्रकारों में वर्गीकृत किया जाता है: एपिथीलियल, संयोजी, पेशीय और तंत्रिका ऊतक। </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-teal-400 mb-2">एपिथीलियल ऊतक</h3>
+                        <p class="text-slate-300">
+                            ये शरीर की सतह को ढकते हैं और अंगों को लाइन करते हैं।
+                            <br/><br/>
+                            <strong>प्रकार</strong>:
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li><strong>सरल एपिथीलियम</strong>: एक परत वाली कोशिकाएँ, जैसे रक्त वाहिकाओं में।</li>
+                                <li><strong>स्तरित एपिथीलियम</strong>: कई परतों वाली कोशिकाएँ, जैसे त्वचा।</li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-blue-400 mb-2">संयोजी ऊतक</h3>
+                        <p class="text-slate-300">
+                            ये विभिन्न अंगों को जोड़ते हैं और सहारा देते हैं।
+                            <br/><br/>
+                            <strong>प्रकार</strong>:
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li><strong>एरिओलर</strong>: अंगों के अंदर की जगह भरता है।</li>
+                                <li><strong>वसा ऊतक</strong>: शरीर में वसा का भंडारण करता है।</li>
+                                <li><strong>हड्डी</strong>: शरीर को ढाँचा और सहारा प्रदान करता है।</li>
+                                <li><strong>रक्त</strong>: ऑक्सीजन और पोषक तत्वों का परिवहन करता है।</li>
+                                <li><strong>कण्डरा</strong>: पेशियों को हड्डी से जोड़ता है।</li>
+                                <li><strong>स्नायु</strong>: दो हड्डियों को आपस में जोड़ता है।</li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-purple-400 mb-2">पेशीय ऊतक</h3>
+                        <p class="text-slate-300">
+                            ये शरीर में गति और संकुचन के लिए जिम्मेदार होते हैं।
+                            <br/><br/>
+                            <strong>प्रकार</strong>:
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li><strong>ऐच्छिक पेशी (रेखित)</strong>: कंकाल से जुड़ी होती है, गति पर नियंत्रण होता है।</li>
+                                <li><strong>अनैच्छिक पेशी (अरेखित)</strong>: अंगों के अंदर होती है, गति पर नियंत्रण नहीं होता।</li>
+                                <li><strong>हृदय पेशी</strong>: हृदय में पाई जाती है, अनैच्छिक होती है।</li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-pink-400 mb-2">तंत्रिका ऊतक</h3>
+                        <p class="text-slate-300">
+                            ये संवेदी संकेतों को मस्तिष्क तक और वहाँ से शरीर के अन्य भागों तक पहुंचाते हैं।
+                            <br/><br/>
+                            <strong>तंत्रिका कोशिका (न्यूरॉन)</strong>: तंत्रिका ऊतक की संरचनात्मक और कार्यात्मक इकाई। इसमें कोशिका काय (cytoplasm), डेंड्राइट, एक्सॉन और तंत्रिका छोर होता है। 
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-button');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-tab');
+
+                tabs.forEach(t => t.classList.remove('tab-active'));
+                tab.classList.add('tab-active');
+
+                contentSections.forEach(section => {
+                    if (section.id === target) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

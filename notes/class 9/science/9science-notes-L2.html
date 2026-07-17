@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>क्या हमारे आस-पास के पदार्थ शुद्ध हैं?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: #f0f4f8; /* Softer, cool gray */
+            color: #2c3e50; /* Darker, professional text */
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        .nav-link.active {
+            color: #2980b9; /* A professional blue */
+            border-bottom-color: #2980b9;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            letter-spacing: 1px;
+            margin: 0;
+        }
+        .header p {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            margin: 0.5rem 0 0;
+            opacity: 0.9;
+        }
+        /* New styling for back button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: #ecf0f1;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: #bdc3c7;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            font-size: 1.5rem;
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+        .highlight-box {
+            background-color: #eaf2f8;
+            border-left: 5px solid #2980b9;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .interactive-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .interactive-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .active-btn {
+            background-color: #2980b9;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <a class="back-button" href="9science-notes.html">
+        <span>&#x2190;</span> वापस
+    </a>
+
+    <header class="header">
+        <h1>क्या हमारे आस-पास के पदार्थ शुद्ध हैं?</h1>
+        <p>विज्ञान कक्षा 9 - अध्याय 2</p>
+    </header>
+
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex flex-col md:flex-row justify-center items-center md:space-x-8">
+                <a href="#shuddh-mishran" class="nav-link text-gray-600 hover:text-blue-600 font-medium py-2 px-4 border-b-2 border-transparent">शुद्ध और मिश्रण</a>
+                <a href="#vilayan-kalyan" class="nav-link text-gray-600 hover:text-blue-600 font-medium py-2 px-4 border-b-2 border-transparent">विलयन, निलंबन और कोलाइड</a>
+                <a href="#prithakkaran" class="nav-link text-gray-600 hover:text-blue-600 font-medium py-2 px-4 border-b-2 border-transparent">मिश्रणों का पृथक्करण</a>
+                <a href="#bhotik-rasayanik" class="nav-link text-gray-600 hover:text-blue-600 font-medium py-2 px-4 border-b-2 border-transparent">भौतिक और रासायनिक परिवर्तन</a>
+                <a href="#tattva-yaugik" class="nav-link text-gray-600 hover:text-blue-600 font-medium py-2 px-4 border-b-2 border-transparent">तत्व और यौगिक</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-8">
+
+        <section id="shuddh-mishran" class="pt-12 -mt-12">
+            <h2 class="text-3xl font-bold text-center mb-6 text-gray-700">शुद्ध पदार्थ और मिश्रण</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-blue-700">शुद्ध पदार्थ क्या हैं?</h3>
+                    <p class="mb-4">वैज्ञानिक दृष्टि से, एक शुद्ध पदार्थ एक ही प्रकार के कणों (परमाणु या अणु) से बना होता है और इसकी संरचना निश्चित होती है।</p>
+                    <div class="highlight-box">
+                        <p class="font-semibold">उदाहरण: <span class="font-normal">सोना, ऑक्सीजन गैस, और शुद्ध जल।</span></p>
+                    </div>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-red-700">मिश्रण क्या हैं?</h3>
+                    <p class="mb-4">मिश्रण दो या दो से अधिक शुद्ध पदार्थों को किसी भी अनुपात में मिलाने पर बनते हैं। इसमें घटकों के गुणधर्म मौजूद रहते हैं और उनकी संरचना अनिश्चित होती है।</p>
+                    <div class="highlight-box">
+                        <p class="font-semibold">उदाहरण: <span class="font-normal">वायु (ऑक्सीजन और नाइट्रोजन का मिश्रण), नमक का घोल।</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t border-gray-300">
+
+        <section id="vilayan-kalyan" class="pt-12 -mt-12">
+            <h2 class="text-3xl font-bold text-center mb-6 text-gray-700">विलयन, निलंबन और कोलाइड</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card p-6 text-center">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700">विलयन (Solution)</h3>
+                    <p class="mb-4">दो या दो से अधिक पदार्थों का समांगी मिश्रण होता है। इसके कण बहुत छोटे होते हैं, जिन्हें नग्न आँखों से नहीं देखा जा सकता।</p>
+                    <div class="highlight-box">
+                        <p class="font-semibold">उदाहरण: <span class="font-normal">नमक-पानी का घोल।</span></p>
+                    </div>
+                </div>
+                <div class="card p-6 text-center">
+                    <h3 class="text-2xl font-bold mb-4 text-orange-700">निलंबन (Suspension)</h3>
+                    <p class="mb-4">एक विषमांगी मिश्रण जिसमें विलेय के कण घुलते नहीं हैं, बल्कि माध्यम में निलंबित रहते हैं। कणों को नग्न आँखों से देखा जा सकता है।</p>
+                    <div class="highlight-box">
+                        <p class="font-semibold">उदाहरण: <span class="font-normal">कीचड़ युक्त पानी।</span></p>
+                    </div>
+                </div>
+                <div class="card p-6 text-center">
+                    <h3 class="text-2xl font-bold mb-4 text-green-700">कोलाइड (Colloid)</h3>
+                    <p class="mb-4">एक विषमांगी मिश्रण जो समांगी लगता है। इसके कणों का आकार विलयन और निलंबन के बीच का होता है। यह टिंडल प्रभाव (प्रकाश का प्रकीर्णन) दिखाता है।</p>
+                    <div class="highlight-box">
+                        <p class="font-semibold">उदाहरण: <span class="font-normal">दूध, स्याही।</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t border-gray-300">
+
+        <section id="prithakkaran" class="pt-12 -mt-12">
+            <h2 class="text-3xl font-bold text-center mb-6 text-gray-700">मिश्रणों के घटकों का पृथक्करण</h2>
+            <p class="max-w-3xl mx-auto text-center text-gray-600 mb-8">मिश्रण के घटकों को उनके गुणों के आधार पर अलग करने के लिए कई विधियाँ हैं। नीचे दिए गए बटनों पर क्लिक करके प्रत्येक विधि के बारे में जानें।</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+                <button class="interactive-btn text-sm md:text-base" data-method="वाष्पीकरण">वाष्पीकरण</button>
+                <button class="interactive-btn text-sm md:text-base" data-method="अपकेंद्रण">अपकेंद्रण</button>
+                <button class="interactive-btn text-sm md:text-base" data-method="पृथक्करण कीप">पृथक्करण कीप</button>
+                <button class="interactive-btn text-sm md:text-base" data-method="ऊर्ध्वपातन">ऊर्ध्वपातन</button>
+                <button class="interactive-btn text-sm md:text-base" data-method="आसवन">आसवन</button>
+                <button class="interactive-btn text-sm md:text-base" data-method="क्रिस्टलीकरण">क्रिस्टलीकरण</button>
+                <button class="interactive-btn text-sm md:text-base" data-method="क्रोमैटोग्राफी">क्रोमैटोग्राफी</button>
+                <button class="interactive-btn text-sm md:text-base" data-method="चुंबकीय पृथक्करण">चुंबकीय पृथक्करण</button>
+            </div>
+
+            <div class="card p-6">
+                <h3 id="method-title" class="text-2xl font-bold mb-3 text-gray-700">प्रक्रिया चुनें</h3>
+                <p id="method-description" class="text-gray-600">ऊपर दिए गए बटनों पर क्लिक करके मिश्रणों को अलग करने की विभिन्न विधियों के बारे में जानें।</p>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t border-gray-300">
+
+        <section id="bhotik-rasayanik" class="pt-12 -mt-12">
+            <h2 class="text-3xl font-bold text-center mb-6 text-gray-700">भौतिक और रासायनिक परिवर्तन</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-blue-700">भौतिक परिवर्तन</h3>
+                    <ul class="space-y-3 list-disc list-inside text-gray-600">
+                        <li>पदार्थ के रासायनिक संगठन में कोई बदलाव नहीं होता।</li>
+                        <li>यह अक्सर उत्क्रमणीय (reversible) होता है।</li>
+                        <li><strong>उदाहरण:</strong> पानी का बर्फ बनना, लकड़ी का काटना।</li>
+                    </ul>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-red-700">रासायनिक परिवर्तन</h3>
+                    <ul class="space-y-3 list-disc list-inside text-gray-600">
+                        <li>एक नया पदार्थ बनता है जिसके रासायनिक गुणधर्म भिन्न होते हैं।</li>
+                        <li>यह अक्सर अनुत्क्रमणीय (irreversible) होता है।</li>
+                        <li><strong>उदाहरण:</strong> कागज का जलना, लोहे पर जंग लगना।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 border-t border-gray-300">
+        
+        <section id="tattva-yaugik" class="pt-12 -mt-12">
+            <h2 class="text-3xl font-bold text-center mb-6 text-gray-700">तत्व और यौगिक</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-blue-700">तत्व (Element)</h3>
+                    <p class="mb-4">यह पदार्थ का सबसे सरल रूप है, जिसे रासायनिक अभिक्रियाओं द्वारा सरल पदार्थों में विभाजित नहीं किया जा सकता है।</p>
+                    <div class="highlight-box">
+                        <p class="font-semibold">उदाहरण: <span class="font-normal">ऑक्सीजन, हाइड्रोजन, कार्बन।</span></p>
+                    </div>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-2xl font-bold mb-3 text-green-700">यौगिक (Compound)</h3>
+                    <p class="mb-4">दो या दो से अधिक तत्व एक निश्चित अनुपात में रासायनिक रूप से संयुक्त होकर यौगिक बनाते हैं। इसके गुणधर्म इसके घटकों से पूरी तरह भिन्न होते हैं।</p>
+                    <div class="highlight-box">
+                        <p class="font-semibold">उदाहरण: <span class="font-normal">जल ($H_2O$), कार्बन डाइऑक्साइड ($CO_2$)।</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-700 text-white text-center py-6 mt-12">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Interactive button logic for separation techniques
+            const methodButtons = document.querySelectorAll('.interactive-btn');
+            const methodTitle = document.getElementById('method-title');
+            const methodDescription = document.getElementById('method-description');
+
+            const methods = {
+                "वाष्पीकरण": "इस विधि का उपयोग रंगीन घटक (जैसे स्याही में डाई) को विलायक से अलग करने के लिए किया जाता है। जब मिश्रण को गर्म किया जाता है, तो विलायक वाष्पित हो जाता है, जबकि ठोस पदार्थ शेष रह जाता है।",
+                "अपकेंद्रण": "अपकेंद्रण का उपयोग दूध से क्रीम और रक्त से मूत्र की जांच के लिए किया जाता है। इस सिद्धांत पर काम करता है कि जब किसी मिश्रण को तेज़ी से घुमाया जाता है, तो सघन कण नीचे बैठ जाते हैं और हल्के कण ऊपर रहते हैं।",
+                "पृथक्करण कीप": "यह विधि दो अमिश्रणीय (जो आपस में न घुलें) तरल पदार्थों को अलग करने के लिए उपयोग की जाती है। भारी तरल कीप के निचले भाग में जमा हो जाता है, जिसे सावधानीपूर्वक अलग कर लिया जाता है। उदाहरण: तेल और पानी।",
+                "ऊर्ध्वपातन": "इस विधि का उपयोग ऐसे मिश्रण को अलग करने के लिए किया जाता है जिसमें एक घटक ऊर्ध्वपातित हो सकता है (बिना द्रव में बदले सीधे गैस में बदल सकता है)। उदाहरण: कपूर और नमक का मिश्रण।",
+                "आसवन": "यह दो या दो से अधिक घुलनशील तरल पदार्थों को अलग करने की प्रक्रिया है जिनके क्वथनांक (boiling points) में पर्याप्त अंतर होता है। मिश्रण को गर्म किया जाता है, कम क्वथनांक वाला तरल पहले वाष्पित होता है, और फिर ठंडा होकर वापस तरल बन जाता है।",
+                "क्रिस्टलीकरण": "अशुद्ध ठोस को शुद्ध करने के लिए इस विधि का उपयोग किया जाता है। इसमें ठोस को गर्म विलायक में घोला जाता है, और फिर घोल को ठंडा होने दिया जाता है, जिससे शुद्ध ठोस क्रिस्टल के रूप में अलग हो जाता है।",
+                "क्रोमैटोग्राफी": "इस विधि का उपयोग उन घटकों को अलग करने के लिए किया जाता है जो एक ही विलायक में घुले हुए हैं। उदाहरण: स्याही में रंगों को अलग करना।",
+                "चुंबकीय पृथक्करण": "इसका उपयोग मिश्रण से चुंबकीय घटकों (जैसे लोहे) को अलग करने के लिए किया जाता है।",
+            };
+
+            methodButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const method = button.dataset.method;
+                    methodTitle.textContent = method;
+                    methodDescription.textContent = methods[method];
+
+                    methodButtons.forEach(btn => btn.classList.remove('active-btn'));
+                    button.classList.add('active-btn');
+                });
+            });
+
+            // Navigation scroll
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            const headerHeight = document.querySelector('nav').offsetHeight;
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - headerHeight;
+                    if (pageYOffset >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlight Public School - Home</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            /* Default Cursor: Transparent Gold Star (Used for general hover changes too) */
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FFD700' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>") 12 12, auto;
+        }
+
+        /* Hover Cursor: Neon Gold Dot with Blur - APPLIED ONLY TO CLICKABLE ELEMENTS */
+        .nav a, 
+        button, 
+        .card a,
+        #scrollToTopBtn {
+            /* Neon Dot/Circle Cursor: Filled gold circle with a neon yellow drop shadow */
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><defs><filter id='neon'><feDropShadow dx='0' dy='0' stdDeviation='2.5' flood-color='%23FFFF00'/></filter></defs><circle cx='12' cy='12' r='8' fill='%23FFD700' filter='url(%23neon)'/></svg>") 12 12, pointer;
+        }
+
+        /* These elements will now use the STAR cursor, even on hover, since they are not true buttons/links: */
+        .card:hover, 
+        .staff-member:hover, 
+        .logo:hover {
+             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FFD700' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>") 12 12, pointer;
+        }
+
+        /* Header CSS with logo and text alignment */
+        .header {
+            background-color: #000000;
+            color: #FFD700;
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+        }
+        .logo-container {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 180px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        /* Nav Bar */
+        .nav {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding: 1.5rem 0;
+            border-top: 2px solid #FFD700;
+            border-bottom: 2px solid #FFD700;
+            z-index: 999;
+        }
+        .nav a {
+            color: #e0e0e0;
+            margin: 0 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            padding: 10px 0;
+            display: inline-block;
+        }
+        .nav a:hover {
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+        }
+        .nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #FFD700;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .nav a:hover::after {
+            transform: scaleX(1);
+        }
+        /* General Section Styles */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 20px;
+        }
+        .section {
+            background: #222222;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .section:nth-of-type(1) { animation-delay: 0.2s; }
+        .section:nth-of-type(2) { animation-delay: 0.4s; }
+        .section:nth-of-type(3) { animation-delay: 0.6s; }
+        .section:nth-of-type(4) { animation-delay: 0.8s; }
+        .section:nth-of-type(5) { animation-delay: 1s; }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .section h2 {
+            font-size: 2.5rem;
+            color: #FFD700;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        /* Notes & Gallery Card Styles */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .card {
+            background: #333333;
+            border-radius: 10px;
+            padding: 2rem;
+            width: calc(33% - 30px);
+            min-width: 280px;
+            text-align: left;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+        .card h3 {
+            color: #FFD700;
+            margin-top: 0;
+        }
+        .card a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            /* Cursor applied globally above for .card a */
+        }
+        .card a:hover {
+            color: #ffffff;
+        }
+        /* Staff Section Styles */
+        .staff-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .staff-member {
+            width: 280px;
+            text-align: center;
+            border-radius: 10px;
+            padding: 25px 20px;
+            transition: all .3s ease;
+            position: relative;
+            display: inline-block;
+            background-color: #1a1a1a;
+            overflow: hidden;
+            border: 1px solid #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .staff-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            background-color: #2e2e2e;
+        }
+        .staff-image-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 20px auto 10px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #FFD700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .staff-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        .staff-member:hover .staff-image-container img {
+            transform: scale(1.05);
+        }
+        .staff-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: skewX(-20deg) translateX(-150%);
+            animation: shiny-effect 0.5s linear infinite;
+        }
+        .staff-member:nth-of-type(1) .staff-image-container::before { animation-delay: 0s; }
+        .staff-member:nth-of-type(2) .staff-image-container::before { animation-delay: 0.5s; }
+        .staff-member:nth-of-type(3) .staff-image-container::before { animation-delay: 1s; }
+        .staff-member:nth-of-type(4) .staff-image-container::before { animation-delay: 1.5s; }
+        .staff-member:nth-of-type(5) .staff-image-container::before { animation-delay: 2s; }
+        .staff-member:nth-of-type(6) .staff-image-container::before { animation-delay: 2.5s; }
+        .staff-member:nth-of-type(7) .staff-image-container::before { animation-delay: 3s; }
+        @keyframes shiny-effect {
+            0% {
+                transform: skewX(-20deg) translateX(-150%);
+            }
+            100% {
+                transform: skewX(-20deg) translateX(250%);
+            }
+        }
+        .staff-member h3 {
+            color: #FFD700;
+            margin: 6px 0px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        .staff-member h4 {
+            font-weight: 300;
+            letter-spacing: 1px;
+            font-size: 14px;
+            color: #b4b4b8;
+            margin-bottom: 5px;
+        }
+        .staff-member p {
+            text-align: center;
+            font-size: 13px;
+            margin: 5px 0px;
+            font-weight: 400;
+            line-height: 16px;
+            color: #b4b4b8;
+        }
+        /* Contact Section Styles */
+        .contact-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .contact-section h2 {
+            width: 100%;
+        }
+        .map-and-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+            min-width: 450px;
+        }
+        .iframe-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .contact-details {
+            text-align: left;
+        }
+        .contact-details h3 {
+            font-size: 1.8rem;
+            color: #FFD700;
+        }
+        .contact-details p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+        .contact-form {
+            flex: 1;
+            min-width: 450px;
+            text-align: left;
+        }
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 12px;
+            border: 1px solid #444;
+            background-color: #333;
+            color: #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 5px #FFD700;
+        }
+        button {
+            background-color: #FFD700;
+            color: #000000;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #e6c500;
+            transform: translateY(-2px);
+        }
+        /* Footer */
+        .footer {
+            background-color: #000000;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        /* Mobile-First Responsive Design */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            z-index: 1000;
+            padding: 0;
+        }
+        .menu-toggle .bar {
+            width: 100%;
+            height: 3px;
+            background-color: #FFD700;
+            transition: all 0.3s ease-in-out;
+        }
+        @media only screen and (max-width: 768px) {
+            .header .logo-container {
+                position: static;
+                transform: none;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            .header {
+                flex-direction: column;
+                padding-top: 5rem;
+            }
+            .header h1 { font-size: 2.5rem; }
+            .header p { font-size: 1rem; }
+            .logo { height: 120px; }
+            .menu-toggle {
+                display: flex;
+            }
+            .nav {
+                padding: 0;
+                position: relative;
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav a {
+                display: none;
+                margin: 0;
+                padding: 1rem;
+                border-bottom: 1px solid #333;
+                background-color: #1a1a1a;
+                width: 100%;
+                text-align: center;
+            }
+            .nav.open a {
+                display: block;
+            }
+            .section {
+                padding: 2rem;
+            }
+            .card-container, .staff-grid, .contact-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card, .staff-member, .map-and-info, .contact-form {
+                width: 100%;
+                min-width: 0;
+            }
+            .contact-form .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+        /* Scroll to Top Button */
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #FFD700;
+            color: #000;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease;
+        }
+        #scrollToTopBtn:hover {
+            background-color: #e6c500;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <a href="index.html" class="logo-link">
+                <img src="school-logo.png" alt="Starlight Public School Logo" class="logo">
+            </a>
+        </div>
+        <div>
+            <h1>Star Light Public School</h1>
+            <p>A place where dreams take flight.</p>
+        </div>
+    </header>
+    <nav class="nav">
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <a href="index.html">Home</a>
+        <a href="notes.html">Notes</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="staff.html">Staff</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="container">
+        <div id="home" class="section">
+            <h2>Welcome</h2>
+            <p>Welcome to Starlight Public School, a community dedicated to nurturing young minds and inspiring future leaders. Our mission is to provide a holistic education that empowers students to achieve their full potential.</p>
+        </div>
+        <div id="notes" class="section">
+            <h2>Notes</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Class 10 Notes</h3>
+                    <p>Access notes and study materials for the Class 10 batch.</p>
+                    <a href="notes-class10.html">View Notes</a>
+                </div>
+                <div class="card">
+                    <h3>Class 9 Notes</h3>
+                    <p>Find important study resources and chapter summaries for the Class 9 curriculum.</p>
+                    <a href="notes-class9.html">View Notes</a>
+                </div>
+                <div class="card">
+                    <h3>Exam Preparations</h3>
+                    <p>Download sample papers, revision guides, and tips for upcoming examinations.</p>
+                    <a href="#">View Notes</a>
+                </div>
+            </div>
+        </div>
+        <div id="gallery" class="section">
+            <h2>Gallery</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Batch 2025</h3>
+                    <p>Memories from the current academic year, including events and classroom moments.</p>
+                    <a href="gallery-2025.html">View Gallery</a>
+                </div>
+                <div class="card">
+                    <h3>Batch 2024</h3>
+                    <p>A look back at the highlights and special occasions of the previous academic year.</p>
+                    <a href="gallery-2024.html">View Gallery</a>
+                </div>
+            </div>
+        </div>
+        <div id="staff" class="section staff-section">
+            <h2>Our Dedicated Staff</h2>
+            <div class="staff-grid">
+                <div class="staff-member">
+                    <div class="staff-image-container">
+                        <img src="https://via.placeholder.com/200x200/FFD700/000000?text=NT" alt="Nirmal Tinker">
+                    </div>
+                    <h3>Nirmal Tinker</h3>
+                    <h4>Vice Principal<br>Software Engineer</h4>
+                    <p>Teaching: All Subjects (Specializing in Mathematics)</p>
+                </div>
+                <div class="staff-member">
+                    <div class="staff-image-container">
+                        <img src="https://via.placeholder.com/200x200/FFD700/000000?text=RT" alt="Smt. Rajkumari Tinker">
+                    </div>
+                    <h3>Smt. Rajkumari Tinker</h3>
+                    <h4>Principal<br>B.Ed., M.A.</h4>
+                    <p>Teaching: Social Science, Sanskrit, Hindi (Specializing in Social Science)</p>
+                </div>
+                <div class="staff-member">
+                    <div class="staff-image-container">
+                        <img src="https://via.placeholder.com/200x200/FFD700/000000?text=PJ" alt="Smt. Pooja Jain">
+                    </div>
+                    <h3>Smt. Pooja Jain</h3>
+                    <h4>Senior Teacher<br>B.Ed., M.A.</h4>
+                    <p>Teaching: English, Mathematics (Specializing in English)</p>
+                </div>
+                <div class="staff-member">
+                    <div class="staff-image-container">
+                        <img src="https://via.placeholder.com/200x200/FFD700/000000?text=MT" alt="Ms. Mahima Tinker">
+                    </div>
+                    <h3>Ms. Mahima Tinker</h3>
+                    <h4>Teacher<br>B.A., M.A.</h4>
+                    <p>Teaching: Hindi, Social Science (Specializing in Hindi, Art & Craft)</p>
+                </div>
+                <div class="staff-member">
+                    <div class="staff-image-container">
+                        <img src="https://via.placeholder.co/200x200/FFD700/000000?text=GT" alt="Ms. Geetanjali Tinker">
+                    </div>
+                    <h3>Ms. Geetanjali Tinker</h3>
+                    <h4>Primary Teacher<br>B.A., M.A.</h4>
+                    <p>Teaching: All Subjects</p>
+                </div>
+                <div class="staff-member">
+                    <div class="staff-image-container">
+                        <img src="https://via.placeholder.co/200x200/FFD700/000000?text=S" alt="Smt. Sheetal">
+                    </div>
+                    <h3>Smt. Sheetal</h3>
+                    <h4>Primary Teacher<br>B.A.</h4>
+                    <p>Teaching: Hindi, Social Science (Specializing in Hindi, Art & Craft)</p>
+                </div>
+                <div class="staff-member">
+                    <div class="staff-image-container">
+                        <img src="https://via.placeholder.co/200x200/FFD700/000000?text=SS" alt="Ms. Swati Sharma">
+                    </div>
+                    <h3>Ms. Swati Sharma</h3>
+                    <h4>Pre-Primary Teacher<br>B.Ed.</h4>
+                    <p>Teaching: All Subjects (Specializing in Kids Handling)</p>
+                </div>
+            </div>
+        </div>
+        <div id="contact" class="section contact-section">
+            <h2>Contact Us</h2>
+            <div class="map-and-info">
+                <div class="iframe-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3567.8149760746205!2d74.85784071052636!3d26.590311976744214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396bf120aa3fffff%3A0xf2194dd5db9fbf39!2sStar%20Light%20Public%20School!5e0!3m2!1sen!2sin!4v1757611398809!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contact-details">
+                    <h3>Our Location</h3>
+                    <p>Star Light Public School, Behind SDM Bunglow, Madanganj-Kishangarh(Raj.)</p>
+                    <p><strong>Principal:</strong> 9571446922</p>
+                    <p><strong>Vice Principal:</strong> 7728050962</p>
+                    <p><strong>Email:</strong> starlightpublicschool@gmail.com</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form action="#" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" name="firstname" placeholder="Your first name..">
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" placeholder="Your email.." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Subject of your message..">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here.."></textarea>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <button id="scrollToTopBtn" title="Go to top">▲</button>
+    <footer class="footer">
+        <p>© 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('.nav');
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('open');
+            });
+            window.addEventListener('scroll', () => {
+                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                    scrollToTopBtn.style.display = "block";
+                } else {
+                    scrollToTopBtn.style.display = "none";
+                }
+            });
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

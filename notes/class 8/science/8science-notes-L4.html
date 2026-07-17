@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>कक्षा 8 विज्ञान - दहन और ज्वाला</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+
+        :root {
+            /* Fire-themed colors */
+            --primary-color: #ffa500; /* Bright Orange */
+            --secondary-color: #e55039; /* Fiery Red */
+            --background-color: #1a1a1a; /* Dark, smoky background */
+            --card-background: #2b2b2b; /* Slightly lighter gray for cards */
+            --text-color: #ffffff;
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Back Button Styling */
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: var(--card-background);
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: var(--card-background);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        header h1 {
+            font-family: var(--heading-font);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        header h2 {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .note-card {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-family: var(--heading-font);
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        strong {
+            color: var(--primary-color);
+        }
+        
+        /* Image container styles */
+        .image-container {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 2px dashed #666;
+            border-radius: 10px;
+            background-color: #2a2a2a;
+        }
+        .image-container p {
+            font-style: italic;
+            color: #aaa;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: var(--card-background);
+            color: var(--text-color);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 1rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header h2 {
+                font-size: 1.2rem;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+            p, li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="back-button-container">
+        <a class="back-button" href="../notes-class8.html">
+            <span>&lt;</span> Back
+        </a>
+    </div>
+
+<div class="container">
+    <header>
+        <h1>कक्षा 8 विज्ञान</h1>
+        <h2>पाठ 4: दहन और ज्वाला</h2>
+    </header>
+
+    <section>
+        <div class="note-card">
+            <h3>1. दहन (Combustion)</h3>
+            <p>रासायनिक प्रक्रिया जिसमें कोई पदार्थ ऑक्सीजन से अभिक्रिया कर ऊष्मा और प्रकाश उत्पन्न करता है, दहन कहलाती है। जिस पदार्थ का दहन होता है उसे <strong>दहनशील पदार्थ (Combustible Substance)</strong> कहते हैं।</p>
+            <ul>
+                <li><strong>दहनशील पदार्थ:</strong> लकड़ी, कोयला, पेट्रोल, LPG, आदि।</li>
+                <li><strong>अदहनशील पदार्थ:</strong> पत्थर, काँच, आदि।</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="note-card">
+            <h3>2. दहन के लिए आवश्यक शर्तें (Conditions for Combustion)</h3>
+            <p>दहन के लिए तीन मुख्य शर्तें आवश्यक हैं, जिन्हें <strong>अग्नि त्रिकोण (Fire Triangle)</strong> कहा जाता है:</p>
+            <ul>
+                <li><strong>दहनशील पदार्थ की उपस्थिति (Presence of a Combustible Substance)</strong></li>
+                <li><strong>ऑक्सीजन की उपस्थिति (Presence of a Supporter of Combustion)</strong> - वायु में ऑक्सीजन होती है।</li>
+                <li><strong>ज्वलन ताप तक पहुंचना (Attainment of Ignition Temperature)</strong></li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="note-card">
+            <h3>3. ज्वलन ताप (Ignition Temperature)</h3>
+            <p>वह न्यूनतम ताप जिस पर कोई पदार्थ जलना शुरू करता है, उसका ज्वलन ताप कहलाता है। हर पदार्थ का ज्वलन ताप अलग होता है।</p>
+            <ul>
+                <li><strong>ज्वलनशील पदार्थ (Inflammable Substances):</strong> वे पदार्थ जिनका ज्वलन ताप बहुत कम होता है और जो आसानी से आग पकड़ लेते हैं।
+                    <br><strong>उदाहरण:</strong> पेट्रोल, अल्कोहल, LPG.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="note-card">
+            <h3>4. ज्वाला (Flame)</h3>
+            <p>कुछ पदार्थ जलने पर ज्वाला के साथ जलते हैं। ज्वाला गैसों का एक क्षेत्र है जो जलने पर उत्पन्न होती है।</p>
+            <h4>ज्वाला की संरचना (Structure of a Flame):</h4>
+            <div class="image-container">
+                <p>ज्वाला की संरचना का चित्र</p>
+                
+            </div>
+            <ul>
+                <li><strong>सबसे बाहरी क्षेत्र (Outer Zone):</strong> यह नीला होता है और सबसे गर्म होता है। यहाँ पूर्ण दहन होता है।</li>
+                <li><strong>मध्यवर्ती क्षेत्र (Middle Zone):</strong> यह पीला होता है और यहाँ आंशिक दहन होता है। यह चमकदार होता है।</li>
+                <li><strong>सबसे आंतरिक क्षेत्र (Inner Zone):</strong> यह काला होता है और सबसे ठंडा क्षेत्र है। यहाँ बिना जले कार्बन के कण होते हैं।</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="note-card">
+            <h3>5. अग्निशामक (Fire Extinguishers)</h3>
+            <p>आग बुझाने के लिए अग्निशामकों का उपयोग किया जाता है। वे आग को नियंत्रित करने के लिए अग्नि त्रिकोण में से एक या अधिक शर्तों को हटाते हैं।</p>
+            <ul>
+                <li><strong>जल का उपयोग:</strong> जल का उपयोग तभी किया जाता है जब आग लकड़ी, कागज, आदि जैसी सामान्य चीजों से लगी हो। जल ज्वलन ताप को कम करता है।</li>
+                <li><strong>कार्बन डाइऑक्साइड (CO₂):</strong> यह एक उत्कृष्ट अग्निशामक है। यह ऑक्सीजन से भारी होने के कारण आग को एक कंबल की तरह ढक लेता है और ऑक्सीजन की आपूर्ति काट देता है।</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="note-card">
+            <h3>6. ईंधन की दक्षता (Fuel Efficiency)</h3>
+            <p>किसी ईंधन के एक किलोग्राम के पूर्ण दहन से उत्पन्न ऊष्मा ऊर्जा की मात्रा उसका <strong>कैलोरी मान (Calorific Value)</strong> कहलाती है। इसका मात्रक <strong>किलोजूल प्रति किलोग्राम (kJ/kg)</strong> है।</p>
+        </div>
+    </section>
+
+</div>
+<footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RBSE कक्षा 7 | कंप्यूटर अध्याय 8: एच.टी.एम.एल. की भाषा</title>
+    <!-- Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light background */
+            color: #1e293b; /* Dark text */
+        }
+        .header {
+            background-color: #547748; /* School green color */
+            color: #ffffff;
+            padding: 2.5rem 5%;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .header h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+        }
+        .header h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        .qa-heading {
+            font-size: 1.5rem;
+            color: #3b573a;
+            border-bottom: 3px solid #7cb342;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        .qa-item {
+            padding: 1.25rem;
+            background-color: #ffffff;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 6px solid #aed581;
+            transition: transform 0.2s;
+        }
+        .qa-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .fill-in-answer, .final-answer {
+            font-weight: 700;
+            color: #8b0000; /* Dark Red for answers */
+            background-color: #ffebee;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .answer-text {
+            font-weight: 600;
+            color: #1a4314; /* Deep green for final answers */
+            margin-top: 0.75rem;
+            border-top: 1px dashed #eee;
+            padding-top: 0.5rem;
+        }
+        .tag-style {
+            font-family: monospace;
+            background-color: #e0f2f1;
+            color: #00796b;
+            padding: 1px 4px;
+            border-radius: 3px;
+        }
+        .list-style {
+            list-style-type: '👉 ';
+            margin-left: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <h1>💻 कंप्यूटर</h1>
+    <h2>अध्याय 8: एच.टी.एम.एल. की भाषा (RBSE कक्षा 7)</h2>
+</header>
+
+<div class="container mx-auto w-11/12 max-w-5xl my-10 p-6 bg-white rounded-xl shadow-2xl">
+    
+    <!-- Section 1: रिक्त स्थानों की पूर्ति (क) -->
+    <div class="content-section mb-10">
+        <h3 class="qa-heading">1. रिक्त स्थानों की पूर्ति कीजिए (Fill in the Blanks)</h3>
+        <div class="space-y-4">
+            <div class="qa-item">
+                <strong>1. एच.टी.एम.एल. का पूरा नाम है <span class="fill-in-answer">हाइपर टेक्स्ट मार्कअप लैंग्वेज</span>।</strong>
+                <p class="answer-text">उत्तर: **हाइपर टेक्स्ट मार्कअप लैंग्वेज**</p>
+            </div>
+            
+            <div class="qa-item">
+                <strong>2. दस्तावेज़ टैग <span class="fill-in-answer">भरा हुआ (Non-Empty)</span> टैग होते हैं।</strong>
+                <p class="answer-text">उत्तर: **भरा हुआ (Non-Empty)**</p>
+            </div>
+            
+            <div class="qa-item">
+                <strong>3. टाइटल टैग <span class="fill-in-answer">हैडर</span> वर्ग का एक हिस्सा है।</strong>
+                <p class="answer-text">उत्तर: **हैडर**</p>
+            </div>
+            
+            <div class="qa-item">
+                <strong>4. &lt;HTML&gt; टैग वेब पेज की सम्पूर्ण संरचना को परिभाषित करता है।</strong>
+                <p class="answer-text">उत्तर: **&lt;HTML&gt;** (यह टैग वेब पेज की सम्पूर्ण संरचना को परिभाषित करता है)</p>
+            </div>
+            
+            <div class="qa-item">
+                <strong>5. प्रत्येक वेब पेज का <span class="fill-in-answer">शीर्षक (Title)</span> और <span class="fill-in-answer">मुख्य भाग (Body)</span> होता है।</strong>
+                <p class="answer-text">उत्तर: **शीर्षक (Title)** और **मुख्य भाग (Body)**</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: सत्य/असत्य (ख) -->
+    <div class="content-section mb-10">
+        <h3 class="qa-heading">2. सही कथन के सामने "सत्य" तथा गलत कथन के सामने "असत्य" लिखिए (True/False)</h3>
+        <div class="space-y-4">
+            <div class="qa-item">
+                <strong>1. एच.टी.एम.एल. का प्रयोग वेबसाइट बनाने के लिए होता है।</strong>
+                <p class="answer-text">उत्तर: **सत्य**</p>
+            </div>
+            <div class="qa-item">
+                <strong>2. खाली टैग को कंटेनर टैग भी कहा जाता है।</strong>
+                <p class="answer-text">उत्तर: **असत्य** (भरा हुआ टैग (Non-Empty Tag) को कंटेनर टैग कहा जाता है।)</p>
+            </div>
+            <div class="qa-item">
+                <strong>3. टाइटल टैग हैडर वर्ग की शुरुआत व समाप्ति तय करता है।</strong>
+                <p class="answer-text">उत्तर: **असत्य** (<span class="tag-style">&lt;HEAD&gt;</span> टैग हैडर वर्ग की शुरुआत व समाप्ति तय करता है।)</p>
+            </div>
+            <div class="qa-item">
+                <strong>4. टेक्स्ट फॉर्मेटिंग टैग को दो श्रेणियों में विभाजित किया जाता है।</strong>
+                <p class="answer-text">उत्तर: **सत्य** (अक्षर फॉर्मेटिंग टैग और पैराग्राफ फॉर्मेटिंग टैग।)</p>
+            </div>
+            <div class="qa-item">
+                <strong>5. वेब ब्राउज़र शब्दों के बीच केवल एकल स्थान को ही पहचान सकता है।</strong>
+                <p class="answer-text">उत्तर: **सत्य**</p>
+            </div>
+            <div class="qa-item">
+                <strong>6. उद्धरण टैग टेक्स्ट को स्क्रीन के मध्य स्थापित कर देता है।</strong>
+                <p class="answer-text">उत्तर: **असत्य** (<span class="tag-style">&lt;CENTER&gt;</span> टैग मध्य में स्थापित करता है, जबकि उद्धरण टैग <span class="tag-style">&lt;BLOCKQUOTE&gt;</span> हाशिये (Indent) प्रदान करता है।)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: संक्षिप्त टिप्पणी लिखिए (ग) -->
+    <div class="content-section mb-10">
+        <h3 class="qa-heading">3. संक्षिप्त टिप्पणी लिखिए (Short Notes)</h3>
+        <div class="space-y-4">
+            
+            <div class="qa-item">
+                <strong>1. दस्तावेज़ टैग (Document Tag):</strong>
+                <p class="answer-text">
+                    दस्तावेज़ टैग (<span class="tag-style">&lt;HTML&gt;</span>) वेब पेज की **संपूर्ण संरचना** को परिभाषित करता है। यह हमेशा किसी भी HTML फ़ाइल में पहला टैग होता है और अंतिम में बंद (<span class="tag-style">&lt;/HTML&gt;</span>) होता है। यह टैग वेब ब्राउज़र को बताता है कि यह एक HTML फ़ाइल है। यह एक **भरा हुआ (Non-Empty) टैग** है।
+                </p>
+            </div>
+
+            <div class="qa-item">
+                <strong>2. टेक्स्ट फॉर्मेटिंग टैग (Text Formatting Tag):</strong>
+                <p class="answer-text">
+                    ये टैग वेब पेज पर टेक्स्ट की **प्रस्तुति और शैली** को बदलने के लिए उपयोग किए जाते हैं, जैसे कि टेक्स्ट को **बोल्ड**, **इटैलिक** या **अंडरलाइन** करना। इन्हें दो मुख्य श्रेणियों में विभाजित किया गया है: **अक्षर फ़ॉर्मेटिंग** (जैसे <span class="tag-style">&lt;B&gt;</span>) और **पैराग्राफ फ़ॉर्मेटिंग** (जैसे <span class="tag-style">&lt;P&gt;</span>)।
+                </p>
+            </div>
+            
+            <div class="qa-item">
+                <strong>3. शीर्षक टैग (Head Tag):</strong>
+                <p class="answer-text">
+                    शीर्षक टैग (<span class="tag-style">&lt;HEAD&gt;</span>) HTML दस्तावेज़ के **शीर्ष वर्ग** की शुरुआत और समाप्ति को दर्शाता है। यह टैग दस्तावेज़ के बारे में मेटा जानकारी (Metainformation) रखता है, जो वेबपेज पर दिखाई नहीं देती है, जैसे कि पेज का शीर्षक (<span class="tag-style">&lt;TITLE&gt;</span>)। यह हमेशा <span class="tag-style">&lt;HTML&gt;</span> टैग के बाद और <span class="tag-style">&lt;BODY&gt;</span> टैग से पहले आता है।
+                </p>
+            </div>
+
+            <div class="qa-item">
+                <strong>4. पैराग्राफ टैग (Paragraph Tag):</strong>
+                <p class="answer-text">
+                    पैराग्राफ टैग (<span class="tag-style">&lt;P&gt;</span>) HTML में **पैराग्राफ फ़ॉर्मेटिंग** के लिए सबसे अधिक उपयोग होने वाला टैग है। इसका उपयोग वेब पेज पर नए पैराग्राफ की शुरुआत करने के लिए किया जाता है। जब ब्राउज़र इस टैग को देखता है, तो यह टेक्स्ट को एक नई लाइन से शुरू करता है और ऊपर-नीचे कुछ खाली जगह (Space) जोड़ता है।
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: निम्नलिखित प्रश्नों के उत्तर दीजिए (घ) -->
+    <div class="content-section mb-10">
+        <h3 class="qa-heading">4. निम्नलिखित प्रश्नों के उत्तर दीजिए (Long Answers)</h3>
+        <div class="space-y-4">
+            
+            <div class="qa-item">
+                <strong>1. HTML क्या है?</strong>
+                <p class="answer-text">
+                    HTML का पूर्ण रूप **हाइपर टेक्स्ट मार्कअप लैंग्वेज (Hyper Text Markup Language)** है। यह वेबपेज बनाने के लिए इस्तेमाल की जाने वाली **मानक मार्कअप भाषा** है। HTML का उपयोग करके, हम टेक्स्ट, चित्र और अन्य तत्वों को व्यवस्थित करके वेब ब्राउज़र पर प्रदर्शित होने वाली सामग्री की **संरचना** को परिभाषित करते हैं। HTML फ़ाइलें टैग्स (Tags) का उपयोग करती हैं, जिन्हें नोटपैड जैसे टेक्स्ट एडिटर में लिखा जाता है और `.html` एक्सटेंशन के साथ सेव किया जाता है।
+                </p>
+            </div>
+
+            <div class="qa-item">
+                <strong>2. HTML में प्रयोग होने वाले टैग के प्रकारों का वर्गीकरण करें।</strong>
+                <p class="answer-text">
+                    HTML में टैग्स मुख्य रूप से दो प्रकार के होते हैं:
+                    <ol class="list-decimal ml-6 mt-2 space-y-1">
+                        <li>**भरा हुआ टैग / कंटेनर टैग (Non-Empty / Container Tag):**
+                            <ul class="list-style">
+                                <li>इन टैग्स में **शुरुआत** (Opening Tag) और **समाप्ति** (Closing Tag) दोनों होते हैं।</li>
+                                <li>समाप्ति टैग में नाम से पहले एक स्लैश (/) होता है।</li>
+                                <li>**उदाहरण:** <span class="tag-style">&lt;HTML&gt;...&lt;/HTML&gt;, &lt;BODY&gt;...&lt;/BODY&gt;, &lt;B&gt;...&lt;/B&gt;</span>।</li>
+                            </ul>
+                        </li>
+                        <li>**खाली टैग (Empty Tag):**
+                            <ul class="list-style">
+                                <li>इन टैग्स में केवल एक ही टैग होता है, इन्हें बंद करने वाले टैग की आवश्यकता नहीं होती है।</li>
+                                <li>ये आमतौर पर एक ही कार्य करने के लिए उपयोग किए जाते हैं।</li>
+                                <li>**उदाहरण:** <span class="tag-style">&lt;BR&gt; (लाइन ब्रेक के लिए)</span>।</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </p>
+            </div>
+
+            <div class="qa-item">
+                <strong>3. HEAD टैग का क्या उद्देश्य है?</strong>
+                <p class="answer-text">
+                    <span class="tag-style">&lt;HEAD&gt;</span> टैग का मुख्य उद्देश्य वेबपेज के बारे में **मेटा जानकारी (Metainformation)** को संग्रहित करना है जो सीधे पेज की सामग्री के रूप में दिखाई नहीं देती है।
+                    <br><br>
+                    इसके मुख्य उद्देश्य:
+                    <ul class="list-disc ml-6 mt-2 space-y-1">
+                        <li>**शीर्षक निर्धारित करना:** <span class="tag-style">&lt;TITLE&gt;</span> टैग को शामिल करना, जो ब्राउज़र टैब पर प्रदर्शित होता है।</li>
+                        <li>**स्क्रिप्ट और स्टाइल जोड़ना:** पेज पर लागू होने वाली **CSS स्टाइल** (जैसे <span class="tag-style">&lt;STYLE&gt;</span>) और **JavaScript** कोड को शामिल करना।</li>
+                        <li>**अन्य जानकारी:** वेबपेज के लेखक, कीवर्ड और चरित्र एन्कोडिंग जैसी अन्य जानकारी देना।</li>
+                    </ul>
+                </p>
+            </div>
+            
+            <div class="qa-item">
+                <strong>4. HTML में टेक्स्ट को फ़ॉर्मेट करने वाले विभिन्न टैग कौन-से हैं?</strong>
+                <p class="answer-text">
+                    HTML में टेक्स्ट को फ़ॉर्मेट करने वाले कुछ प्रमुख टैग निम्नलिखित हैं:
+                    <ul class="list-disc ml-6 mt-2 space-y-1">
+                        <li>**अक्षर फ़ॉर्मेटिंग टैग्स (Character Formatting Tags):**
+                            <ul class="list-style">
+                                <li><span class="tag-style">&lt;B&gt;</span>: टेक्स्ट को **Bold** करने के लिए।</li>
+                                <li><span class="tag-style">&lt;I&gt;</span>: टेक्स्ट को *Italic* करने के लिए।</li>
+                                <li><span class="tag-style">&lt;U&gt;</span>: टेक्स्ट को <span class="underline">Underline</span> करने के लिए।</li>
+                                <li><span class="tag-style">&lt;BIG&gt;</span>: टेक्स्ट को थोड़ा **बड़ा** दिखाने के लिए।</li>
+                                <li><span class="tag-style">&lt;SMALL&gt;</span>: टेक्स्ट को थोड़ा **छोटा** दिखाने के लिए।</li>
+                            </ul>
+                        </li>
+                        <li>**पैराग्राफ फ़ॉर्मेटिंग टैग्स (Paragraph Formatting Tags):**
+                            <ul class="list-style">
+                                <li><span class="tag-style">&lt;P&gt;</span>: एक **नया पैराग्राफ** शुरू करने के लिए।</li>
+                                <li><span class="tag-style">&lt;BR&gt;</span>: **लाइन ब्रेक** (Line Break) देने के लिए (खाली टैग)।</li>
+                                <li><span class="tag-style">&lt;CENTER&gt;</span>: टेक्स्ट को **स्क्रीन के मध्य** में स्थापित करने के लिए।</li>
+                                <li><span class="tag-style">&lt;H1&gt;</span> से <span class="tag-style">&lt;H6&gt;</span>: विभिन्न स्तरों के **शीर्षक** (Headings) बनाने के लिए।</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="qa-item">
+                <strong>5. HTML में उद्धरण (Quotation) कैसे बनाए जाते हैं?</strong>
+                <p class="answer-text">
+                    HTML में लंबे उद्धरण (Quotation) या किसी अन्य स्रोत से ली गई सामग्री को अलग से प्रदर्शित करने के लिए <span class="tag-style">&lt;BLOCKQUOTE&gt;</span> टैग का प्रयोग किया जाता है।
+                    <br><br>
+                    यह टैग ब्राउज़र को निर्देश देता है कि उद्धृत किए गए टेक्स्ट को पेज के बाकी हिस्से से अलग दिखाने के लिए **हाशिये (Indent)** में प्रदर्शित किया जाए।
+                    <br><br>
+                    **उदाहरण:**
+                    <pre class="bg-gray-100 p-3 rounded-md text-sm mt-2 overflow-x-auto"><code class="language-html">
+&lt;p&gt;आगे दिए गए उद्धरण पर विचार करें:&lt;/p&gt;
+&lt;blockquote&gt;
+    &lt;p&gt;यह वह लंबा उद्धरण है जिसे आप वेब पेज पर प्रदर्शित करना चाहते हैं।&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;यह उद्धरण समाप्त होता है।&lt;/p&gt;
+                    </code></pre>
+                </p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p class="text-center text-sm py-4 text-gray-600">© RBSE कक्षा 7 कंप्यूटर पाठ्यपुस्तक पर आधारित।</p>
+</footer>
+
+</body>
+</html>

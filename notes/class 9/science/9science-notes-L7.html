@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>गति - इंटरैक्टिव नोट्स</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Scientific Twilight -->
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+            background-color: #0b1120;
+            color: #d1d5db;
+        }
+        .tab-active {
+            border-color: #0d9488;
+            color: #0d9488;
+            background-color: #ccfbf1;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #6ee7b7;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #1f2937;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .back-button:hover {
+            background-color: #6ee7b7;
+            color: #1f2937;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+        .header {
+            background-color: #ffffff;
+            color: #547748;
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+            color: #6a5a4b;
+        }
+        .footer {
+            background-color: #1f2937;
+            color: #9ca3af;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <div class="back-button-container">
+        <a class="back-button" href="9science-notes.html">
+            <span>←</span> पीछे जाएँ
+        </a>
+    </div>
+
+    <header class="header">
+        <h1 class="text-3xl md:text-4xl font-bold text-teal-400">अध्याय: गति</h1>
+        <p class="text-slate-400 mt-2">कक्षा 9 विज्ञान के लिए एक इंटरैक्टिव गाइड</p>
+    </header>
+
+    <div class="container mx-auto p-4 md:p-8 relative">
+
+        <nav class="flex flex-wrap justify-center border-b-2 border-slate-700 mb-8">
+            <button data-tab="tab1" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300 tab-active">परिचय और मूल अवधारणाएँ</button>
+            <button data-tab="tab2" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">वेग और त्वरण</button>
+            <button data-tab="tab3" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">ग्राफ और समीकरण</button>
+            <button data-tab="tab4" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">समान वृत्तीय गति</button>
+        </nav>
+
+        <main>
+            <!-- Tab 1: Introduction and Basic Concepts -->
+            <section id="tab1" class="content-section active">
+                 <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">गति और विराम</h2>
+                    <p class="text-slate-400 mt-1">किसी वस्तु की स्थिति में समय के साथ परिवर्तन को गति कहते हैं।</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-2">मूल अवधारणाएँ</h3>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li><strong>विराम (Rest)</strong>: जब कोई वस्तु समय के साथ अपनी स्थिति नहीं बदलती है।</li>
+                            <li><strong>दूरी (Distance)</strong>: किसी वस्तु द्वारा तय की गई कुल पथ लंबाई। यह एक <strong>अदिश राशि (Scalar quantity)</strong> है।</li>
+                            <li><strong>विस्थापन (Displacement)</strong>: किसी वस्तु की प्रारंभिक और अंतिम स्थिति के बीच की सबसे छोटी दूरी। यह एक <strong>सदिश राशि (Vector quantity)</strong> है।
+                                <br/><br/>
+                                <h4 class="text-lg font-semibold text-slate-400 mt-4 mb-2">उदाहरण: दूरी बनाम विस्थापन</h4>
+                                <p class="text-slate-300">
+                                    मान लीजिए आप अपने घर (बिंदु A) से स्कूल (बिंदु B) तक 5 किमी की दूरी तय करते हैं और फिर वापस घर आते हैं।
+                                    <br/>
+                                    <strong>दूरी</strong>: 5 किमी (स्कूल तक) + 5 किमी (वापस) = 10 किमी।
+                                    <br/>
+                                    <strong>विस्थापन</strong>: चूँकि आप वापस अपने प्रारंभिक बिंदु पर आ गए हैं, आपका विस्थापन 0 किमी है।
+                                    <br/>
+                                    
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Velocity and Acceleration -->
+            <section id="tab2" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">वेग और त्वरण</h2>
+                    <p class="text-slate-400 mt-1">गति को मापने के लिए विभिन्न भौतिक राशियाँ।</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-orange-400 mb-2">चाल और वेग</h3>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li><strong>चाल (Speed)</strong>: प्रति इकाई समय में तय की गई दूरी। यह एक अदिश राशि है। सूत्र: चाल = दूरी / समय</li>
+                            <li><strong>वेग (Velocity)</strong>: प्रति इकाई समय में हुआ विस्थापन। यह एक सदिश राशि है। सूत्र: वेग = विस्थापन / समय</li>
+                            <li><strong>अंतर</strong>: चाल केवल गति की दर बताती है, जबकि वेग गति की दर और दिशा दोनों बताता है।
+                                <br/><br/>
+                                <h4 class="text-lg font-semibold text-slate-400 mt-4 mb-2">उदाहरण:</h4>
+                                <p class="text-slate-300">
+                                    एक कार 60 किमी/घंटा की चाल से उत्तर की ओर जा रही है।
+                                    <br/>
+                                    <strong>चाल</strong> = 60 किमी/घंटा।
+                                    <br/>
+                                    <strong>वेग</strong> = 60 किमी/घंटा, उत्तर की ओर।
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-red-400 mb-2">त्वरण (Acceleration)</h3>
+                        <p>
+                            वेग में परिवर्तन की दर को त्वरण कहते हैं। यह भी एक सदिश राशि है।
+                            <br/>
+                            
+
+[Image of a car accelerating]
+
+                            <br/><br/>
+                            सूत्र: $a = \frac{v - u}{t}$
+                            <br/>
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li>$a$: त्वरण</li>
+                                <li>$v$: अंतिम वेग</li>
+                                <li>$u$: प्रारंभिक वेग</li>
+                                <li>$t$: समय</li>
+                            </ul>
+                            <h4 class="text-lg font-semibold text-slate-400 mt-4 mb-2">उदाहरण:</h4>
+                            <p class="text-slate-300">
+                                एक कार 5 सेकंड में 10 मी/से से 20 मी/से तक अपनी गति बढ़ाती है।
+                                <br/>
+                                त्वरण (a) = (20 - 10) / 5 = 2 मी/से²।
+                            </p>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tab 3: Graphs and Equations -->
+            <section id="tab3" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">गति का ग्राफिकल निरूपण</h2>
+                    <p class="text-slate-400 mt-1">दूरी-समय ग्राफ और वेग-समय ग्राफ।</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-purple-400 mb-2">दूरी-समय ग्राफ</h3>
+                        <p class="text-slate-300">
+                            यह ग्राफ समय के साथ वस्तु की स्थिति में हुए परिवर्तन को दर्शाता है।
+                            <br/>
+                            
+
+[Image of a distance-time graph]
+
+                            <br/><br/>
+                            <strong>समान चाल</strong>: ग्राफ एक सीधी रेखा होती है।
+                            <br/>
+                            <strong>असमान चाल</strong>: ग्राफ एक वक्र रेखा होती है।
+                        </p>
+                    </div>
+                     <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-pink-400 mb-2">वेग-समय ग्राफ</h3>
+                        <p class="text-slate-300">
+                            यह ग्राफ समय के साथ वस्तु के वेग में हुए परिवर्तन को दर्शाता है।
+                            <br/>
+                            
+
+[Image of a velocity-time graph]
+
+                            <br/><br/>
+                            <strong>समान त्वरण</strong>: ग्राफ एक सीधी रेखा होती है।
+                            <br/>
+                            <strong>असमान त्वरण</strong>: ग्राफ एक वक्र रेखा होती है।
+                            <br/>
+                            <strong>विस्थापन</strong>: वेग-समय ग्राफ के नीचे का क्षेत्रफल विस्थापन को दर्शाता है।
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-800 p-6 rounded-lg shadow-md mt-6">
+                    <h3 class="text-xl font-bold text-teal-400 mb-2">गति के तीन समीकरण</h3>
+                    <p class="text-slate-300">एक सीधी रेखा में समान त्वरण से गतिमान वस्तु के लिए समीकरण।</p>
+                    <ul class="list-disc list-inside space-y-4 mt-4">
+                        <li><strong>पहला समीकरण</strong>: वेग-समय संबंध
+                            <p class="text-center mt-2 font-mono text-xl text-teal-300">
+                                $v = u + at$
+                            </p>
+                            <h4 class="text-lg font-semibold text-slate-400 mt-4 mb-2">उदाहरण:</h4>
+                            <p class="text-slate-300">
+                                एक बस 5 मी/से की चाल से चल रही है और 2 मी/से² के त्वरण से 10 सेकंड तक चलती है। इसका अंतिम वेग क्या होगा?
+                                <br/>
+                                v = 5 + (2)(10) = 5 + 20 = 25 मी/से।
+                            </p>
+                        </li>
+                        <li><strong>दूसरा समीकरण</strong>: स्थिति-समय संबंध
+                            <p class="text-center mt-2 font-mono text-xl text-teal-300">
+                                $s = ut + \frac{1}{2}at^2$
+                            </p>
+                        </li>
+                        <li><strong>तीसरा समीकरण</strong>: स्थिति-वेग संबंध
+                            <p class="text-center mt-2 font-mono text-xl text-teal-300">
+                                $2as = v^2 - u^2$
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Tab 4: Uniform Circular Motion -->
+            <section id="tab4" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">समान वृत्तीय गति</h2>
+                    <p class="text-slate-400 mt-1">जब कोई वस्तु एक वृत्ताकार पथ पर एक समान चाल से चलती है।</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-2">मुख्य विशेषताएँ</h3>
+                        <p class="text-slate-300">
+                            समान वृत्तीय गति में, चाल स्थिर रहती है, लेकिन वेग लगातार बदलता रहता है क्योंकि वस्तु की गति की दिशा हर बिंदु पर बदलती है।
+                            <br/><br/>
+                            
+                            <br/><br/>
+                            वृत्तीय पथ पर वेग को इस प्रकार ज्ञात किया जा सकता है:
+                            <br/>
+                            सूत्र: $v = \frac{2\pi r}{t}$
+                            <br/>
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li>$v$: वेग</li>
+                                <li>$r$: वृत्त की त्रिज्या</li>
+                                <li>$t$: एक चक्कर पूरा करने में लगा समय</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-button');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-tab');
+
+                tabs.forEach(t => t.classList.remove('tab-active'));
+                tab.classList.add('tab-active');
+
+                contentSections.forEach(section => {
+                    if (section.id === target) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

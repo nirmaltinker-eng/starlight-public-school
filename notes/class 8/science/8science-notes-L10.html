@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>कक्षा 8 विज्ञान - अध्याय 10: ध्वनि (ध्वनि)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #3f51b5; /* Indigo */
+            --secondary-color: #ff9800; /* Orange */
+            --background-color: #e8eaf6; /* Light Indigo */
+            --card-background: #ffffff;
+            --text-color: #212121;
+            --header-color: #1a237e; /* Dark Indigo */
+            --accent-color: #4caf50; /* Green */
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+            animation: fadeInDown 1s ease-in-out;
+            width: 100%;
+            border-radius: 0 0 20px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: clamp(1.5em, 5vw, 2.5em);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-weight: 300;
+        }
+
+        .section {
+            background-color: var(--card-background);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 30px;
+            border-left: 8px solid var(--secondary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section:nth-of-type(2) { animation-delay: 0.2s; }
+        .section:nth-of-type(3) { animation-delay: 0.4s; }
+        .section:nth-of-type(4) { animation-delay: 0.6s; }
+        .section:nth-of-type(5) { animation-delay: 0.8s; }
+        .section:nth-of-type(6) { animation-delay: 1.0s; }
+        .section:nth-of-type(7) { animation-delay: 1.2s; }
+        .section:nth-of-type(8) { animation-delay: 1.4s; }
+        .section:nth-of-type(9) { animation-delay: 1.6s; }
+
+        h2 {
+            color: var(--header-color);
+            font-weight: 600;
+            font-size: clamp(1.5em, 4vw, 2em);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .flowchart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .flowchart-step {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .flowchart-step:hover {
+            background-color: var(--header-color);
+            transform: scale(1.05);
+        }
+
+        .arrow {
+            font-size: 2em;
+            color: var(--secondary-color);
+            margin: 0 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: var(--background-color);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        ul li:hover {
+            transform: translateX(10px);
+        }
+        
+        strong {
+            color: var(--primary-color);
+        }
+        
+        /* Animation Keyframes */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        /* New styles for Back Button and Footer */
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: var(--card-background);
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+            margin-right: 5px;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+
+        .footer {
+            background-color: var(--card-background);
+            color: var(--header-color);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 25px 25px 0 0;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            .flowchart {
+                flex-direction: column;
+            }
+            .arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+            .back-button-container {
+                top: 10px;
+                left: 10px;
+            }
+            .back-button {
+                padding: 8px 16px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-button-container">
+        <a class="back-button" href="javascript:history.back()">
+            <span>&lt;</span> Back
+        </a>
+    </div>
+
+    <header>
+        <h1>अध्याय 10: ध्वनि (Sound)</h1>
+        <p>कक्षा 8 विज्ञान - राजस्थान बोर्ड</p>
+    </header>
+
+    <div class="container">
+        <!-- Introduction Section -->
+        <div class="section">
+            <h2>परिचय (Introduction)</h2>
+            <p>हम अपनी दैनिक दिनचर्या में विभिन्न प्रकार की ध्वनियाँ सुनते हैं। ध्वनि ऊर्जा का एक रूप है जो हमारे कानों में सुनने की संवेदना उत्पन्न करती है। इस अध्याय में, हम समझेंगे कि ध्वनि कैसे उत्पन्न होती है, यह कैसे संचरित होती है और हम इसे कैसे सुनते हैं।</p>
+        </div>
+        
+        <!-- How Sound is Produced Section -->
+        <div class="section">
+            <h2>ध्वनि कैसे उत्पन्न होती है? (How is Sound Produced?)</h2>
+            <p>ध्वनि <strong>कंपन (Vibration)</strong> करती हुई वस्तुओं द्वारा उत्पन्न होती है। जब कोई वस्तु तेज़ी से आगे-पीछे या ऊपर-नीचे गति करती है, तो उसे कंपन कहा जाता है। ये कंपन हवा में तरंगें पैदा करते हैं जो हमारे कानों तक पहुँचती हैं।</p>
+            <ul>
+                <li><strong>उदाहरण:</strong>
+                    <ul>
+                        <li>जब हम किसी घंटी को बजाते हैं, तो वह कंपन करती है और ध्वनि उत्पन्न करती है।</li>
+                        <li>सितार के तार को खींचने पर, वह कंपन करने लगता है और हमें संगीत सुनाई देता है।</li>
+                        <li>मनुष्य में ध्वनि <strong>वाक् तंतुओं (Vocal Cords)</strong> के कंपन से उत्पन्न होती है।</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="image-container">
+                <img src="https://placehold.co/600x400/81c784/ffffff?text=Vibrating+Tuning+Fork" alt="कंपन करता हुआ स्वरित्र द्विभुज (Tuning Fork)">
+                <p>चित्र: कंपन करता हुआ स्वरित्र द्विभुज ध्वनि उत्पन्न करता है।</p>
+            </div>
+        </div>
+
+        <!-- Propagation of Sound Section -->
+        <div class="section">
+            <h2>ध्वनि का संचरण (Propagation of Sound)</h2>
+            <p>ध्वनि को संचरित होने के लिए एक <strong>माध्यम (Medium)</strong> की आवश्यकता होती है। यह माध्यम ठोस, तरल या गैस हो सकता है। ध्वनि निर्वात (वैक्यूम) में संचरित नहीं हो सकती क्योंकि वहाँ कंपन करने के लिए कोई कण नहीं होते।</p>
+            <div class="flowchart">
+                <div class="flowchart-step">ध्वनि का स्रोत (Source)</div>
+                <div class="arrow">➡️</div>
+                <div class="flowchart-step">माध्यम में कंपन (Vibration in Medium)</div>
+                <div class="arrow">➡️</div>
+                <div class="flowchart-step">हमारे कान (Our Ears)</div>
+                <div class="arrow">➡️</div>
+                <div class="flowchart-step">मस्तिष्क में ध्वनि की पहचान (Brain Recognizes Sound)</div>
+            </div>
+            <ul>
+                <li><strong>ठोस माध्यम में:</strong> ध्वनि लकड़ी, धातु, और अन्य ठोस पदार्थों में तेजी से यात्रा करती है। उदाहरण: रेल की पटरी पर कान लगाकर दूर आती हुई रेलगाड़ी की ध्वनि सुनना।</li>
+                <li><strong>तरल माध्यम में:</strong> ध्वनि पानी में भी संचरित होती है। उदाहरण: पानी के नीचे दो पत्थर टकराने पर ध्वनि सुनाई देना।</li>
+                <li><strong>गैस माध्यम में (हवा):</strong> हवा ध्वनि का सबसे सामान्य माध्यम है।</li>
+            </ul>
+        </div>
+        
+        <!-- Amplitude, Frequency, and Pitch Section -->
+        <div class="section">
+            <h2>आयाम, आवृत्ति और तारत्व (Amplitude, Frequency & Pitch)</h2>
+            <p>ध्वनि की विशेषताओं को समझने के लिए कुछ महत्वपूर्ण पद हैं:</p>
+            <ul>
+                <li><strong>आयाम (Amplitude):</strong> कंपन का अधिकतम विस्थापन। ध्वनि का <strong>आयाम उसकी प्रबलता (Loudness)</strong> निर्धारित करता है।
+                    <br><strong>उदाहरण:</strong> एक ढोल को ज़ोर से बजाने पर उसका आयाम अधिक होता है, जिससे प्रबल ध्वनि उत्पन्न होती है।</li>
+                <li><strong>आवृत्ति (Frequency):</strong> प्रति सेकंड होने वाले कंपनों की संख्या। इसका मात्रक हर्ट्ज़ (Hz) है।
+                    <br>ध्वनि की <strong>आवृत्ति उसका तारत्व (Pitch)</strong> निर्धारित करती है।
+                    <br><strong>उच्च आवृत्ति (High Frequency)</strong> = उच्च तारत्व (High Pitch) = तीक्ष्ण या बारीक ध्वनि (जैसे- सीटी)।
+                    <br><strong>निम्न आवृत्ति (Low Frequency)</strong> = निम्न तारत्व (Low Pitch) = मोटी या भारी ध्वनि (जैसे- शेर की दहाड़)।</li>
+            </ul>
+        </div>
+
+        <!-- Hearing Range Section -->
+        <div class="section">
+            <h2>श्रव्य और अश्रव्य ध्वनि (Audible and Inaudible Sound)</h2>
+            <p>मनुष्य के कान एक निश्चित आवृत्ति परास (Frequency Range) की ध्वनियों को ही सुन सकते हैं।</p>
+            <ul>
+                <li><strong>श्रव्य ध्वनि (Audible Sound):</strong> वह ध्वनि जिसकी आवृत्ति <strong>20 Hz से 20,000 Hz</strong> के बीच होती है। मनुष्य के कान इस परास में ही ध्वनि को सुन सकते हैं।</li>
+                <li><strong>अश्रव्य ध्वनि (Inaudible Sound):</strong> वह ध्वनि जिसकी आवृत्ति 20 Hz से कम या 20,000 Hz से अधिक होती है।
+                    <br><strong>उदाहरण:</strong>
+                    <br><strong>अपश्रव्य (Infrasound):</strong> 20 Hz से कम आवृत्ति की ध्वनि (जैसे- भूकंप)।
+                    <br><strong>पराश्रव्य (Ultrasound):</strong> 20,000 Hz से अधिक आवृत्ति की ध्वनि (जैसे- चमगादड़)।</li>
+            </ul>
+            <div class="image-container">
+                <img src="https://placehold.co/600x350/66bb6a/ffffff?text=Human+Hearing+Range+Diagram" alt="मनुष्य की श्रवण सीमा का आरेख">
+                <p>चित्र: मानव श्रवण सीमा का प्रदर्शन।</p>
+            </div>
+        </div>
+
+        <!-- Noise and Music Section -->
+        <div class="section">
+            <h2>शोर और संगीत (Noise and Music)</h2>
+            <ul>
+                <li><strong>संगीत (Music):</strong> वह ध्वनि जो कानों को सुखद लगती है। यह नियमित और सुखद कंपन द्वारा उत्पन्न होती है।</li>
+                <li><strong>शोर (Noise):</strong> वह ध्वनि जो कानों को अप्रिय और असहज लगती है। यह अनियमित और अव्यवस्थित कंपन द्वारा उत्पन्न होती है।
+                    <br><strong>उदाहरण:</strong> ट्रैफिक का शोर, मशीनों का शोर।</li>
+            </ul>
+        </div>
+
+        <!-- Noise Pollution Section -->
+        <div class="section">
+            <h2>ध्वनि प्रदूषण (Noise Pollution)</h2>
+            <p>वातावरण में अत्यधिक या अवांछित ध्वनि की उपस्थिति को ध्वनि प्रदूषण कहते हैं।</p>
+            <ul>
+                <li><strong>कारण:</strong> वाहनों का शोर, मशीनों का शोर, लाउडस्पीकर, पटाखे, आदि।</li>
+                <li><strong>दुष्प्रभाव:</strong>
+                    <ul>
+                        <li>तनाव और उच्च रक्तचाप (Stress and High Blood Pressure)。</li>
+                        <li>अनिद्रा (Insomnia) और चिंता (Anxiety)।</li>
+                        <li>श्रवण शक्ति में कमी (Hearing Loss)।</li>
+                    </ul>
+                </li>
+                <li><strong>नियंत्रण के उपाय:</strong>
+                    <ul>
+                        <li>वाहनों में हॉर्न का कम उपयोग करना।</li>
+                        <li>लाउडस्पीकर और टीवी की ध्वनि कम रखना।</li>
+                        <li>कारखानों को आवासीय क्षेत्रों से दूर स्थापित करना।</li>
+                        <li>सड़कों के किनारे और घरों के आसपास पेड़ लगाना।</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Science Notes. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

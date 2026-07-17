@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>प्रकाश (Light): कक्षा 8 विज्ञान</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font 'Inter' for clean modern look -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        /* --- LIGHT/SPECTRUM THEME & BASE STYLES --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FAFAFA; /* Light Gray Background */
+            color: #1A1A1A; /* Near Black text */
+        }
+        .phenomena-card {
+            background-color: #ffffff;
+            border: 1px solid #FFC300; /* Yellow/Gold border */
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+        }
+        .phenomena-card:hover {
+            box-shadow: 0 10px 20px rgba(255, 195, 0, 0.3); /* Bright Yellow shadow on hover */
+            transform: translateY(-2px);
+        }
+
+        /* --- HEADER STYLES (LIGHT THEME) --- */
+        .header {
+            background-color: #ffffff;
+            color: #FFC300; /* Bright Yellow/Gold accent color */
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            color: #FFC300; /* Bright Yellow/Gold for impact */
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+            color: #581845; /* Deep Violet text */
+        }
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 200px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- BACK BUTTON STYLES (LIGHT THEME) --- */
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #FFC300;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #FFF8E1; /* Light yellow background */
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: #FFC300;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(255, 195, 0, 0.4);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+
+        /* --- FOOTER STYLES (LIGHT THEME) --- */
+        .footer {
+            background-color: #ffffff;
+            color: #581845;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+            color: #581845;
+        }
+        
+        /* --- THEME COLORS FOR CONTENT (MAPPED TO VIOLET/YELLOW) --- */
+        .text-theme-dark { color: #581845; } /* Deep Violet */
+        .border-theme-main { border-color: #FFC300; } /* Yellow/Gold */
+        .bg-theme-light { background-color: #FFF8E1; } /* Light Yellow */
+        
+        /* Specific element overrides for contrast */
+        .text-violet-strong { color: #581845; }
+        .text-yellow-strong { color: #FFC300; }
+        
+        /* Law Box Overrides (Blue for rules/laws) */
+        .p-4.bg-blue-50 { background-color: #E0F7FA; border-color: #00BCD4; }
+        .text-blue-700 { color: #005082; }
+
+    </style>
+</head>
+<body>
+
+    <script>
+        // Simple function for creating a placeholder image URL
+        const createPlaceholder = (title) => {
+            // Placeholder color matches the new theme accent
+            const encodedTitle = encodeURIComponent(title);
+            return `https://placehold.co/400x200/FFC300/581845?text=${encodedTitle}`;
+        };
+    </script>
+    
+    <!-- BACK BUTTON CONTAINER -->
+    <div class="back-button-container">
+        <!-- Assuming the back link leads to a main notes page -->
+        <a class="back-button" href="../notes-class8.html">
+            <span>&lt;</span> Back
+        </a>
+    </div>
+
+    <!-- HEADER STRUCTURE -->
+    <header class="header">
+        <h1>प्रकाश (Light) 💡</h1>
+        <p>कक्षा 8 विज्ञान (NCERT/RBSE) नोट्स - स्टारलाइट पब्लिक स्कूल</p>
+        
+        <!-- Logo Container -->
+        <div class="logo-container">
+            <!-- Placeholder for school logo -->
+            <img src="https://placehold.co/200x200/FFC300/581845?text=School+Logo" 
+                 alt="Starlight Public School Logo" 
+                 class="logo">
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="max-w-4xl mx-auto p-4 sm:p-8">
+        
+        <!-- Main Content Grid -->
+        <div class="space-y-8">
+
+            <!-- SECTION 1: प्रकाश का परावर्तन (Reflection of Light) -->
+            <div class="phenomena-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-theme-dark border-b-2 border-theme-main pb-2">
+                    1. प्रकाश का परावर्तन (Reflection of Light)
+                </h2>
+                
+                <h3 class="text-xl font-semibold text-theme-dark mb-2">परावर्तन के नियम (Laws of Reflection)</h3>
+                <p class="text-gray-700 mb-4">
+                    प्रकाश का परावर्तन उस प्रक्रिया को कहते हैं, जब प्रकाश किसी चमकदार सतह से टकराकर उसी माध्यम में वापस लौट आता है।
+                </p>
+
+                <!-- Law Box: Blue Theme for rules/laws -->
+                <div class="p-4 bg-blue-50 rounded-lg border border-blue-200 mb-4">
+                    <h4 class="font-bold text-blue-700 mb-1">परावर्तन के दो नियम</h4>
+                    <ul class="list-decimal list-inside text-sm text-gray-700 space-y-2 pl-4">
+                        <li>**प्रथम नियम:** आपतन कोण (Angle of Incidence, $\angle i$) हमेशा परावर्तन कोण (Angle of Reflection, $\angle r$) के बराबर होता है: $$\angle i = \angle r$$</li>
+                        <li>**द्वितीय नियम:** आपतित किरण, परावर्तित किरण और आपतन बिंदु पर अभिलंब (Normal) - ये तीनों एक ही तल (Plane) में होते हैं।</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-xl font-semibold text-theme-dark mt-6 mb-2">परावर्तन के प्रकार</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 pl-4">
+                    <li><strong class="text-violet-strong">नियमित परावर्तन (Regular Reflection):</strong> जब प्रकाश चिकनी सतह से टकराता है, तो किरणें एक-दूसरे के समानांतर रहती हैं। (उदाहरण: दर्पण)</li>
+                    <li><strong class="text-violet-strong">विसरित परावर्तन (Diffused Reflection):</strong> जब प्रकाश खुरदरी सतह से टकराता है, तो किरणें अलग-अलग दिशाओं में फैल जाती हैं। (उदाहरण: गत्ता)</li>
+                </ul>
+            </div>
+
+            <!-- SECTION 2: मानव नेत्र (Human Eye) -->
+            <div class="phenomena-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-theme-dark border-b-2 border-theme-main pb-2">
+                    2. मानव नेत्र (The Human Eye)
+                </h2>
+
+                <h3 class="text-xl font-semibold text-theme-dark mb-2">नेत्र की संरचना</h3>
+                <p class="text-gray-700 mb-4">
+                    मानव नेत्र सबसे मूल्यवान संवेदी अंग है, जो हमें इस रंगीन दुनिया को देखने में मदद करता है।
+                </p>
+
+                <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                    <li><strong class="text-yellow-strong">कॉर्निया (Cornea):</strong> नेत्र के सामने का पारदर्शी भाग, जिससे प्रकाश प्रवेश करता है।</li>
+                    <li><strong class="text-yellow-strong">आईरिस (Iris):</strong> आँख का रंगीन हिस्सा। यह पुतली (Pupil) के आकार को नियंत्रित करके आँख में प्रवेश करने वाले प्रकाश की मात्रा को नियंत्रित करता है।</li>
+                    <li><strong class="text-yellow-strong">लेंस (Lens):</strong> यह रेटिना पर प्रकाश को केंद्रित करता है।</li>
+                    <li><strong class="text-yellow-strong">रेटिना (Retina):</strong> प्रकाश-संवेदी (light-sensitive) झिल्ली, जिस पर वस्तु का **वास्तविक और उलटा** प्रतिबिंब बनता है।</li>
+                </ul>
+
+                <h3 class="text-lg font-semibold text-theme-dark mb-2 mt-4">दृष्टि दोष (Vision Defects)</h3>
+                <p class="text-gray-700">सामान्यतः, निकट दृष्टि दोष और दूर दृष्टि दोष को उपयुक्त लेंसों (चश्मों) से सुधारा जा सकता है।</p>
+            </div>
+
+            <!-- SECTION 3: प्रकाश का विक्षेपण और इंद्रधनुष (Dispersion and Rainbow) -->
+            <div class="phenomena-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-theme-dark border-b-2 border-theme-main pb-2">
+                    3. प्रकाश का विक्षेपण और इंद्रधनुष
+                </h2>
+                
+                <h3 class="text-xl font-semibold text-theme-dark mb-2">विक्षेपण (Dispersion)</h3>
+                <p class="text-gray-700 mb-4">
+                    जब श्वेत प्रकाश (White Light) प्रिज्म या वर्षा की बूँदों से गुजरता है, तो वह अपने सात **घटक रंगों** (Component Colors) में विभाजित हो जाता है। इसी प्रक्रिया को विक्षेपण कहते हैं।
+                </p>
+
+                <div class="p-4 bg-theme-light rounded-lg border border-theme-main/50">
+                    <h4 class="font-bold text-theme-dark mb-1">स्पेक्ट्रम (Spectrum) के रंग</h4>
+                    <p class="text-sm text-gray-600">इन सात रंगों का क्रम है: **बैंगनी** (Violet), **जामुनी** (Indigo), **नीला** (Blue), **हरा** (Green), **पीला** (Yellow), **नारंगी** (Orange), और **लाल** (Red) - इसे 'VIBGYOR' के नाम से जाना जाता है।</p>
+                </div>
+                
+                <h3 class="text-xl font-semibold text-theme-dark mt-6 mb-2">इंद्रधनुष (Rainbow)</h3>
+                <p class="text-gray-700 mb-2">
+                    इंद्रधनुष एक प्राकृतिक परिघटना है जो वर्षा के बाद आकाश में दिखाई देती है। यह वायुमंडल में निलंबित (suspended) छोटी पानी की बूँदों द्वारा सूर्य के प्रकाश के विक्षेपण के कारण बनता है।
+                </p>
+            </div>
+
+            <!-- SECTION 4: आँखों की देखभाल (Care of Eyes) -->
+            <div class="phenomena-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-theme-dark border-b-2 border-theme-main pb-2">
+                    4. आँखों की देखभाल
+                </h2>
+
+                <h3 class="text-xl font-semibold text-theme-dark mb-2">महत्वपूर्ण सुझाव</h3>
+                
+                <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                    <li>अपनी आँखों को रगड़ें नहीं। यदि कोई धूल का कण चला जाए, तो उन्हें साफ़ पानी से धोएँ।</li>
+                    <li>बहुत कम या बहुत तेज रोशनी में न पढ़ें। इससे आँखों पर जोर पड़ता है।</li>
+                    <li>सूर्य या किसी शक्तिशाली प्रकाश स्रोत को सीधे न देखें।</li>
+                    <li>आँखों के स्वास्थ्य के लिए गाजर, हरी सब्जियाँ और अंडे जैसे विटामिन 'ए' से भरपूर खाद्य पदार्थों का सेवन करें।</li>
+                </ul>
+                
+                <div class="p-4 bg-theme-light rounded-lg border border-theme-main/50 mt-4">
+                    <h4 class="font-bold text-theme-dark mb-1">ब्रेल प्रणाली (Braille System)</h4>
+                    <p class="text-sm text-gray-600">यह नेत्रहीन व्यक्तियों के लिए सबसे लोकप्रिय संसाधन है। इसमें 63 बिन्दुओं (dots) के पैटर्न होते हैं, जिन्हें उठाकर छूकर पहचाना जा सकता है।</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- FOOTER STRUCTURE -->
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+
+</body>
+</html>

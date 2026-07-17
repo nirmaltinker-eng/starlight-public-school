@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>कार्य तथा ऊर्जा - इंटरैक्टिव नोट्स</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Scientific Twilight -->
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+            background-color: #0b1120;
+            color: #d1d5db;
+        }
+        .tab-active {
+            border-color: #0d9488;
+            color: #0d9488;
+            background-color: #ccfbf1;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #6ee7b7;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #1f2937;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .back-button:hover {
+            background-color: #6ee7b7;
+            color: #1f2937;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+        .header {
+            background-color: #ffffff;
+            color: #547748;
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+            color: #6a5a4b;
+        }
+        .footer {
+            background-color: #1f2937;
+            color: #9ca3af;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <div class="back-button-container">
+        <a class="back-button" href="9science-notes.html">
+            <span>←</span> पीछे जाएँ
+        </a>
+    </div>
+
+    <header class="header">
+        <h1 class="text-3xl md:text-4xl font-bold text-teal-400">अध्याय: 10 कार्य तथा ऊर्जा</h1>
+        <p class="text-slate-400 mt-2">कक्षा 9 विज्ञान के लिए एक इंटरैक्टिव गाइड</p>
+    </header>
+
+    <div class="container mx-auto p-4 md:p-8 relative">
+
+        <nav class="flex flex-wrap justify-center border-b-2 border-slate-700 mb-8">
+            <button data-tab="tab1" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300 tab-active">कार्य</button>
+            <button data-tab="tab2" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">ऊर्जा और इसके रूप</button>
+            <button data-tab="tab3" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">शक्ति</button>
+            <button data-tab="tab4" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">ऊर्जा संरक्षण का नियम</button>
+        </nav>
+
+        <main>
+            <!-- Tab 1: Work -->
+            <section id="tab1" class="content-section active">
+                 <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">कार्य (Work)</h2>
+                    <p class="text-slate-400 mt-1">जब किसी वस्तु पर बल लगाने से वह विस्थापित होती है।</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-2">कार्य की परिभाषा</h3>
+                        <p class="text-slate-300">
+                            किसी वस्तु पर बल लगाने और वस्तु के विस्थापन की दिशा में विस्थापन के गुणनफल को <strong>कार्य</strong> कहते हैं।
+                        </p>
+                        <br>
+                        <h4 class="text-lg font-semibold text-slate-400 mt-4 mb-2">सूत्र</h4>
+                        <p class="text-center mt-2 font-mono text-xl text-teal-300">
+                            $W = F \times s$
+                        </p>
+                        <ul class="list-disc list-inside mt-4 space-y-1">
+                            <li>$W$: कार्य</li>
+                            <li>$F$: बल</li>
+                            <li>$s$: विस्थापन</li>
+                        </ul>
+                        <p class="text-slate-300 mt-4">
+                            कार्य एक अदिश राशि है और इसका SI मात्रक <strong>जूल (J)</strong> है।
+                            <br>
+                            
+                        </p>
+                        <p class="text-slate-300 mt-4">
+                           <strong>उदाहरण</strong>: जब आप एक बक्से को धक्का देते हैं और वह अपनी जगह से हिलता है, तो आप कार्य कर रहे हैं।
+                        </p>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Energy and its forms -->
+            <section id="tab2" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">ऊर्जा और इसके रूप</h2>
+                    <p class="text-slate-400 mt-1">कार्य करने की क्षमता।</p>
+                </div>
+                <div class="grid md:grid-cols-1 gap-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-orange-400 mb-2">ऊर्जा (Energy)</h3>
+                        <p class="text-slate-300">
+                            किसी वस्तु के <strong>कार्य करने की क्षमता</strong> को ऊर्जा कहते हैं। ऊर्जा का SI मात्रक भी <strong>जूल (J)</strong> होता है।
+                        </p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-red-400 mb-2">गतिज ऊर्जा (Kinetic Energy)</h3>
+                        <p class="text-slate-300">
+                            किसी वस्तु में उसकी गति के कारण निहित ऊर्जा को गतिज ऊर्जा कहते हैं।
+                        </p>
+                        <h4 class="text-lg font-semibold text-slate-400 mt-4 mb-2">सूत्र</h4>
+                        <p class="text-center mt-2 font-mono text-xl text-teal-300">
+                            $KE = \frac{1}{2}mv^2$
+                        </p>
+                        <ul class="list-disc list-inside mt-4 space-y-1">
+                            <li>$KE$: गतिज ऊर्जा</li>
+                            <li>$m$: वस्तु का द्रव्यमान</li>
+                            <li>$v$: वस्तु का वेग</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-purple-400 mb-2">स्थितिज ऊर्जा (Potential Energy)</h3>
+                        <p class="text-slate-300">
+                            किसी वस्तु में उसकी स्थिति या आकार में परिवर्तन के कारण निहित ऊर्जा को स्थितिज ऊर्जा कहते हैं।
+                        </p>
+                        <h4 class="text-lg font-semibold text-slate-400 mt-4 mb-2">सूत्र</h4>
+                        <p class="text-center mt-2 font-mono text-xl text-teal-300">
+                            $PE = mgh$
+                        </p>
+                        <ul class="list-disc list-inside mt-4 space-y-1">
+                            <li>$PE$: स्थितिज ऊर्जा</li>
+                            <li>$m$: वस्तु का द्रव्यमान</li>
+                            <li>$g$: गुरुत्वीय त्वरण ($9.8 \ m/s^2$)</li>
+                            <li>$h$: ऊंचाई</li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tab 3: Power -->
+            <section id="tab3" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">शक्ति (Power)</h2>
+                    <p class="text-slate-400 mt-1">कार्य करने की दर।</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-teal-400 mb-2">शक्ति की परिभाषा</h3>
+                        <p class="text-slate-300">
+                            <strong>कार्य करने की दर</strong> को <strong>शक्ति</strong> कहते हैं।
+                        </p>
+                        <br>
+                        <h4 class="text-lg font-semibold text-slate-400 mt-4 mb-2">सूत्र</h4>
+                        <p class="text-center mt-2 font-mono text-xl text-teal-300">
+                            $P = \frac{W}{t}$
+                        </p>
+                        <ul class="list-disc list-inside mt-4 space-y-1">
+                            <li>$P$: शक्ति</li>
+                            <li>$W$: किया गया कार्य</li>
+                            <li>$t$: लिया गया समय</li>
+                        </ul>
+                        <p class="text-slate-300 mt-4">
+                            शक्ति का SI मात्रक <strong>वाट (W)</strong> है।
+                        </p>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 4: Law of Conservation of Energy -->
+            <section id="tab4" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">ऊर्जा संरक्षण का नियम</h2>
+                    <p class="text-slate-400 mt-1">ऊर्जा को न तो उत्पन्न किया जा सकता है और न ही नष्ट।</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-2">नियम क्या है?</h3>
+                        <p class="text-slate-300">
+                            ऊर्जा संरक्षण के नियम के अनुसार, ऊर्जा को न तो बनाया जा सकता है और न ही नष्ट किया जा सकता है, यह केवल एक रूप से दूसरे रूप में परिवर्तित हो सकती है।
+                            <br/><br/>
+                            किसी भी बंद निकाय (isolated system) की कुल ऊर्जा हमेशा स्थिर रहती है।
+                        </p>
+                        
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-button');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-tab');
+
+                tabs.forEach(t => t.classList.remove('tab-active'));
+                tab.classList.add('tab-active');
+
+                contentSections.forEach(section => {
+                    if (section.id === target) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

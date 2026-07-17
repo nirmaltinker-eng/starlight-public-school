@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>विद्युत धारा के रासायनिक प्रभाव: कक्षा 8 विज्ञान</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font 'Inter' for clean modern look -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        /* --- EARTHY GREEN THEME & BASE STYLES --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f7e9; /* Soft, light green background */
+            color: #4b3e2a; /* Dark brown text for an earthy feel */
+        }
+        .electric-card {
+            background-color: #ffffff;
+            border: 1px solid #e6eeda; /* Light border */
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px; /* Added rounded corners for consistency */
+        }
+        .electric-card:hover {
+            box-shadow: 0 10px 20px rgba(84, 119, 72, 0.2); /* Green shadow on hover */
+            transform: translateY(-2px);
+        }
+
+        /* --- HEADER STYLES (MATCHING USER'S ORIGINAL CODE) --- */
+        .header {
+            background-color: #ffffff;
+            color: #547748; /* Natural green accent color */
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem; /* Exact size from original */
+            letter-spacing: 2px;
+            color: #547748;
+            font-weight: 800;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+            color: #6a5a4b;
+        }
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 200px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- BACK BUTTON STYLES (MATCHING USER'S ORIGINAL CODE) --- */
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #547748;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #e6eeda;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: #547748;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+
+        /* --- FOOTER STYLES (MATCHING USER'S ORIGINAL CODE) --- */
+        .footer {
+            background-color: #ffffff;
+            color: #6a5a4b;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+            color: #6a5a4b;
+        }
+        
+        /* --- TAILWIND COLOR ADJUSTMENTS TO MATCH GREEN THEME --- */
+        .text-blue-800, .text-blue-700 { color: #3b573a; } /* Dark Green for headings */
+        .border-blue-500 { border-color: #547748; } /* Natural Green border */
+        .bg-blue-50 { background-color: #e6eeda; } /* light green box */
+        .border-blue-200 { border-color: #c4d7b1; } /* slightly darker light green border */
+
+    </style>
+</head>
+<body>
+
+    <script>
+        // Simple function for creating a placeholder image URL
+        const createPlaceholder = (title) => {
+            const encodedTitle = encodeURIComponent(title);
+            return `https://placehold.co/400x200/547748/ffffff?text=${encodedTitle}`;
+        };
+    </script>
+    
+    <!-- BACK BUTTON CONTAINER -->
+    <div class="back-button-container">
+        <!-- Assuming the back link leads to a main notes page -->
+        <a class="back-button" href="../notes-class8.html">
+            <span>&lt;</span> Back
+        </a>
+    </div>
+
+    <!-- HEADER STRUCTURE (MATCHING USER'S ORIGINAL CODE) -->
+    <header class="header">
+        <h1>विद्युत धारा के रासायनिक प्रभाव ⚡</h1>
+        <!-- Using the original subtitle for school branding -->
+        <p>कक्षा 8 विज्ञान (NCERT/RBSE) नोट्स - स्टारलाइट पब्लिक स्कूल</p>
+        
+        <!-- Logo Container -->
+        <div class="logo-container">
+            <!-- Placeholder for school logo -->
+            <img src="https://placehold.co/200x200/547748/ffffff?text=School+Logo" 
+                 alt="Starlight Public School Logo" 
+                 class="logo">
+        </div>
+    </header>
+
+    <!-- Main Content Container: Added padding back here -->
+    <div class="max-w-4xl mx-auto p-4 sm:p-8">
+        
+        <!-- Main Content Grid -->
+        <div class="space-y-8">
+
+            <!-- 1. विद्युत का चालन (Conduction of Electricity) -->
+            <div class="electric-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-500 pb-2">
+                    1. विद्युत का चालन (Conduction)
+                </h2>
+                
+                <p class="text-gray-700 mb-4">
+                    क्या द्रव भी विद्युत का चालन करते हैं? हाँ, करते हैं, लेकिन सभी द्रव नहीं।
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-green-50 rounded-lg border border-green-200">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">सुचालक (Conductors) ✅</h3>
+                        <p class="text-gray-600 mb-2">वे पदार्थ जो अपने में से विद्युत धारा को आसानी से गुज़रने देते हैं।</p>
+                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                            <li><strong class="text-green-800">ठोस उदाहरण:</strong> लोहा, ताँबा, चाँदी।</li>
+                            <li><strong class="text-green-800">द्रव उदाहरण:</strong> नल का जल, नींबू का रस, सिरका, अम्ल, क्षार तथा लवणों के विलयन।</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-4 bg-red-50 rounded-lg border border-red-200">
+                        <h3 class="text-xl font-semibold text-red-700 mb-2">कुचालक या हीन चालक (Insulators) ❌</h3>
+                        <p class="text-gray-600 mb-2">वे पदार्थ जो अपने में से विद्युत धारा को प्रवाहित नहीं होने देते।</p>
+                        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                            <li><strong class="text-red-800">ठोस उदाहरण:</strong> रबर, प्लास्टिक, सूखी लकड़ी।</li>
+                            <li><strong class="text-red-800">द्रव उदाहरण:</strong> आसुत जल (Distilled Water), शुद्ध तेल।</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <h3 class="text-lg font-semibold text-blue-700 mb-1">संपरीक्षित्र (Tester)</h3>
+                    <p class="text-sm text-gray-600">दुर्बल चालकों में विद्युत धारा का पता लगाने के लिए <strong class="text-blue-800">LED (Light Emitting Diode)</strong> या <strong class="text-blue-800">चुंबकीय सुई (Magnetic Compass)</strong> का उपयोग किया जाता है। LED कम धारा में भी दीप्त होती है।</p>
+                </div>
+            </div>
+
+            <!-- 2. रासायनिक प्रभाव और विद्युत अपघटन (Chemical Effects and Electrolysis) -->
+            <div class="electric-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-500 pb-2">
+                    2. रासायनिक प्रभाव एवं विद्युत अपघटन
+                </h2>
+
+                <div class="mb-4">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">रासायनिक प्रभाव क्या है?</h3>
+                    <p class="text-gray-700">
+                        जब किसी चालक द्रव (जैसे अम्ल या लवण विलयन) में विद्युत धारा प्रवाहित की जाती है, तो उसमें रासायनिक अभिक्रिया होती है।
+                    </p>
+                </div>
+                
+                <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200 mb-4">
+                    <h4 class="font-bold text-yellow-700 mb-1">अभिक्रिया के परिणाम 🧪</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <li>इलेक्ट्रोडों के पास <strong class="text-yellow-800">गैस के बुलबुले</strong> बनना।</li>
+                        <li>इलेक्ट्रोड पर धातु का <strong class="text-yellow-800">निक्षेपण</strong> (जमा होना)।</li>
+                        <li>विलयन के रंग में परिवर्तन होना।</li>
+                    </ul>
+                </div>
+                
+                <div class="p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+                    <h3 class="text-xl font-semibold text-indigo-700 mb-2">विद्युत अपघटन (Electrolysis)</h3>
+                    <p class="text-gray-700 mb-2">
+                        वह प्रक्रिया जिसमें विद्युत धारा के प्रवाह से किसी द्रव में रासायनिक परिवर्तन होते हैं, **विद्युत अपघटन** कहलाती है।
+                    </p>
+                    <p class="text-sm text-gray-600">
+                        <strong class="text-indigo-800">उदाहरण: जल का अपघटन</strong>
+                        <br>
+                        जब जल (अम्ल मिलाकर) में विद्युत धारा प्रवाहित करते हैं:
+                        <ul class="list-disc list-inside ml-4 text-sm mt-1 text-gray-700">
+                            <li>**धन टर्मिनल (+):** ऑक्सीजन गैस मुक्त होती है।</li>
+                            <li>**ऋण टर्मिनल (-):** हाइड्रोजन गैस मुक्त होती है।</li>
+                        </ul>
+                    </p>
+                    <!-- Updated placeholder URL for green theme -->
+                    <img src="https://placehold.co/400x200/547748/ffffff?text=Diagram+of+Electrolysis" alt="विद्युत अपघटन का आरेख" class="w-full max-w-xs mx-auto mt-3 rounded shadow-md">
+                </div>
+            </div>
+
+            <!-- 3. विद्युत् लेपन (Electroplating) -->
+            <div class="electric-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-500 pb-2">
+                    3. विद्युत् लेपन (Electroplating) - अनुप्रयोग
+                </h2>
+                
+                <p class="text-gray-700 mb-4">
+                    यह विद्युत धारा के रासायनिक प्रभाव का सबसे उपयोगी अनुप्रयोग है।
+                </p>
+
+                <div class="mb-4">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">परिभाषा 🌐</h3>
+                    <p class="text-gray-700">
+                        विद्युत धारा की सहायता से किसी पदार्थ पर किसी वांछित धातु की **पतली परत** निक्षेपित (जमा) करने की प्रक्रिया।
+                    </p>
+                </div>
+                
+                <div class="p-4 bg-teal-50 rounded-lg border border-teal-200 mb-4">
+                    <h4 class="font-bold text-teal-700 mb-1">लेपन की प्रक्रिया में महत्वपूर्ण नियम 🔧</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <li><strong class="text-teal-800">वस्तु (जिस पर लेपन करना है):</strong> हमेशा बैटरी के **ऋणात्मक टर्मिनल (-ve)** से जोड़ी जाती है।</li>
+                        <li><strong class="text-teal-800">लेपन की जाने वाली धातु:</strong> हमेशा बैटरी के **धनात्मक टर्मिनल (+ve)** से जोड़ी जाती है।</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-xl font-semibold text-blue-700 mb-2 mt-6">विद्युत् लेपन के उपयोग 🏆</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <p class="font-semibold text-gray-800">1. जंग से सुरक्षा (Protection)</p>
+                        <p class="text-sm text-gray-600">लोहे की वस्तुओं (जैसे कार के पुर्जों) पर <strong class="text-indigo-600">जिंक (जस्ता)</strong> या <strong class="text-indigo-600">क्रोमियम</strong> की परत चढ़ाई जाती है।</p>
+                    </div>
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <p class="font-semibold text-gray-800">2. चमक और दिखावट (Aesthetics)</p>
+                        <p class="text-sm text-gray-600">सस्ते आभूषणों पर <strong class="text-indigo-600">सोने या चाँदी</strong> की पतली परत चढ़ाना।</p>
+                    </div>
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <p class="font-semibold text-gray-800">3. कठोरता और खरोंच-प्रतिरोध</p>
+                        <p class="text-sm text-gray-600">नल और साइकिल के हैंडल पर <strong class="text-indigo-600">क्रोमियम</strong> का लेपन (सख्त और चमकदार)।</p>
+                    </div>
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <p class="font-semibold text-gray-800">4. खाद्य डिब्बे</p>
+                        <p class="text-sm text-gray-600">लोहे के डिब्बों पर <strong class="text-indigo-600">टिन</strong> की परत, क्योंकि टिन कम क्रियाशील होता है।</p>
+                    </div>
+                </div>
+                <!-- Updated placeholder URL for green theme -->
+                <img src="https://placehold.co/400x200/547748/ffffff?text=Electroplating+Process+and+Uses" alt="विद्युत् लेपन की प्रक्रिया और उपयोग" class="w-full max-w-xs mx-auto mt-6 rounded shadow-md">
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- FOOTER STRUCTURE (MATCHING USER'S ORIGINAL CODE) -->
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker. | विद्युत धारा के रासायनिक प्रभाव अध्याय के नोट्स।</p>
+    </footer>
+
+</body>
+</html>

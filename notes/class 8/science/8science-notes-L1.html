@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: Crop Production - Starlight Public School</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f7e9; /* Soft, light green background */
+            color: #4b3e2a; /* Dark brown text for an earthy feel */
+        }
+        .header {
+            background-color: #ffffff;
+            color: #547748; /* Natural green accent color */
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+            color: #6a5a4b;
+        }
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 200px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Back Button Styling */
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #547748; /* Match the new accent color */
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #e6eeda; /* Lighter shade of the background */
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: #547748;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 20px;
+        }
+        .content-section {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .content-section h2, .content-section h3 {
+            font-size: 2rem;
+            color: #3b573a; /* Darker green for headings */
+            border-bottom: 2px solid #547748;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .content-section h3 {
+            font-size: 1.75rem;
+            margin-top: 2rem;
+        }
+        p, ul, ol {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4b3e2a;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        li::before {
+            content: "➡️";
+            margin-right: 15px;
+            color: #547748;
+        }
+        .sub-points li::before {
+            content: "🔹";
+            margin-right: 10px;
+            color: #547748;
+        }
+        .footer {
+            background-color: #ffffff;
+            color: #6a5a4b;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="back-button-container">
+        <a class="back-button" href="../notes-class8.html">
+            <span>&lt;</span> Back
+        </a>
+    </div>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="..\..\..\school-logo.png" alt="Starlight Public School Logo" class="logo">
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-section">
+            <h2>अध्याय 1 – फसल उत्पादन एवं प्रबंधन (Crop Production and Management)</h2>
+
+            <h3>🌱 1. फसल (Crop)</h3>
+            <p><strong>परिभाषा:</strong> जब एक ही प्रकार के पौधों को बड़ी मात्रा में उगाया जाता है, तो उसे फसल कहते हैं।</p>
+            <h4>प्रमुख प्रकार:</h4>
+            <ul class="sub-points">
+                <li><strong>खरीफ फसलें</strong> – वर्षा ऋतु (जून से अक्टूबर) में उगाई जाती हैं।<br>उदाहरण: धान, मक्का, कपास, बाजरा, मूँगफली</li>
+                <li><strong>रबी फसलें</strong> – शीत ऋतु (नवंबर से अप्रैल) में उगाई जाती हैं।<br>उदाहरण: गेहूँ, जौ, मटर, सरसों</li>
+            </ul>
+
+            <h3>🚜 2. कृषि के मुख्य कार्य (Basic Practices of Agriculture)</h3>
+            <ul>
+                <li><strong>भूमि की तैयारी (Preparation of Soil)</strong><br>
+                हल चलाना, मिट्टी को भुरभुरी बनाना, जुताई।<br>
+                <strong>महत्व:</strong> पौधों की जड़ें आसानी से साँस ले सकें और पोषण ले सकें।</li>
+                <li><strong>बुवाई (Sowing)</strong><br>
+                बीजों को खेत में डालना।<br>
+                <strong>अच्छे बीज:</strong> हल्के होते हैं और पानी में तैरते हैं।</li>
+                <li><strong>खाद एवं उर्वरक डालना (Adding Manure and Fertilizers)</strong><br>
+                <strong>खाद (Manure)</strong> – प्राकृतिक, जैविक, मिट्टी की उर्वरता बढ़ाता है।<br>
+                <strong>उर्वरक (Fertilizer)</strong> – रासायनिक, जैसे यूरिया, NPK।</li>
+                <li><strong>सिंचाई (Irrigation)</strong><br>
+                पौधों को पानी देना।<br>
+                <strong>तरीके:</strong> कुआँ, नहर, तालाब, ट्यूबवेल, स्प्रिंकलर, ड्रिप सिंचाई।</li>
+                <li><strong>निराई-गुड़ाई (Weeding)</strong><br>
+                अवांछित पौधों (खरपतवार) को हटाना।<br>
+                <strong>तरीका:</strong> हाथ से, या खरपतवारनाशी रसायनों (weedicide) से।</li>
+                <li><strong>फसल की सुरक्षा (Crop Protection)</strong><br>
+                कीट/बीमारियों से बचाव।<br>
+                <strong>कीटनाशक, जैविक उपाय।</strong></li>
+                <li><strong>कटाई (Harvesting)</strong><br>
+                फसल पकने पर काटना।<br>
+                <strong>मशीन:</strong> हार्वेस्टर.</li>
+                <li><strong>मड़ाई (Threshing)</strong><br>
+                अनाज को पौधों से अलग करना।</li>
+                <li><strong>भंडारण (Storage)</strong><br>
+                अनाज को सुरक्षित रखना ताकि खराब न हो।<br>
+                <strong>गोदाम, साइलो, कीटनाशक का प्रयोग।</strong></li>
+            </ul>
+
+            <h3>🐂 3. खाद्य उत्पादन के अन्य तरीके</h3>
+            <ul class="sub-points">
+                <li><strong>पशुपालन (Animal Husbandry)</strong> – दूध, अंडे, मांस के लिए।</li>
+                <li><strong>मत्स्य पालन (Fishery)</strong> – मछलियाँ पालना।</li>
+                <li><strong>पोल्ट्री पालन (Poultry Farming)</strong> – मुर्गी पालन।</li>
+                <li><strong>मधुमक्खी पालन (Apiculture)</strong> – शहद प्राप्त करने हेतु।</li>
+            </ul>
+
+            <h3>📝 4. महत्वपूर्ण परिभाषाएँ (Important Definitions)</h3>
+            <ul class="sub-points">
+                <li><strong>फसल (Crop):</strong> एक ही प्रकार के पौधों का बड़े क्षेत्र में उगाया जाना।</li>
+                <li><strong>खरीफ फसलें:</strong> वर्षा ऋतु में उगाई जाने वाली फसलें।</li>
+                <li><strong>रबी फसलें:</strong> शीत ऋतु में उगाई जाने वाली फसलें।</li>
+                <li><strong>खाद (Manure):</strong> जैविक पदार्थ, जो मिट्टी की उर्वरता बढ़ाते हैं।</li>
+                <li><strong>उर्वरक (Fertilizer):</strong> रासायनिक पदार्थ, जो पौधों को पोषण देते हैं।</li>
+                <li><strong>सिंचाई (Irrigation):</strong> फसलों को पानी उपलब्ध कराना।</li>
+                <li><strong>निराई (Weeding):</strong> खेत से खरपतवार हटाना।</li>
+                <li><strong>कटाई (Harvesting):</strong> फसल को पकने पर काटना।</li>
+                <li><strong>भंडारण (Storage):</strong> फसलों को सुरक्षित रखना।</li>
+            </ul>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+</body>
+</html>

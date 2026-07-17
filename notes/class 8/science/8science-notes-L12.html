@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>कुछ प्राकृतिक परिघटनाएँ: कक्षा 8 विज्ञान</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font 'Inter' for clean modern look -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        /* --- STORM / EARTH THEME & BASE STYLES --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F7F9FF; /* Very light sky blue/gray */
+            color: #1C2A3A; /* Dark Charcoal Blue text */
+        }
+        .phenomena-card {
+            background-color: #ffffff;
+            border: 1px solid #E6F3FF; /* Light blue border */
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 15px;
+        }
+        .phenomena-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 119, 182, 0.15); /* Deep Blue shadow on hover */
+            transform: translateY(-2px);
+        }
+
+        /* --- HEADER STYLES (UPDATED FOR BLUE THEME) --- */
+        .header {
+            background-color: #ffffff;
+            color: #0077B6; /* Deep Sky Blue accent color */
+            padding: 2rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            color: #0077B6; /* Deep Blue for impact */
+            font-weight: 800;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            width: 100%;
+            color: #3d5a80; /* Subdued blue text */
+        }
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+        }
+        .logo {
+            height: 200px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- BACK BUTTON STYLES (UPDATED FOR BLUE THEME) --- */
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #0077B6;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #E6F3FF;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: #0077B6;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+
+        /* --- FOOTER STYLES (UPDATED FOR BLUE THEME) --- */
+        .footer {
+            background-color: #ffffff;
+            color: #3d5a80;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+            color: #3d5a80;
+        }
+        
+        /* --- THEME COLORS FOR CONTENT (MAPPED TO BLUE/ORANGE) --- */
+        .text-theme-dark { color: #1C2A3A; } /* Charcoal Blue */
+        .border-theme-main { border-color: #0077B6; } /* Deep Sky Blue */
+        .bg-theme-light { background-color: #E6F3FF; } /* Light Sky Blue */
+        
+        /* Specific element overrides for contrast */
+        .text-green-800 { color: #0077B6; } /* Positive charges become blue */
+        .text-red-800 { color: #D90429; } /* Negative charges remain strong red */
+        
+        /* Safety/Warning Box Overrides */
+        .p-4.bg-yellow-50 { background-color: #FFFBEB; border-color: #FFB703; } /* Pale Yellow/Orange for safety tips */
+        .text-yellow-800 { color: #E58C00; } /* Darker Orange */
+
+        /* Earthquake Zones Box Overrides */
+        .p-3.bg-red-50 { background-color: #FEF3F2; border-color: #D90429; } /* Light Red for seismic zone warning */
+        .text-red-700 { color: #D90429; } /* Red */
+        
+        /* Richter Scale Box Overrides (Blue remains for informational) */
+        .p-3.bg-blue-50 { background-color: #E6F3FF; border-color: #0077B6; }
+        .text-blue-700 { color: #0077B6; }
+        .text-blue-800 { color: #1C2A3A; }
+
+    </style>
+</head>
+<body>
+
+    <script>
+        // Simple function for creating a placeholder image URL
+        const createPlaceholder = (title) => {
+            // Updated placeholder color to match the new theme accent
+            const encodedTitle = encodeURIComponent(title);
+            return `https://placehold.co/400x200/0077B6/ffffff?text=${encodedTitle}`;
+        };
+    </script>
+    
+    <!-- BACK BUTTON CONTAINER -->
+    <div class="back-button-container">
+        <!-- Assuming the back link leads to a main notes page -->
+        <a class="back-button" href="../notes-class8.html">
+            <span>&lt;</span> Back
+        </a>
+    </div>
+
+    <!-- HEADER STRUCTURE -->
+    <header class="header">
+        <h1>कुछ प्राकृतिक परिघटनाएँ 🌍</h1>
+        <p>कक्षा 8 विज्ञान (NCERT/RBSE) नोट्स - स्टारलाइट पब्लिक स्कूल</p>
+        
+        <!-- Logo Container -->
+        <div class="logo-container">
+            <!-- Placeholder for school logo -->
+            <img src="https://placehold.co/200x200/0077B6/ffffff?text=School+Logo" 
+                 alt="Starlight Public School Logo" 
+                 class="logo">
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="max-w-4xl mx-auto p-4 sm:p-8">
+        
+        <!-- Main Content Grid -->
+        <div class="space-y-8">
+
+            <!-- SECTION 1: आवेश और तड़ित (Charges and Lightning) -->
+            <div class="phenomena-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-theme-dark border-b-2 border-theme-main pb-2">
+                    1. आवेश और तड़ित (Lightning)
+                </h2>
+                
+                <h3 class="text-xl font-semibold text-theme-dark mb-2">आवेशों के प्रकार (Types of Charges)</h3>
+                <p class="text-gray-700 mb-4">
+                    सभी वस्तुएँ आवेशित की जा सकती हैं। आवेश दो प्रकार के होते हैं:
+                </p>
+
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                    <li><strong class="text-green-800">धनात्मक आवेश ($+$):</strong> उदाहरण: काँच की छड़ को रेशम से रगड़ने पर। (अब नीला)</li>
+                    <li><strong class="text-red-800">ऋणात्मक आवेश ($-$-):</strong> उदाहरण: प्लास्टिक की कलम को सूखे बालों से रगड़ने पर। (अब लाल)</li>
+                </ul>
+
+                <div class="p-4 bg-theme-light rounded-lg border border-theme-main/50">
+                    <h4 class="font-bold text-theme-dark mb-1">आवेशों के बीच क्रिया</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <li><strong class="text-gray-800">समान आवेश:</strong> एक-दूसरे को **प्रतिकर्षित** (Repel) करते हैं।</li>
+                        <li><strong class="text-gray-800">विपरीत आवेश:</strong> एक-दूसरे को **आकर्षित** (Attract) करते हैं।</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-xl font-semibold text-theme-dark mt-6 mb-2">तड़ित की प्रक्रिया (The Process of Lightning)</h3>
+                <p class="text-gray-700 mb-4">
+                    तड़ित वास्तव में विशाल स्तर पर **विद्युत विसर्जन (Electric Discharge)** की एक प्रक्रिया है।
+                </p>
+                <ol class="list-decimal list-inside text-gray-700 space-y-2 pl-4">
+                    <li>तूफान के दौरान, हवा की धाराएँ बादलों में आवेशों को **पृथक** करती हैं।</li>
+                    <li>बादलों के निचले किनारों पर सामान्यतः **ऋणात्मक आवेश** जमा हो जाते हैं।</li>
+                    <li>बादलों के ऊपरी किनारों पर तथा जमीन के पास **धनात्मक आवेश** प्रेरित हो जाते हैं।</li>
+                    <li>जब इन आवेशों की मात्रा बहुत अधिक हो जाती है, तो हवा (जो कुचालक है) आवेश के प्रवाह को रोक नहीं पाती और अचानक **विद्युत विसर्जन** होता है, जिसे तड़ित कहते हैं।</li>
+                </ol>
+            </div>
+
+            <!-- SECTION 2: तड़ित से सुरक्षा (Lightning Protection) -->
+            <div class="phenomena-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-theme-dark border-b-2 border-theme-main pb-2">
+                    2. तड़ित से सुरक्षा (Safety from Lightning)
+                </h2>
+
+                <h3 class="text-xl font-semibold text-theme-dark mb-2">सुरक्षित स्थान</h3>
+                <!-- Safety/Warning Box: Yellow/Orange Theme -->
+                <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200 mb-4">
+                    <p class="text-gray-700"><strong class="text-yellow-800">घर या इमारत</strong> तड़ित से सुरक्षित आश्रय प्रदान करते हैं। कार या बस के अंदर रहना भी सुरक्षित है, क्योंकि वाहन की धातु की बॉडी एक सुरक्षा कवच प्रदान करती है।</p>
+                </div>
+
+                <h3 class="text-lg font-semibold text-theme-dark mb-2 mt-4">तड़ित के दौरान क्या करें (DO's)</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                    <li>यदि आप जंगल में हैं, तो छोटे पेड़ों के नीचे आश्रय लें।</li>
+                    <li>पानी से दूर रहें।</li>
+                    <li>खिड़कियों से दूर रहें।</li>
+                    <li>बिजली के उपकरणों को अनप्लग करें।</li>
+                </ul>
+
+                <h3 class="text-lg font-semibold text-theme-dark mb-2 mt-4">तड़ित चालक (Lightning Conductor)</h3>
+                <p class="text-gray-700 mb-2">
+                    यह एक युक्ति है जिसका उपयोग इमारतों को तड़ित के प्रभाव से बचाने के लिए किया जाता है।
+                </p>
+                <div class="p-4 bg-theme-light rounded-lg border border-theme-main/50">
+                    <p class="text-sm text-gray-600">यह इमारत की छत पर लगाई गई एक धातु की छड़ होती है, जिसे मोटे तार द्वारा सीधे जमीन में गाड़ दिया जाता है। तड़ित की विद्युत ऊर्जा को यह सीधे पृथ्वी तक पहुँचा देती है।</p>
+                    <img src="https://placehold.co/400x200/0077B6/ffffff?text=Image+of+Lightning+Conductor" alt="तड़ित चालक का आरेख" class="w-full max-w-xs mx-auto mt-3 rounded shadow-md">
+                </div>
+            </div>
+
+            <!-- SECTION 3: भूकंप (Earthquakes) -->
+            <div class="phenomena-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-theme-dark border-b-2 border-theme-main pb-2">
+                    3. भूकंप (Earthquakes)
+                </h2>
+                
+                <h3 class="text-xl font-semibold text-theme-dark mb-2">भूकंप क्या है?</h3>
+                <p class="text-gray-700 mb-4">
+                    भूकंप पृथ्वी का अचानक **काँपना या थरथराना** है, जो पृथ्वी की सतह के नीचे गड़बड़ी के कारण उत्पन्न होता है।
+                </p>
+
+                <h3 class="text-xl font-semibold text-theme-dark mb-2">भूकंप का कारण</h3>
+                <p class="text-gray-700 mb-2">
+                    पृथ्वी की सबसे ऊपरी परत टुकड़ों में विभाजित है, जिन्हें **टेक्टोनिक प्लेटें (Tectonic Plates)** कहते हैं। जब ये प्लेटें एक-दूसरे से टकराती हैं, रगड़ती हैं, या एक-दूसरे के नीचे चली जाती हैं, तो तनाव उत्पन्न होता है और ऊर्जा मुक्त होती है, जिससे भूकंप आता है।
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <!-- Seismic Zones: Warning Red/Orange -->
+                    <div class="p-3 bg-red-50 rounded-lg border border-red-200">
+                        <p class="font-semibold text-red-700">भूकंप मेखलाएँ (Seismic Zones)</p>
+                        <p class="text-sm text-gray-600">वे क्षेत्र जहाँ भूकंप आने की संभावना अधिक होती है। भारत में कश्मीर, उत्तर-पूर्वी क्षेत्र और गुजरात इसके उदाहरण हैं।</p>
+                    </div>
+                    <!-- Richter Scale: Informational Blue -->
+                    <div class="p-3 bg-blue-50 rounded-lg border border-blue-200">
+                        <p class="font-semibold text-blue-700">रिक्टर पैमाना (Richter Scale)</p>
+                        <p class="text-sm text-gray-600">यह भूकंप की **शक्ति या परिमाण (Magnitude)** को मापता है। $7.0$ से अधिक परिमाण वाले भूकंप विनाशकारी होते हैं।</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: भूकंप से सुरक्षा (Earthquake Protection) -->
+            <div class="phenomena-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-theme-dark border-b-2 border-theme-main pb-2">
+                    4. भूकंप से सुरक्षा
+                </h2>
+
+                <h3 class="text-xl font-semibold text-theme-dark mb-2">भूकंप के दौरान सुरक्षित रहने के उपाय</h3>
+                
+                <h4 class="text-lg font-semibold text-theme-dark mt-4 mb-2">घर के अंदर (Indoors)</h4>
+                <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                    <li>किसी मजबूत मेज या पलंग के नीचे आश्रय लें और तब तक वहीं रहें जब तक कि हिलना बंद न हो जाए।</li>
+                    <li>खिड़कियों, दर्पणों और लटकती वस्तुओं से दूर रहें।</li>
+                </ul>
+
+                <h4 class="text-lg font-semibold text-theme-dark mt-4 mb-2">घर के बाहर (Outdoors)</h4>
+                <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                    <li>इमारतों, पेड़ों, बिजली के खंभों और तारों से दूर किसी खुले स्थान पर चले जाएँ।</li>
+                    <li>यदि आप कार में हैं, तो धीरे-धीरे कार को किसी खुले स्थान पर रोकें और भूकंप रुकने तक कार के अंदर ही रहें।</li>
+                </ul>
+                
+                <div class="p-4 bg-theme-light rounded-lg border border-theme-main/50 mt-4">
+                    <h4 class="font-bold text-theme-dark mb-1">भूकंपमापी (Seismograph)</h4>
+                    <p class="text-sm text-gray-600">यह वह उपकरण है जो भूकंपीय तरंगों (Seismic Waves) को रिकॉर्ड करता है। ये तरंगें भूकंप के दौरान पृथ्वी की सतह पर पहुँचती हैं।</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- FOOTER STRUCTURE -->
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+
+</body>
+</html>

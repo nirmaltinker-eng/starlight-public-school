@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>पौधे एवं जंतुओं का संरक्षण</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for 'Inter' -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* New theme color palette */
+        :root {
+            --bg-color: #f6f3e7; /* Light beige */
+            --text-color: #3f362a; /* Dark brown */
+            --accent-color: #3a755d; /* Forest green */
+            --card-bg: #ffffff;
+            --header-bg: #e6e0d3; /* Lighter beige */
+            --btn-bg: #4a8a6f;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .card {
+            border-radius: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <!-- Back Button -->
+    <div class="fixed top-6 left-6 z-10">
+        <a href="../notes-class8.html" class="inline-flex items-center space-x-2 text-white bg-[--btn-bg] hover:bg-[--accent-color] px-4 py-2 rounded-full shadow-lg transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            <span class="font-semibold">Back</span>
+        </a>
+    </div>
+
+    <!-- Header Section -->
+    <header class="text-center mb-10 p-6 md:p-8 bg-[--header-bg] rounded-3xl shadow-lg">
+        <h1 class="text-3xl md:text-5xl font-bold text-[--accent-color] leading-tight">पौधे एवं जंतुओं का संरक्षण</h1>
+        <p class="text-lg md:text-xl text-[--text-color] mt-2">कक्षा 8 विज्ञान: पाठ 5 के महत्वपूर्ण नोट्स</p>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Topic Card: वनोन्मूलन (Deforestation) -->
+        <div class="card bg-white p-6 shadow-xl fade-in" style="animation-delay: 0.1s;">
+            <div class="flex items-center mb-4">
+                <span class="text-4xl mr-3">🌳</span>
+                <h2 class="text-xl md:text-2xl font-semibold text-[--accent-color]">वनोन्मूलन</h2>
+            </div>
+            <p class="text-sm md:text-base text-[--text-color] leading-relaxed">वनोन्मूलन का अर्थ है वनों को समाप्त करके भूमि का अन्य कार्यों के लिए उपयोग करना। इसके मुख्य कारणों में खेती के लिए भूमि प्राप्त करना, घर एवं कारखानों का निर्माण और फर्नीचर व लकड़ी का ईंधन के रूप में उपयोग शामिल हैं।</p>
+            <div class="mt-4 p-3 bg-red-50 rounded-lg text-red-700">
+                <span class="font-semibold">परिणाम:</span> पृथ्वी पर तापमान वृद्धि, प्रदूषण, वर्षा में कमी, बाढ़ एवं सूखा।
+            </div>
+        </div>
+
+        <!-- Topic Card: जैवमंडल आरक्षित क्षेत्र (Biosphere Reserves) -->
+        <div class="card bg-white p-6 shadow-xl fade-in" style="animation-delay: 0.2s;">
+            <div class="flex items-center mb-4">
+                <span class="text-4xl mr-3">🌍</span>
+                <h2 class="text-xl md:text-2xl font-semibold text-[--accent-color]">जैवमंडल आरक्षित क्षेत्र</h2>
+            </div>
+            <p class="text-sm md:text-base text-[--text-color] leading-relaxed">यह वन्यजीवों, पौधों और जंतु संसाधनों तथा उस क्षेत्र के आदिवासियों के पारंपरिक ढंग से जीवनयापन हेतु विशाल संरक्षित क्षेत्र होता है। यह जैव विविधता के संरक्षण में मदद करता है।</p>
+            <div class="mt-4 p-3 bg-blue-50 rounded-lg text-blue-700">
+                <span class="font-semibold">उदाहरण:</span> पंचमढ़ी जैवमंडल आरक्षित क्षेत्र।
+            </div>
+        </div>
+
+        <!-- Topic Card: वन्यजीव अभयारण्य (Wildlife Sanctuary) -->
+        <div class="card bg-white p-6 shadow-xl fade-in" style="animation-delay: 0.3s;">
+            <div class="flex items-center mb-4">
+                <span class="text-4xl mr-3">🐾</span>
+                <h2 class="text-xl md:text-2xl font-semibold text-[--accent-color]">वन्यजीव अभयारण्य</h2>
+            </div>
+            <p class="text-sm md:text-base text-[--text-color] leading-relaxed">यह एक ऐसा क्षेत्र है जहाँ जंतु एवं उनके आवास किसी भी प्रकार के विक्षोभ (परेशानी) से सुरक्षित रहते हैं। यहाँ वन्यजीवों का शिकार करना पूर्णतः वर्जित होता है।</p>
+            <div class="mt-4 p-3 bg-green-50 rounded-lg text-green-700">
+                <span class="font-semibold">मुख्य उद्देश्य:</span> जानवरों को उनके प्राकृतिक आवास में सुरक्षित रखना।
+            </div>
+        </div>
+
+        <!-- Topic Card: राष्ट्रीय उद्यान (National Park) -->
+        <div class="card bg-white p-6 shadow-xl fade-in" style="animation-delay: 0.4s;">
+            <div class="flex items-center mb-4">
+                <span class="text-4xl mr-3">🏞️</span>
+                <h2 class="text-xl md:text-2xl font-semibold text-[--accent-color]">राष्ट्रीय उद्यान</h2>
+            </div>
+            <p class="text-sm md:text-base text-[--text-color] leading-relaxed">यह वन्यजीवों के लिए आरक्षित विशाल क्षेत्र हैं, जहाँ वे स्वतंत्र रूप से आवास एवं प्राकृतिक संसाधनों का उपयोग कर सकते हैं। यह अभयारण्य से बड़ा होता है।</p>
+            <div class="mt-4 p-3 bg-purple-50 rounded-lg text-purple-700">
+                <span class="font-semibold">उदाहरण:</span> सतपुड़ा राष्ट्रीय उद्यान, जिम कॉर्बेट राष्ट्रीय उद्यान।
+            </div>
+        </div>
+
+        <!-- Topic Card: विशेष क्षेत्री स्पीशीज (Endemic Species) -->
+        <div class="card bg-white p-6 shadow-xl fade-in" style="animation-delay: 0.5s;">
+            <div class="flex items-center mb-4">
+                <span class="text-4xl mr-3">🗺️</span>
+                <h2 class="text-xl md:text-2xl font-semibold text-[--accent-color]">विशेष क्षेत्री स्पीशीज</h2>
+            </div>
+            <p class="text-sm md:text-base text-[--text-color] leading-relaxed">पौधों एवं जंतुओं की वह स्पीशीज जो किसी विशेष क्षेत्र में ही पाई जाती है, उसे विशेष क्षेत्री स्पीशीज कहते हैं। ये प्राकृतिक रूप से कहीं और नहीं पाई जाती हैं।</p>
+            <div class="mt-4 p-3 bg-yellow-50 rounded-lg text-yellow-700">
+                <span class="font-semibold">उदाहरण:</span> पंचमढ़ी में जंगली आम (वनस्पति), भारतीय विशाल गिलहरी (प्राणी)।
+            </div>
+        </div>
+
+        <!-- Topic Card: संकटापन्न स्पीशीज (Endangered Species) -->
+        <div class="card bg-white p-6 shadow-xl fade-in" style="animation-delay: 0.6s;">
+            <div class="flex items-center mb-4">
+                <span class="text-4xl mr-3">🚨</span>
+                <h2 class="text-xl md:text-2xl font-semibold text-[--accent-color]">संकटापन्न स्पीशीज</h2>
+            </div>
+            <p class="text-sm md:text-base text-[--text-color] leading-relaxed">वे स्पीशीज जो विलुप्त होने के कगार पर हैं और यदि उनकी सुरक्षा न की जाए तो वे विलुप्त हो सकती हैं।</p>
+            <div class="mt-4 p-3 bg-orange-50 rounded-lg text-orange-700">
+                <span class="font-semibold">उदाहरण:</span> बाघ, शेर, गैंडा।
+            </div>
+        </div>
+
+        <!-- Topic Card: रेड डाटा पुस्तक (Red Data Book) -->
+        <div class="card bg-white p-6 shadow-xl fade-in" style="animation-delay: 0.7s;">
+            <div class="flex items-center mb-4">
+                <span class="text-4xl mr-3">📖</span>
+                <h2 class="text-xl md:text-2xl font-semibold text-[--accent-color]">रेड डाटा पुस्तक</h2>
+            </div>
+            <p class="text-sm md:text-base text-[--text-color] leading-relaxed">यह वह पुस्तक है जिसमें सभी संकटापन्न स्पीशीज का रिकॉर्ड रखा जाता है। इसमें पौधों और जंतुओं की अलग-अलग सूचियां होती हैं।</p>
+        </div>
+
+        <!-- Topic Card: प्रवास (Migration) -->
+        <div class="card bg-white p-6 shadow-xl fade-in" style="animation-delay: 0.8s;">
+            <div class="flex items-center mb-4">
+                <span class="text-4xl mr-3">✈️</span>
+                <h2 class="text-xl md:text-2xl font-semibold text-[--accent-color]">प्रवास</h2>
+            </div>
+            <p class="text-sm md:text-base text-[--text-color] leading-relaxed">जलवायु परिवर्तन के कारण एक स्थान से दूसरे स्थान पर जाना प्रवास कहलाता है। प्रवासी पक्षी हर साल एक निश्चित समय में बहुत दूर के क्षेत्रों की यात्रा करते हैं।</p>
+        </div>
+
+        <!-- Topic Card: पुनर्वनरोपण (Reforestation) -->
+        <div class="card bg-white p-6 shadow-xl fade-in" style="animation-delay: 0.9s;">
+            <div class="flex items-center mb-4">
+                <span class="text-4xl mr-3">🌱</span>
+                <h2 class="text-xl md:text-2xl font-semibold text-[--accent-color]">पुनर्वनरोपण</h2>
+            </div>
+            <p class="text-sm md:text-base text-[--text-color] leading-relaxed">काटे गए वनों के स्थान पर नए पेड़ लगाना पुनर्वनरोपण कहलाता है। यह वनों को पुनर्जीवित करने का एक महत्वपूर्ण तरीका है।</p>
+        </div>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="text-center mt-12 p-6 md:p-8 bg-[--header-bg] rounded-3xl shadow-lg">
+        <p class="text-sm md:text-base text-[--text-color]">&copy; 2024 RBSE Class 8 Notes. सभी अधिकार सुरक्षित।</p>
+        <p class="text-xs text-[--text-color] opacity-80 mt-1">यह नोट्स शैक्षणिक उद्देश्यों के लिए हैं।</p>
+    </footer>
+
+</body>
+</html>

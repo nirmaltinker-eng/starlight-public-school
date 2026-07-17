@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>घर्षण | कक्षा 8 | नोट्स</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans:wght@400;600&display=swap');
+        
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #f0f4f8; /* Light gray background */
+            background-image: radial-gradient(at 50% 50%, #e2e8f0, #cbd5e1);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 1rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .animated-heading {
+            animation: scaleIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+
+        .animated-push {
+            animation: pushEffect 2s infinite alternate;
+        }
+
+        .animated-pulse {
+            animation: pulseEffect 2s infinite alternate;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes pushEffect {
+            from { transform: translateX(0); }
+            to { transform: translateX(10px); }
+        }
+
+        @keyframes pulseEffect {
+            from { transform: scale(1); box-shadow: 0 0 0 0 rgba(100, 116, 139, 0.4); }
+            to { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(100, 116, 139, 0); }
+        }
+        
+        /* Flowchart styling */
+        .flowchart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+        }
+        .flowchart-node {
+            background-color: #f1f5f9;
+            border: 2px solid #64748b;
+            border-radius: 0.5rem;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+            z-index: 10;
+        }
+        .flowchart-arrow {
+            width: 2px;
+            height: 2rem;
+            background-color: #64748b;
+            position: relative;
+            z-index: 5;
+        }
+        .flowchart-arrow::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #64748b;
+            border-right: 2px solid #64748b;
+            transform-origin: 0% 100%;
+        }
+        .flowchart-split {
+            display: flex;
+            gap: 2rem;
+            position: relative;
+            z-index: 5;
+        }
+        .flowchart-split::before {
+            content: '';
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 2rem;
+            background-color: #64748b;
+        }
+        .flowchart-split-line {
+            position: absolute;
+            top: 0;
+            height: 2px;
+            background-color: #64748b;
+            z-index: 5;
+        }
+        .flowchart-split-line.left {
+            left: 0;
+            width: calc(50% - 1rem);
+            transform-origin: right;
+            transform: translateX(1rem);
+        }
+        .flowchart-split-line.right {
+            right: 0;
+            width: calc(50% - 1rem);
+            transform-origin: left;
+            transform: translateX(-1rem);
+        }
+
+        .icon {
+            filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+            width: 80px;
+            height: 80px;
+        }
+
+        /* New styles from user's code */
+        :root {
+            --primary-color: #8A2BE2; /* Amethyst */
+            --secondary-color: #A65EEA; /* Lighter Amethyst */
+            --accent-color: #FFC0CB; /* Pink */
+            --text-color: #333;
+            --bg-color: #F0E9FF; /* Light Lavender */
+            --card-bg: #fff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .back-button-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: var(--bg-color);
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        .back-button span {
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover span {
+            transform: translateX(-5px);
+        }
+        .footer {
+            background-color: #ffffff;
+            color: #6a5a4b;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 25px 25px 0 0;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { border-radius: 15px; }
+            .footer { padding: 1rem 0; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 text-slate-800">
+
+    <div class="back-button-container">
+        <a class="back-button" href="../notes-class8.html">
+            <span>&lt;</span> Back
+        </a>
+    </div>
+
+    <div class="container space-y-8">
+        <!-- Main Heading -->
+        <header class="text-center py-8">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 animated-heading">घर्षण (Friction)</h1>
+            <p class="text-xl md:text-2xl mt-2 text-slate-600">कक्षा 8 | विज्ञान | RBSE नोट्स</p>
+        </header>
+
+        <!-- घर्षण क्या है? (What is Friction?) Section -->
+        <section class="card p-6 md:p-10">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-4">1. घर्षण क्या है?</h2>
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="md:w-2/3">
+                    <p class="text-lg leading-relaxed mb-4">
+                        घर्षण एक ऐसा बल है जो दो सतहों के बीच संपर्क में आने पर उनकी सापेक्ष गति का विरोध करता है। यह हमेशा गति की दिशा के विपरीत कार्य करता है।
+                    </p>
+                    <div class="p-4 bg-yellow-100 border-l-4 border-yellow-500 rounded-md">
+                        <p class="font-semibold text-yellow-800">उदाहरण:</p>
+                        <ul class="list-disc list-inside text-sm mt-2">
+                            <li>जब एक फुटबॉल जमीन पर लुढ़कती है, तो वह कुछ दूर जाकर रुक जाती है। ऐसा घर्षण बल के कारण होता है।</li>
+                            <li>साइकिल के ब्रेक लगाने पर वह रुक जाती है।</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:w-1/3 flex justify-center">
+                    <img src="https://placehold.co/300x200/4a5568/a0aec0?text=Friction+Example" alt="A person pushing a box on a rough surface." class="rounded-lg shadow-md animated-push w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- घर्षण के कारण (Causes of Friction) Section -->
+        <section class="card p-6 md:p-10">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-4">2. घर्षण के कारण</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                घर्षण का मुख्य कारण सतहों की खुरदरी (irregularities) या अनियमितताएँ हैं। भले ही कोई सतह बहुत चिकनी दिखे, उसकी सूक्ष्म स्तर पर बहुत सारी अनियमितताएँ होती हैं। जब दो सतहें एक-दूसरे के संपर्क में आती हैं, तो इन अनियमितताओं का आपस में अंतर्पाशित (interlocking) हो जाता है, जो गति का विरोध करता है।
+            </p>
+            <div class="flex justify-center">
+                <img src="https://placehold.co/400x250/4a5568/a0aec0?text=Interlocking+Surfaces" alt="A magnified diagram showing two surfaces with interlocking irregularities." class="rounded-lg shadow-md w-full md:w-2/3">
+            </div>
+        </section>
+
+        <!-- घर्षण के प्रकार (Types of Friction) Flowchart -->
+        <section class="card p-6 md:p-10">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-4 text-center">3. घर्षण के प्रकार</h2>
+            <div class="flowchart-container">
+                <div class="flowchart-node animated-pulse">घर्षण (Friction)</div>
+                <div class="flowchart-arrow"></div>
+                <div class="flowchart-split">
+                    <div class="flex flex-col items-center gap-4">
+                        <div class="flowchart-node">स्थैतिक घर्षण (Static Friction)</div>
+                        <p class="text-sm mt-2 text-center max-w-xs">जब तक कोई वस्तु हिलना शुरू नहीं करती, उस पर लगने वाला घर्षण।</p>
+                    </div>
+                    <div class="flex flex-col items-center gap-4">
+                        <div class="flowchart-node">सर्पी घर्षण (Sliding Friction)</div>
+                        <p class="text-sm mt-2 text-center max-w-xs">जब कोई वस्तु दूसरी वस्तु पर सरकती है। यह स्थैतिक घर्षण से कम होता है।</p>
+                    </div>
+                    <div class="flex flex-col items-center gap-4">
+                        <div class="flowchart-node">लोटनी घर्षण (Rolling Friction)</div>
+                        <p class="text-sm mt-2 text-center max-w-xs">जब एक वस्तु दूसरी वस्तु की सतह पर लुढ़कती है। यह सबसे कम होता है।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- घर्षण: एक आवश्यक बुराई (Friction: A Necessary Evil) Section -->
+        <section class="card p-6 md:p-10">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-4">4. घर्षण: एक आवश्यक बुराई</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                घर्षण हमारे लिए उपयोगी और हानिकारक दोनों है, इसलिए इसे "आवश्यक बुराई" कहा जाता है।
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 bg-green-100 rounded-xl shadow-inner border-l-4 border-green-500">
+                    <h3 class="text-xl font-bold text-green-700 mb-2">घर्षण के लाभ</h3>
+                    <ul class="list-disc list-inside text-base">
+                        <li>घर्षण के कारण ही हम चल पाते हैं।</li>
+                        <li>पेन और पेंसिल से लिख पाते हैं।</li>
+                        <li>माचिस की तीली जला पाते हैं।</li>
+                        <li>गाड़ी के पहिए सड़क पर पकड़ बनाए रखते हैं।</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-red-100 rounded-xl shadow-inner border-l-4 border-red-500">
+                    <h3 class="text-xl font-bold text-red-700 mb-2">घर्षण के नुकसान</h3>
+                    <ul class="list-disc list-inside text-base">
+                        <li>यह ऊर्जा का क्षय करता है (ऊष्मा के रूप में)।</li>
+                        <li>मशीनों के पुर्जे घिस जाते हैं।</li>
+                        <li>टायरों और जूतों के तलवे घिस जाते हैं।</li>
+                        <li>गति का विरोध करता है, जिससे काम मुश्किल हो जाता है।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- घर्षण को कम करने और बढ़ाने के उपाय (Ways to Reduce and Increase Friction) Section -->
+        <section class="card p-6 md:p-10">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-4">5. घर्षण को कम करने और बढ़ाने के उपाय</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 bg-blue-100 rounded-xl shadow-inner border-l-4 border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-700 mb-2">घर्षण को कम करना</h3>
+                    <ul class="list-disc list-inside text-base">
+                        <li><strong>स्नेहक (Lubricants):</strong> मशीनों में तेल, ग्रीस का उपयोग करना।</li>
+                        <li><strong>बॉल बेयरिंग (Ball Bearings):</strong> पहियों में बॉल बेयरिंग का उपयोग करके सर्पी घर्षण को लोटनी घर्षण में बदलना।</li>
+                        <li><strong>सतहों को पॉलिश करना:</strong> सतहों को चिकना बनाना।</li>
+                    </ul>
+                </div>
+                <div class="p-6 bg-purple-100 rounded-xl shadow-inner border-l-4 border-purple-500">
+                    <h3 class="text-xl font-bold text-purple-700 mb-2">घर्षण को बढ़ाना</h3>
+                    <ul class="list-disc list-inside text-base">
+                        <li><strong>सतहों को खुरदुरा बनाना:</strong> जूतों के तलवों में खांचे बनाना।</li>
+                        <li><strong>टायरों पर खांचे (treads) बनाना:</strong> सड़क पर बेहतर पकड़ के लिए।</li>
+                        <li>गाड़ियों के ब्रेक पैड को खुरदुरा बनाना।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- तरल घर्षण (Fluid Friction) Section -->
+        <section class="card p-6 md:p-10">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-4">6. तरल घर्षण (Fluid Friction)</h2>
+            <div class="flex flex-col-reverse md:flex-row items-center gap-6">
+                <div class="md:w-1/2">
+                    <p class="text-lg leading-relaxed mb-4">
+                        तरल पदार्थ (द्रव और गैस) भी अपने से होकर गुजरने वाली वस्तुओं पर घर्षण बल लगाते हैं, जिसे <strong>तरल घर्षण</strong> या <strong>कर्षण (drag)</strong> कहते हैं। वायु में गति करने वाले पदार्थों पर लगने वाले बल को वायु-कर्षण (air drag) कहते हैं।
+                    </p>
+                    <p class="text-lg leading-relaxed mb-4">
+                        इस घर्षण को कम करने के लिए, वस्तुओं को विशेष आकार दिया जाता है, जिसे <strong>स्ट्रीमलाइन आकृति (streamline shape)</strong> कहते हैं।
+                    </p>
+                    <div class="p-4 bg-teal-100 border-l-4 border-teal-500 rounded-md">
+                        <p class="font-semibold text-teal-800">उदाहरण:</p>
+                        <p class="text-sm mt-2">
+                            हवाई जहाज और पक्षियों का स्ट्रीमलाइन आकार।
+                        </p>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://placehold.co/350x250/4a5568/a0aec0?text=Streamline+Shape" alt="A diagram of an airplane with a streamlined shape to reduce fluid friction." class="rounded-lg shadow-md w-full">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+</body>
+</html>

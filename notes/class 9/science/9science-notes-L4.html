@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>परमाणु की संरचना - इंटरैक्टिव नोट्स</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Scientific Twilight -->
+    <style>
+        body {
+            font-family: 'Noto Sans Devangari', 'Inter', sans-serif;
+        }
+        .tab-active {
+            border-color: #0d9488;
+            color: #0d9488;
+            background-color: #ccfbf1;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <div class="container mx-auto p-4 md:p-8 relative">
+
+        <!-- Back Button -->
+        <button onclick="history.back()" class="absolute top-4 left-4 md:top-8 md:left-8 bg-slate-700 text-white p-2 rounded-full shadow-md hover:bg-slate-600 transition-colors duration-300">
+            ← पीछे जाएँ
+        </button>
+
+        <header class="text-center mb-8 mt-12 md:mt-0">
+            <h1 class="text-3xl md:text-4xl font-bold text-teal-400">अध्याय: परमाणु की संरचना</h1>
+            <p class="text-slate-400 mt-2">कक्षा 9 विज्ञान के लिए एक इंटरैक्टिव गाइड</p>
+        </header>
+
+        <nav class="flex flex-wrap justify-center border-b-2 border-slate-700 mb-8">
+            <button data-tab="tab1" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300 tab-active">मूलभूत कण</button>
+            <button data-tab="tab2" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">परमाणु के मॉडल</button>
+            <button data-tab="tab3" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">इलेक्ट्रॉन वितरण</button>
+            <button data-tab="tab4" class="tab-button text-sm md:text-base font-semibold py-3 px-4 border-b-4 border-transparent hover:border-teal-400 hover:text-teal-300 transition-colors duration-300">समस्थानिक और समभारिक</button>
+        </nav>
+
+        <main>
+            <!-- Tab 1: Subatomic Particles -->
+            <section id="tab1" class="content-section active">
+                 <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">परमाणु के मूलभूत कण</h2>
+                    <p class="text-slate-400 mt-1">परमाणु तीन प्रकार के मूलभूत कणों से बने होते हैं: इलेक्ट्रॉन, प्रोटॉन और न्यूट्रॉन।</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-2">इलेक्ट्रॉन</h3>
+                        <p class="text-slate-300">ऋणावेशित कण (-1).</p>
+                        <p class="text-slate-300 font-semibold mt-2">आविष्कारक: <span class="font-normal text-yellow-200">जे.जे. थॉमसन</span></p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-blue-400 mb-2">प्रोटॉन</h3>
+                        <p class="text-slate-300">धनावेशित कण (+1).</p>
+                        <p class="text-slate-300 font-semibold mt-2">आविष्कारक: <span class="font-normal text-blue-200">ई. गोल्डस्टीन</span></p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-green-400 mb-2">न्यूट्रॉन</h3>
+                        <p class="text-slate-300">उदासीन कण (कोई आवेश नहीं).</p>
+                        <p class="text-slate-300 font-semibold mt-2">आविष्कारक: <span class="font-normal text-green-200">जेम्स चैडविक</span></p>
+                    </div>
+                </div>
+                 <div class="mt-8 bg-slate-800 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-slate-300 mb-4 text-center">कणों की संख्या की गणना करें</h3>
+                    <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+                        <label for="atomic-number-input" class="text-lg text-teal-300 font-semibold">परमाणु संख्या (Z):</label>
+                        <input type="number" id="atomic-number-input" class="p-2 rounded-md bg-slate-700 text-slate-100 w-24" placeholder="Z"/>
+                        <label for="mass-number-input" class="text-lg text-teal-300 font-semibold">द्रव्यमान संख्या (A):</label>
+                        <input type="number" id="mass-number-input" class="p-2 rounded-md bg-slate-700 text-slate-100 w-24" placeholder="A"/>
+                        <button id="calculate-particles-button" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-md transition-colors duration-300">गणना करें</button>
+                    </div>
+                    <div class="text-center mt-6">
+                        <p id="proton-result" class="text-xl font-bold text-blue-400">प्रोटॉन: —</p>
+                        <p id="electron-result" class="text-xl font-bold text-yellow-400">इलेक्ट्रॉन: —</p>
+                        <p id="neutron-result" class="text-xl font-bold text-green-400">न्यूट्रॉन: —</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Atomic Models -->
+            <section id="tab2" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">परमाणु के मॉडल</h2>
+                    <p class="text-slate-400 mt-1">परमाणु की संरचना को समझाने के लिए वैज्ञानिकों द्वारा दिए गए विभिन्न मॉडल।</p>
+                </div>
+                <div class="space-y-8">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-orange-400 mb-2">थॉमसन का परमाणु मॉडल</h3>
+                        <p class="text-slate-300">इसे 'प्लम पुडिंग मॉडल' भी कहते हैं। थॉमसन के अनुसार, परमाणु एक धनावेशित गोले की तरह होता है जिसमें इलेक्ट्रॉन धंसे होते हैं।</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-red-400 mb-2">रदरफोर्ड का परमाणु मॉडल</h3>
+                        <p class="text-slate-300">उन्होंने अल्फा कण प्रकीर्णन प्रयोग किया। इसके अनुसार, परमाणु का अधिकांश द्रव्यमान और धनावेश एक छोटे से नाभिक में केंद्रित होता है, और इलेक्ट्रॉन नाभिक के चारों ओर घूमते हैं।</p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-cyan-400 mb-2">बोह्र का परमाणु मॉडल</h3>
+                        <p class="text-slate-300">बोह्र ने प्रस्तावित किया कि इलेक्ट्रॉन केवल कुछ निश्चित कक्षाओं में ही घूम सकते हैं, और इन कक्षाओं को 'ऊर्जा स्तर' कहते हैं।</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-slate-800 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-slate-300 mb-4">मॉडल की सीमाएँ</h3>
+                    <ul class="list-disc list-inside space-y-4 text-slate-300">
+                        <li>
+                            <span class="font-bold text-orange-400">थॉमसन मॉडल की सीमाएँ:</span>
+                            यह रदरफोर्ड के अल्फा कण प्रकीर्णन प्रयोग के परिणामों की व्याख्या नहीं कर सका।
+                        </li>
+                        <li>
+                            <span class="font-bold text-red-400">रदरफोर्ड मॉडल की सीमाएँ:</span>
+                            यह परमाणु की स्थिरता की व्याख्या करने में विफल रहा। कक्षा में घूमता हुआ इलेक्ट्रॉन लगातार ऊर्जा का विकिरण करता रहेगा, जिससे वह अंततः नाभिक में गिर जाएगा, और परमाणु अस्थिर हो जाएगा।
+                        </li>
+                        <li>
+                            <span class="font-bold text-cyan-400">बोह्र मॉडल की सीमाएँ:</span>
+                            यह केवल एक-इलेक्ट्रॉन वाले परमाणुओं (जैसे हाइड्रोजन) के लिए ही लागू था। यह बहु-इलेक्ट्रॉन वाले परमाणुओं के स्पेक्ट्रा की व्याख्या नहीं कर सका।
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Tab 3: Electron Distribution -->
+            <section id="tab3" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">इलेक्ट्रॉन वितरण</h2>
+                    <p class="text-slate-400 mt-1">परमाणु की विभिन्न कक्षाओं में इलेक्ट्रॉनों के वितरण को समझें।</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg shadow-md mb-8">
+                    <h3 class="text-xl font-bold text-teal-400 mb-3">परमाणु संख्या और संयोजकता</h3>
+                    <p class="text-slate-300">
+                        **परमाणु संख्या (Z)**: नाभिक में प्रोटॉन की संख्या।
+                        <br/>
+                        **संयोजकता (Valency)**: बाहरी कक्षा को भरने के लिए एक परमाणु द्वारा इलेक्ट्रॉन ग्रहण, त्याग या साझा करने की संयोजन शक्ति।
+                    </p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold text-teal-400 mb-3">इलेक्ट्रॉनिक विन्यास</h3>
+                     <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+                        <label for="atomic-num-dist-input" class="text-lg text-teal-300 font-semibold">परमाणु संख्या:</label>
+                        <input type="number" id="atomic-num-dist-input" class="p-2 rounded-md bg-slate-700 text-slate-100 w-24" placeholder="उदाहरण: 11"/>
+                        <button id="distribute-electrons-button" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-md transition-colors duration-300">वितरित करें</button>
+                    </div>
+                     <div class="text-center mt-6">
+                        <p id="electron-dist-result" class="text-2xl font-bold text-teal-400">—</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Tab 4: Isotopes & Isobars -->
+            <section id="tab4" class="content-section">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold text-slate-300">समस्थानिक और समभारिक</h2>
+                    <p class="text-slate-400 mt-1">ऐसे परमाणु जिनके परमाणु द्रव्यमान या परमाणु संख्या में अंतर होता है।</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-purple-400 mb-2">समस्थानिक (Isotopes)</h3>
+                        <p class="text-slate-300">एक ही तत्व के परमाणु जिनकी **परमाणु संख्या समान** होती है लेकिन **द्रव्यमान संख्या भिन्न** होती है।</p>
+                        <p class="mt-4 font-semibold">उदाहरण: <span class="font-normal bg-slate-700 text-purple-200 px-2 py-1 rounded-full">कार्बन-12 ($^{12}C$)</span> और <span class="font-normal bg-slate-700 text-purple-200 px-2 py-1 rounded-full">कार्बन-14 ($^{14}C$)</span></p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-pink-400 mb-2">समभारिक (Isobars)</h3>
+                        <p class="text-slate-300">अलग-अलग तत्वों के परमाणु जिनकी **द्रव्यमान संख्या समान** होती है लेकिन **परमाणु संख्या भिन्न** होती है।</p>
+                        <p class="mt-4 font-semibold">उदाहरण: <span class="font-normal bg-slate-700 text-pink-200 px-2 py-1 rounded-full">कैल्शियम ($Ca$)</span> और <span class="font-normal bg-slate-700 text-pink-200 px-2 py-1 rounded-full">आर्गन ($Ar$)</span></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="bg-slate-800 text-slate-500 text-center py-4 mt-8">
+        <p>&copy; 2024 परमाणु की संरचना. सभी अधिकार सुरक्षित।</p>
+    </footer>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-button');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-tab');
+
+                tabs.forEach(t => t.classList.remove('tab-active'));
+                tab.classList.add('tab-active');
+
+                contentSections.forEach(section => {
+                    if (section.id === target) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Subatomic Particle Calculator
+        const atomicNumberInput = document.getElementById('atomic-number-input');
+        const massNumberInput = document.getElementById('mass-number-input');
+        const calculateParticlesButton = document.getElementById('calculate-particles-button');
+        const protonResult = document.getElementById('proton-result');
+        const electronResult = document.getElementById('electron-result');
+        const neutronResult = document.getElementById('neutron-result');
+
+        calculateParticlesButton.addEventListener('click', () => {
+            const z = parseInt(atomicNumberInput.value);
+            const a = parseInt(massNumberInput.value);
+
+            if (isNaN(z) || isNaN(a) || a < z) {
+                protonResult.textContent = 'अमान्य इनपुट';
+                electronResult.textContent = '';
+                neutronResult.textContent = '';
+                return;
+            }
+
+            const protons = z;
+            const electrons = z;
+            const neutrons = a - z;
+
+            protonResult.textContent = `प्रोटॉन: ${protons}`;
+            electronResult.textContent = `इलेक्ट्रॉन: ${electrons}`;
+            neutronResult.textContent = `न्यूट्रॉन: ${neutrons}`;
+        });
+        
+        // Electron Distribution Calculator
+        const atomicNumDistInput = document.getElementById('atomic-num-dist-input');
+        const distributeElectronsButton = document.getElementById('distribute-electrons-button');
+        const electronDistResult = document.getElementById('electron-dist-result');
+
+        distributeElectronsButton.addEventListener('click', () => {
+            let z = parseInt(atomicNumDistInput.value);
+            if (isNaN(z) || z < 1 || z > 20) {
+                electronDistResult.textContent = 'कृपया 1 से 20 के बीच एक संख्या दर्ज करें।';
+                return;
+            }
+
+            const shells = [2, 8, 8, 18]; // Simplified for up to Z=20
+            let distribution = [];
+            let remaining = z;
+
+            for (const capacity of shells) {
+                if (remaining <= 0) break;
+                if (remaining > capacity) {
+                    distribution.push(capacity);
+                    remaining -= capacity;
+                } else {
+                    distribution.push(remaining);
+                    remaining = 0;
+                }
+            }
+            
+            electronDistResult.textContent = distribution.join(', ');
+        });
+    </script>
+</body>
+</html>

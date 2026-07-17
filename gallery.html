@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Starlight Public School</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            background-image: url('https://googleusercontent.com/image_collection/image_retrieval/14496990789884534455_0');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #FFD700;
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+        }
+        .nav {
+            background-color: rgba(26, 26, 26, 0.9);
+            text-align: center;
+            padding: 1.5rem 0;
+            border-top: 2px solid #FFD700;
+            border-bottom: 2px solid #FFD700;
+            backdrop-filter: blur(5px);
+        }
+        .nav a {
+            color: #e0e0e0;
+            margin: 0 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            padding: 10px 0;
+        }
+        .nav a:hover {
+            color: #FFD700;
+            text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+        }
+        .nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #FFD700;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .nav a:hover::after {
+            transform: scaleX(1);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 20px;
+            background-color: rgba(34, 34, 34, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+        }
+        .gallery-section {
+            padding: 3rem;
+            text-align: center;
+        }
+        .gallery-section h2 {
+            font-size: 2.5rem;
+            color: #FFD700;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+        .batch-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 3rem;
+        }
+        .batch-buttons a {
+            background-color: #333333;
+            color: #FFD700;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.4s, box-shadow 0.4s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            min-width: 150px;
+            text-align: center;
+        }
+        .batch-buttons a:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #FFD700;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery-item:hover .image-caption {
+            transform: translateY(0);
+        }
+        .footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #e0e0e0;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            backdrop-filter: blur(5px);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Starlight Public School</h1>
+    </header>
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="notes.html">Notes</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="staff.html">Staff</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="container">
+        <div class="gallery-section">
+            <h2>School Memories</h2>
+            <div class="batch-buttons">
+                <a href="gallery-2025.html">Batch 2025</a>
+                <a href="gallery-2024.html">Batch 2024</a>
+            </div>
+            <p>A collection of our favorite moments and events.</p>
+            <div class="photo-gallery">
+                <div class="gallery-item">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/7247814596178323166_0" alt="Students in a classroom event">
+                    <div class="image-caption">Science Fair 2025</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/7247814596178323166_1" alt="Students playing a sport">
+                    <div class="image-caption">Annual Sports Day</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/7247814596178323166_2" alt="A group of students smiling for the camera">
+                    <div class="image-caption">Class of 2025 Group Photo</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/7247814596178323166_3" alt="Students participating in a play">
+                    <div class="image-caption">Annual Drama Production</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/7247814596178323166_4" alt="Students on a field trip">
+                    <div class="image-caption">Field Trip to the Museum</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/7247814596178323166_5" alt="Students with a teacher">
+                    <div class="image-caption">Teacher Appreciation Day</div>
+                </div>
+                </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Starlight Public School. Website by Nirmal Tinker.</p>
+    </footer>
+</body>
+</html>
