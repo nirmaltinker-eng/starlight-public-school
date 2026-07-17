@@ -170,10 +170,56 @@ const videoFor = (className, subject, index) => {
 const subjectIndexHtml = (file, className, subject, chapters) => {
   const prefix = relRoot(file);
   const items = chapters.map((item, index) => `<li><a href="chapter-${String(index + 1).padStart(2,'0')}.html"><span>Chapter ${index + 1}</span><strong>${esc(item[0])}</strong><small>${esc(item[1])}</small></a></li>`).join('');
-  return `<!doctype html><html lang="en" data-root="${prefix}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Class ${className} ${esc(subject)} Notes - Starlight Public School</title><link rel="stylesheet" href="${prefix}assets/lesson-pages.css"><link rel="stylesheet" href="${prefix}assets/site-fixes.css"><style>.chapter-list{list-style:none;padding:0;display:grid;gap:.8rem}.chapter-list a{display:grid;gap:.25rem;background:#fff;color:#26323c;text-decoration:none;padding:1rem 1.2rem;border-radius:12px;border-left:5px solid #e2b600}.chapter-list span{color:#8a6700;font-size:.85rem}.chapter-list strong{color:#123b66;font-size:1.15rem}.chapter-list small{color:#52606b}</style></head><body>${brand(prefix)}${nav(prefix,'notes')}<main class="page"><a class="back" href="${relHref(file,classIndexFile(className))}">← Back to Class ${className}</a><article class="paper"><h1>Class ${className} · ${esc(subject)}</h1><p class="lead">हर chapter का अपना अलग notes page है। Chapter खोलकर detailed explanation, chart, activity, video resource और test देखें।</p><ol class="chapter-list">${items}</ol></article></main>${footer(prefix)}<script src="${prefix}assets/auth.js"></script></body></html>`;
+  const practical = subject === 'Drawing' || subject === 'Art & Craft';
+  const intro = practical
+    ? 'यह theory notes नहीं हैं। हर page में sample work, materials और step-by-step practical instructions हैं—student देखकर स्वयं बनाए।'
+    : 'हर chapter का अपना अलग notes page है। Chapter खोलकर detailed explanation, chart, activity, video resource और test देखें।';
+  return `<!doctype html><html lang="en" data-root="${prefix}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Class ${className} ${esc(subject)} Notes - Starlight Public School</title><link rel="stylesheet" href="${prefix}assets/lesson-pages.css"><link rel="stylesheet" href="${prefix}assets/site-fixes.css"><style>.chapter-list{list-style:none;padding:0;display:grid;gap:.8rem}.chapter-list a{display:grid;gap:.25rem;background:#fff;color:#26323c;text-decoration:none;padding:1rem 1.2rem;border-radius:12px;border-left:5px solid #e2b600}.chapter-list span{color:#8a6700;font-size:.85rem}.chapter-list strong{color:#123b66;font-size:1.15rem}.chapter-list small{color:#52606b}</style></head><body>${brand(prefix)}${nav(prefix,'notes')}<main class="page"><a class="back" href="${relHref(file,classIndexFile(className))}">← Back to Class ${className}</a><article class="paper"><h1>Class ${className} · ${esc(subject)}</h1><p class="lead">${intro}</p><ol class="chapter-list">${items}</ol></article></main>${footer(prefix)}<script src="${prefix}assets/auth.js"></script></body></html>`;
+};
+
+const practicalGuide = (subject, title) => {
+  const drawing = subject === 'Drawing';
+  const materials = drawing
+    ? ['Drawing sheet or sketchbook','HB and 2B pencils','Eraser and sharpener','Ruler or compass if needed','Colour pencils / crayons','Black fineliner (optional)']
+    : title.includes('Clay') ? ['Air-dry clay','Modelling tool','Old newspaper','Water bowl','Poster colours','Protective apron']
+    : title.includes('Waste') ? ['Clean waste material','Child-safe scissors','Glue','Colour paper','Marker','Decorative thread']
+    : ['Colour paper / card','Child-safe scissors','Glue','Pencil and ruler','Colours / markers','Decorative material'];
+  const steps = drawing
+    ? [
+      `Observe the sample and lightly mark the centre and outer boundary for ${title}.`,
+      'Draw the largest basic shapes first; keep pencil pressure very light.',
+      'Check proportion and spacing, then add the smaller shapes and details.',
+      'Clean unwanted construction lines with an eraser.',
+      'Add outline, shading, texture or colour from light to dark.',
+      'Write your name, class and date; compare the work with the final checklist.'
+    ]
+    : [
+      `Collect and clean all materials required for ${title}. Cover the work table.`,
+      'Measure and mark the main parts before cutting; ask an adult for difficult cuts.',
+      'Prepare the base shape and dry-fit all parts without glue.',
+      'Join the parts one by one using only the required amount of glue.',
+      'Add colour and decoration after the structure is dry and stable.',
+      'Remove loose threads or paper, label the work and clean the table.'
+    ];
+  return {materials,steps};
+};
+
+const practicalVisual = (subject, title) => {
+  const drawing = subject === 'Drawing';
+  return `<div class="practical-hero"><svg viewBox="0 0 1080 420" role="img" aria-label="${esc(title)} step by step visual"><rect width="1080" height="420" rx="24" fill="#fff"/><g font-family="Segoe UI" text-anchor="middle"><text x="540" y="45" font-size="30" font-weight="700" fill="#123b66">${esc(title)} — Visual Work Guide</text><g transform="translate(40 80)"><rect width="300" height="280" rx="18" fill="#eef5fb" stroke="#123b66" stroke-width="3"/><text x="150" y="35" font-size="22" fill="#123b66">1. Basic form</text>${drawing?'<circle cx="110" cy="145" r="62" fill="none" stroke="#777" stroke-width="5"/><path d="M170 205L245 85L278 205Z" fill="none" stroke="#777" stroke-width="5"/>':'<rect x="78" y="88" width="145" height="145" fill="#ffdf65" stroke="#8a6700" stroke-width="5"/><path d="M78 88L150 155L223 88" fill="none" stroke="#8a6700" stroke-width="5"/>'}</g><g transform="translate(390 80)"><rect width="300" height="280" rx="18" fill="#fff7d6" stroke="#b8860b" stroke-width="3"/><text x="150" y="35" font-size="22" fill="#7a5800">2. Add details</text>${drawing?'<circle cx="150" cy="135" r="72" fill="#ffe7ba" stroke="#8a6700" stroke-width="5"/><circle cx="125" cy="125" r="8"/><circle cx="175" cy="125" r="8"/><path d="M115 165Q150 195 185 165" fill="none" stroke="#733" stroke-width="6"/>':'<path d="M70 210L150 75L230 210Z" fill="#ffcc4d" stroke="#8a6700" stroke-width="5"/><circle cx="150" cy="150" r="38" fill="#e85d75"/>'}</g><g transform="translate(740 80)"><rect width="300" height="280" rx="18" fill="#edf8ef" stroke="#28603b" stroke-width="3"/><text x="150" y="35" font-size="22" fill="#28603b">3. Finish neatly</text>${drawing?'<path d="M50 220Q150 45 250 220" fill="#9ed3ff" stroke="#123b66" stroke-width="5"/><circle cx="150" cy="128" r="42" fill="#ffd34d"/><path d="M80 220L120 150L155 220Z M145 220L200 125L255 220Z" fill="#62a676"/>':'<rect x="72" y="82" width="156" height="156" rx="18" fill="#7bc6a4" stroke="#28603b" stroke-width="5"/><path d="M95 190L130 140L160 175L195 115L220 190Z" fill="#fff"/>'}</g></g></svg></div>`;
+};
+
+const practicalLessonHtml = (file,className,subject,item,index,total,testFile,subjectIndex) => {
+  const prefix=relRoot(file), [title]=item, guide=practicalGuide(subject,title);
+  const previous=index>0?`<a href="chapter-${String(index).padStart(2,'0')}.html">← Previous</a>`:'';
+  const next=index+1<total?`<a href="chapter-${String(index+2).padStart(2,'0')}.html">Next →</a>`:'';
+  const materials=guide.materials.map(x=>`<li>${esc(x)}</li>`).join('');
+  const steps=guide.steps.map(x=>`<li>${esc(x)}</li>`).join('');
+  return `<!doctype html><html lang="hi" data-root="${prefix}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} Practical - Class ${className}</title><link rel="stylesheet" href="${prefix}assets/lesson-pages.css"><link rel="stylesheet" href="${prefix}assets/site-fixes.css"></head><body>${brand(prefix)}${nav(prefix,'notes')}<main class="page"><a class="back" href="${path.basename(subjectIndex)}">← Back to practical list</a><article class="paper"><p><b>Class ${className} · ${esc(subject)} · Practical ${index+1}</b></p><h1>${esc(title)}</h1><p class="lead">यह notes नहीं, देखकर बनाने वाली practical worksheet है। पहले पूरा visual और सभी steps देखें, फिर अपना work शुरू करें।</p>${practicalVisual(subject,title)}<h2>Materials Required</h2><ul class="material-list">${materials}</ul><h2>Step-by-Step Work</h2><ol class="step-list">${steps}</ol><h2>Student Checklist</h2><div class="work-checklist"><label><input type="checkbox"> Work is complete and clean.</label><br><label><input type="checkbox"> Shape, proportion and spacing are balanced.</label><br><label><input type="checkbox"> Colours / joins are neat.</label><br><label><input type="checkbox"> Name, class and date are written.</label></div><div class="video"><h2>Watch a Demonstration</h2><a class="video-link" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(`${title} step by step for school students`)}">Step-by-step video देखें</a></div><div class="page-actions">${previous}<a href="${relHref(file,testFile)}" class="test-button">Practical Self-Check</a>${next}</div></article></main>${footer(prefix)}<script src="${prefix}assets/auth.js"></script></body></html>`;
 };
 
 const lessonHtml = (file, className, subject, item, index, total, testFile, subjectIndex) => {
+  if (subject === 'Drawing' || subject === 'Art & Craft') return practicalLessonHtml(file,className,subject,item,index,total,testFile,subjectIndex);
   const prefix = relRoot(file), [title, summary] = item, concepts = conceptsFrom(summary);
   const cards = concepts.map((concept, i) => `<div class="concept"><b>${i + 1}. ${esc(concept)}</b><p>${esc(concept)} is an important part of ${esc(title)}. Understand its meaning, purpose and connection with the other ideas in this chapter. Write one example in your notebook.</p></div>`).join('');
   const terms = concepts.map((concept) => `<tr><td>${esc(concept)}</td><td>Key idea connected with ${esc(title)}; revise its definition and one example.</td></tr>`).join('');
@@ -188,6 +234,16 @@ const lessonHtml = (file, className, subject, item, index, total, testFile, subj
 };
 
 const questionsFor = (className, subject, title, summary) => {
+  if (subject === 'Drawing' || subject === 'Art & Craft') {
+    const guide=practicalGuide(subject,title);
+    return [
+      [`Which materials are required for “${title}”?`, guide.materials.join(', ') + '.'],
+      ['What should be done before cutting, colouring or joining?', guide.steps.slice(0,2).join(' ')],
+      ['Write the main making steps in order.', guide.steps.join(' ')],
+      ['How will you check the finished work?', 'Check cleanliness, shape, proportion, balance, strong joins, colour finish, name, class and date.'],
+      ['Write two safety rules.', 'Use child-safe scissors, ask an adult for difficult cutting, keep glue and colours away from eyes, and clean the work area.']
+    ];
+  }
   const concepts = conceptsFrom(summary);
   const joined = concepts.join(', ');
   return [

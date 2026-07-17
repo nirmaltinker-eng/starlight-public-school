@@ -12,7 +12,12 @@
   max-height: 126px !important;
   object-fit: contain;
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .35));
+  background: #fff;
+  border-radius: 50%;
+  padding: 3px;
 }
+.brand img { background: #fff; border-radius: 50%; padding: 3px; }
+.staff-image-container img { object-fit: cover !important; object-position: center 32%; }
 .header { min-height: 132px; }
 .nav .test-nav::after { content: " 🔒"; font-size: .8em; }
 .nav .test-nav.unlocked::after { content: " ✓"; color: #7CFC90; }
@@ -27,4 +32,3 @@
   .logo,
   .logo-container .logo { width: 88px !important; max-height: 88px !important; }
 }
-
