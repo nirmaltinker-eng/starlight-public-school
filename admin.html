@@ -15,7 +15,11 @@
   <header class="lesson-header"><a class="brand" href="index.html"><img src="school-logo.png" alt="Star Light Public School logo"><span><strong>Student Admin</strong><small>Firebase account management</small></span></a></header>
   <nav class="lesson-nav"><a href="index.html">Home</a><a href="notes.html">Notes</a><a href="tests.html">Tests</a><a class="admin-nav" href="admin.html" aria-current="page">Admin</a><a class="login-nav" href="login.html">Logout</a><button class="theme-toggle" type="button">Light theme</button></nav>
   <main class="admin-shell">
-    <section class="admin-card">
+    <section class="admin-overview">
+      <div><p class="eyebrow">School Control Centre</p><h1>Admin Dashboard</h1><p>Students, staff, gallery, admission popup और bulk accounts एक जगह से manage करें।</p></div>
+      <div class="admin-quick-links" aria-label="Dashboard sections"><a href="#account-create">Add Account</a><a href="#gallery-settings">Gallery</a><a href="#advertisement-settings">Advertisement</a><a href="#excel-import">Excel Import</a><a href="#account-list">Account List</a></div>
+    </section>
+    <section id="account-create" class="admin-card account-card">
       <div class="admin-heading"><div><p class="eyebrow">Secure Firebase Admin</p><h1 id="form-title">Add Student</h1></div><button id="refresh-users" type="button">Refresh List</button></div>
       <p id="admin-message" class="admin-message" aria-live="polite"></p>
       <form id="student-form" class="student-form">
@@ -62,7 +66,7 @@
       </form>
       <p id="ad-admin-message" class="admin-message" aria-live="polite"></p>
     </section>
-    <section class="admin-card import-card">
+    <section id="excel-import" class="admin-card import-card">
       <div class="admin-heading">
         <div><p class="eyebrow">Bulk Student Import</p><h2>Excel se accounts add karein</h2></div>
         <button id="download-template" type="button" class="secondary-button">Download Excel Template</button>
@@ -75,7 +79,7 @@
       <p id="import-summary" class="admin-message" aria-live="polite"></p>
       <div id="import-errors" class="import-errors" hidden></div>
     </section>
-    <section class="admin-card">
+    <section id="account-list" class="admin-card account-list-card">
       <div class="admin-heading"><div><p class="eyebrow">Students, Staff &amp; Admins</p><h2>Account List</h2></div><label>Search<input id="user-search" type="search" placeholder="Name, email, roll"></label></div>
       <div class="table-wrap"><table class="admin-table"><thead><tr><th>Name</th><th>Email</th><th>Class / Roll</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead><tbody id="user-list"><tr><td colspan="6">Loading accounts…</td></tr></tbody></table></div>
     </section>
