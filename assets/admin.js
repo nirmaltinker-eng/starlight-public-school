@@ -10,6 +10,11 @@
   const adSection = document.getElementById('advertisement-settings');
   const adForm = document.getElementById('ad-form');
   const adMessage = document.getElementById('ad-admin-message');
+  const gallerySection = document.getElementById('gallery-settings');
+  const galleryForm = document.getElementById('gallery-form');
+  const galleryList = document.getElementById('gallery-admin-list');
+  const galleryMessage = document.getElementById('gallery-admin-message');
+  let galleryItems = [];
   let users = [];
   let importRows = [];
   let currentProfile = null;
@@ -47,6 +52,67 @@
     frequency: document.getElementById('ad-frequency'),
     active: document.getElementById('ad-active')
   };
+  const galleryFields = {
+    id: document.getElementById('gallery-id'), file: document.getElementById('gallery-file'), fileName: document.getElementById('gallery-file-name'), caption: document.getElementById('gallery-caption'), batch: document.getElementById('gallery-batch'), folder: document.getElementById('gallery-folder'), order: document.getElementById('gallery-order'), active: document.getElementById('gallery-active')
+  };
+  const galleryApi = async (method = 'GET', body) => {
+    const headers = { 'Content-Type': 'application/json' };
+    if (method !== 'GET') headers.Authorization = `Bearer ${await window.SLPS_AUTH.token()}`;
+    const response = await fetch('/.netlify/functions/gallery-manage', { method, headers, body: body ? JSON.stringify(body) : undefined, cache: 'no-store' });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.error || 'Gallery request failed.');
+    return data;
+  };
+  const resetGalleryForm = () => {
+    galleryForm.reset(); galleryFields.id.value = ''; galleryFields.batch.value = 'Batch 2026'; galleryFields.folder.value = '2026'; galleryFields.order.value = '0'; galleryFields.active.checked = true; document.getElementById('save-gallery-item').textContent = 'Add Gallery Image'; document.getElementById('cancel-gallery-edit').hidden = true;
+  };
+  const renderGalleryAdmin = () => {
+    galleryList.innerHTML = galleryItems.length ? galleryItems.map(item => `<tr><td><img class="gallery-admin-thumb" src="${escapeHtml(item.src)}" alt=""></td><td><strong>${escapeHtml(item.fileName)}</strong><br>${escapeHtml(item.caption)}</td><td>${escapeHtml(item.batch)}<br><small>Folder: ${escapeHtml(item.folder)}</small></td><td>${Number(item.order) || 0}</td><td class="${item.active === false ? 'status-disabled' : 'status-active'}">${item.active === false ? 'Hidden' : 'Visible'}</td><td><div class="account-actions"><button type="button" data-gallery-edit="${item.id}">Edit</button><button type="button" data-gallery-toggle="${item.id}">${item.active === false ? 'Show' : 'Hide'}</button><button type="button" class="danger" data-gallery-delete="${item.id}">Delete</button></div></td></tr>`).join('') : '<tr><td colspan="6">No gallery images.</td></tr>';
+  };
+  const loadGalleryAdmin = async () => {
+    try { galleryItems = (await galleryApi()).items; renderGalleryAdmin(); galleryMessage.textContent = `${galleryItems.length} gallery image(s) loaded.`; }
+    catch (error) { galleryMessage.textContent = error.message; }
+  };
+  const compressGalleryImage = (file) => new Promise((resolve, reject) => {
+    const image = new Image(); const url = URL.createObjectURL(file);
+    image.onload = () => {
+      const scale = Math.min(1, 1800 / Math.max(image.naturalWidth, image.naturalHeight));
+      const canvas = document.createElement('canvas'); canvas.width = Math.round(image.naturalWidth * scale); canvas.height = Math.round(image.naturalHeight * scale);
+      canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height); URL.revokeObjectURL(url);
+      let quality = .84; let dataUrl = canvas.toDataURL('image/webp', quality);
+      while (dataUrl.length > 1000000 && quality > .45) { quality -= .08; dataUrl = canvas.toDataURL('image/webp', quality); }
+      const imageData = dataUrl.split(',')[1]; if (!imageData || imageData.length > 1100000) return reject(new Error('Image compress नहीं हो सकी; छोटी image चुनें।'));
+      resolve({ imageData, mimeType: 'image/webp' });
+    };
+    image.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Image file read नहीं हुई।')); };
+    image.src = url;
+  });
+  const galleryPayload = () => ({ id: galleryFields.id.value || undefined, fileName: galleryFields.fileName.value.trim(), caption: galleryFields.caption.value.trim(), batch: galleryFields.batch.value.trim(), folder: galleryFields.folder.value.trim(), order: Number(galleryFields.order.value) || 0, active: galleryFields.active.checked });
+  const initGalleryControls = () => { gallerySection.hidden = false; loadGalleryAdmin(); };
+
+  galleryFields.file.addEventListener('change', () => { if (galleryFields.file.files?.[0] && !galleryFields.fileName.value) galleryFields.fileName.value = galleryFields.file.files[0].name; });
+  galleryForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); const editing = Boolean(galleryFields.id.value); const file = galleryFields.file.files?.[0];
+    if (!editing && !file) return (galleryMessage.textContent = 'नई gallery item के लिए image file चुनें।');
+    const payload = galleryPayload();
+    try {
+      document.getElementById('save-gallery-item').disabled = true; galleryMessage.textContent = 'Image prepare और save हो रही है…';
+      if (file) Object.assign(payload, await compressGalleryImage(file));
+      await galleryApi(editing ? 'PUT' : 'POST', payload); galleryMessage.textContent = editing ? 'Gallery image updated.' : 'Gallery image added.'; resetGalleryForm(); await loadGalleryAdmin();
+    } catch (error) { galleryMessage.textContent = error.message; }
+    finally { document.getElementById('save-gallery-item').disabled = false; }
+  });
+  galleryList.addEventListener('click', async (event) => {
+    const editId = event.target.dataset.galleryEdit, toggleId = event.target.dataset.galleryToggle, deleteId = event.target.dataset.galleryDelete; const id = editId || toggleId || deleteId; if (!id) return;
+    const item = galleryItems.find(entry => entry.id === id); if (!item) return;
+    if (editId) {
+      Object.entries({ id: item.id, fileName: item.fileName, caption: item.caption, batch: item.batch, folder: item.folder, order: item.order, active: item.active !== false }).forEach(([key, value]) => { if (key === 'active') galleryFields[key].checked = value; else galleryFields[key].value = value; });
+      document.getElementById('save-gallery-item').textContent = 'Save Gallery Changes'; document.getElementById('cancel-gallery-edit').hidden = false; gallerySection.scrollIntoView({ behavior: 'smooth' });
+    } else if (toggleId) { try { await galleryApi('PUT', { ...item, active: item.active === false }); await loadGalleryAdmin(); } catch (error) { galleryMessage.textContent = error.message; } }
+    else if (deleteId && confirm(`${item.caption} gallery से delete करें?`)) { try { await galleryApi('DELETE', { id }); await loadGalleryAdmin(); } catch (error) { galleryMessage.textContent = error.message; } }
+  });
+  document.getElementById('refresh-gallery').addEventListener('click', loadGalleryAdmin);
+  document.getElementById('cancel-gallery-edit').addEventListener('click', resetGalleryForm);
   const adPayload = () => ({ title: adFields.title.value.trim(), message: adFields.message.value.trim(), buttonText: adFields.buttonText.value.trim(), buttonLink: adFields.buttonLink.value.trim(), frequency: adFields.frequency.value, active: adFields.active.checked });
   const initAdControls = async () => {
     adSection.hidden = false;
@@ -230,7 +296,7 @@
     if (!isMaster()) {
       const adminOption = fields.role.querySelector('option[value="admin"]');
       if (adminOption) adminOption.remove();
-    } else initAdControls();
+    } else { initAdControls(); initGalleryControls(); }
     loadUsers();
   }).catch((error) => showMessage(error.message, true));
 }());

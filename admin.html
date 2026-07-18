@@ -30,6 +30,22 @@
         <div class="form-actions"><button type="submit" id="save-account">Add Account</button><button type="button" id="cancel-edit" class="secondary-button" hidden>Cancel Edit</button></div>
       </form>
     </section>
+    <section id="gallery-settings" class="admin-card owner-only" hidden>
+      <div class="admin-heading"><div><p class="eyebrow">ADMIN-01 Owner Control</p><h2>Gallery Manager</h2></div><button id="refresh-gallery" type="button" class="secondary-button">Refresh Gallery</button></div>
+      <form id="gallery-form" class="student-form">
+        <input id="gallery-id" type="hidden">
+        <label>Image File<input id="gallery-file" type="file" accept="image/jpeg,image/png,image/webp"></label>
+        <label>File Name<input id="gallery-file-name" maxlength="120" required placeholder="school-event-2026.jpg"></label>
+        <label>Caption / Image Name<input id="gallery-caption" maxlength="120" required></label>
+        <label>Batch / Section<input id="gallery-batch" maxlength="60" required value="Batch 2026"></label>
+        <label>Folder Name<input id="gallery-folder" maxlength="60" required value="2026"></label>
+        <label>Display Order<input id="gallery-order" type="number" min="0" value="0"></label>
+        <label class="check-label"><input id="gallery-active" type="checkbox" checked> Image visible</label>
+        <div class="form-actions"><button id="save-gallery-item" type="submit">Add Gallery Image</button><button id="cancel-gallery-edit" type="button" class="secondary-button" hidden>Cancel Edit</button></div>
+      </form>
+      <p id="gallery-admin-message" class="admin-message" aria-live="polite"></p>
+      <div class="table-wrap"><table class="admin-table gallery-admin-table"><thead><tr><th>Preview</th><th>File / Caption</th><th>Batch / Folder</th><th>Order</th><th>Status</th><th>Actions</th></tr></thead><tbody id="gallery-admin-list"><tr><td colspan="6">Gallery loading…</td></tr></tbody></table></div>
+    </section>
     <section id="advertisement-settings" class="admin-card owner-only" hidden>
       <div class="admin-heading">
         <div><p class="eyebrow">ADMIN-01 Owner Control</p><h2>Website Advertisement Popup</h2></div>
