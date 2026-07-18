@@ -24,7 +24,7 @@
         <label>Email<input id="account-email" required type="email" autocomplete="off"></label>
         <label>Class<select id="account-class"><option value="">Select class</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option value="Staff">Staff</option></select></label>
         <label>Roll Number<input id="account-roll" inputmode="numeric"></label>
-        <label>Role<select id="account-role"><option value="student">Student</option><option value="admin">Admin</option></select></label>
+        <label>Role<select id="account-role"><option value="student">Student</option><option value="staff">Staff</option><option value="admin">Admin</option></select></label>
         <label>Password <small id="password-help">Minimum 6 characters</small><input id="account-password" type="password" minlength="6" autocomplete="new-password"></label>
         <label class="check-label"><input id="account-active" type="checkbox" checked> Account active</label>
         <div class="form-actions"><button type="submit" id="save-account">Add Account</button><button type="button" id="cancel-edit" class="secondary-button" hidden>Cancel Edit</button></div>
@@ -60,7 +60,7 @@
       <div id="import-errors" class="import-errors" hidden></div>
     </section>
     <section class="admin-card">
-      <div class="admin-heading"><div><p class="eyebrow">Students &amp; Admins</p><h2>Account List</h2></div><label>Search<input id="user-search" type="search" placeholder="Name, email, roll"></label></div>
+      <div class="admin-heading"><div><p class="eyebrow">Students, Staff &amp; Admins</p><h2>Account List</h2></div><label>Search<input id="user-search" type="search" placeholder="Name, email, roll"></label></div>
       <div class="table-wrap"><table class="admin-table"><thead><tr><th>Name</th><th>Email</th><th>Class / Roll</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead><tbody id="user-list"><tr><td colspan="6">Loading accounts…</td></tr></tbody></table></div>
     </section>
   </main>

@@ -2,7 +2,7 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { adminAuth, adminDb, requireAdmin, response } from './_firebase-admin.mjs';
 
 const clean = (value, max = 120) => String(value ?? '').trim().slice(0, max);
-const validRole = (role) => role === 'admin' ? 'admin' : 'student';
+const validRole = (role) => ['admin', 'staff'].includes(role) ? role : 'student';
 const isMaster = (profile) => profile.role === 'admin' && clean(profile.roll, 30).toUpperCase() === 'ADMIN-01';
 
 export async function handler(event) {
