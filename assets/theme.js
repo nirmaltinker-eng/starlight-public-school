@@ -99,6 +99,12 @@
     translationScript.dataset.slpsTranslation = 'true';
     document.body.appendChild(translationScript);
   }
+  if (!document.querySelector('script[data-slps-ad-popup]')) {
+    const adScript = document.createElement('script');
+    adScript.src = new URL('assets/ad-popup.js', siteRoot).href;
+    adScript.dataset.slpsAdPopup = 'true';
+    document.body.appendChild(adScript);
+  }
   document.addEventListener('click', (event) => {
     const button = event.target.closest('.theme-toggle');
     if (!button) return;

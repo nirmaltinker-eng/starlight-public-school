@@ -30,6 +30,35 @@
         <div class="form-actions"><button type="submit" id="save-account">Add Account</button><button type="button" id="cancel-edit" class="secondary-button" hidden>Cancel Edit</button></div>
       </form>
     </section>
+    <section id="advertisement-settings" class="admin-card owner-only" hidden>
+      <div class="admin-heading">
+        <div><p class="eyebrow">ADMIN-01 Owner Control</p><h2>Website Advertisement Popup</h2></div>
+        <button id="preview-ad" type="button" class="secondary-button">Preview Popup</button>
+      </div>
+      <form id="ad-form" class="student-form">
+        <label>Heading<input id="ad-title" maxlength="80" required value="Admission Open 2026-27"></label>
+        <label>Button Text<input id="ad-button-text" maxlength="40" required value="Admission Enquiry"></label>
+        <label>Button Link<input id="ad-button-link" maxlength="300" required value="contact.html"></label>
+        <label class="ad-message-field">Message<textarea id="ad-message" maxlength="400" required>Star Light Public School में नए सत्र के लिए प्रवेश प्रारम्भ हैं। सीमित सीटों के लिए आज ही संपर्क करें।</textarea></label>
+        <label>Popup Frequency<select id="ad-frequency"><option value="session">Once per browser session</option><option value="page">Every page visit</option></select></label>
+        <label class="check-label"><input id="ad-active" type="checkbox" checked> Advertisement active</label>
+        <div class="form-actions"><button type="submit">Save Advertisement</button></div>
+      </form>
+      <p id="ad-admin-message" class="admin-message" aria-live="polite"></p>
+    </section>
+    <section class="admin-card import-card">
+      <div class="admin-heading">
+        <div><p class="eyebrow">Bulk Student Import</p><h2>Excel se accounts add karein</h2></div>
+        <button id="download-template" type="button" class="secondary-button">Download Excel Template</button>
+      </div>
+      <p>Columns: <strong>Name, Email, Password, Class, Roll, Active</strong>. Ek baar me maximum 100 students import honge.</p>
+      <div class="import-controls">
+        <label>Excel File (.xlsx, .xls, .csv)<input id="student-excel" type="file" accept=".xlsx,.xls,.csv"></label>
+        <button id="import-students" type="button" disabled>Import Students</button>
+      </div>
+      <p id="import-summary" class="admin-message" aria-live="polite"></p>
+      <div id="import-errors" class="import-errors" hidden></div>
+    </section>
     <section class="admin-card">
       <div class="admin-heading"><div><p class="eyebrow">Students &amp; Admins</p><h2>Account List</h2></div><label>Search<input id="user-search" type="search" placeholder="Name, email, roll"></label></div>
       <div class="table-wrap"><table class="admin-table"><thead><tr><th>Name</th><th>Email</th><th>Class / Roll</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead><tbody id="user-list"><tr><td colspan="6">Loading accounts…</td></tr></tbody></table></div>
@@ -37,6 +66,7 @@
   </main>
   <footer class="site-footer"><p>&copy; 2026 Star Light Public School · Secure Admin Panel</p></footer>
   <script src="assets/auth.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
   <script src="assets/admin.js"></script>
   <script src="assets/theme.js"></script>
 </body>
